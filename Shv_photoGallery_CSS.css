@@ -84,3 +84,10 @@
 .demo:hover {
   opacity: 1;
 }
+
+.displayPhoto{
+    display: block;
+    width:30%;
+    margin-left:auto;
+    margin-right:auto;
+}
