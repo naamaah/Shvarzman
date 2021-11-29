@@ -35,24 +35,28 @@
 }
 
 
+
+#gridContainer {
+    display: grid;
+    grid-template-areas:
+    'picture picture form'
+    'picture picture form'
+    'picture picture form';
+}
+
+#item1 {
+    grid-area: picture;
+    width: 10px;
+
+}
+
 .onePicture{
-    width:70%;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    align: left;
-
+    width: 600px;
 }
 
-.titleRight {
+#item2 {
+    grid-area: form;
     text-align: right;
-    padding-top: 0px;
-    padding-bottom: 10px;
-    font-size:50px;
-
+    width: 300px;
 }
 
-.form {
-    text-align: right;
-    padding-bottom: 10px;
-    font-size:50px;
-}
