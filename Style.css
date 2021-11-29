@@ -1,10 +1,11 @@
+
 /* Style the navigation bar */
 .navbar {
   width: 100%;
   background-color: #555;
   overflow: auto;
 }
-img{
+.picturesMain{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -41,7 +42,7 @@ p{
 a {
   float: left;
   text-align: center;
-  margin-right: 28px;
+  margin-right: 20px;
   padding: 20px;
   color: white;
   text-decoration: none;
@@ -67,3 +68,63 @@ a:hover {
     display: block;
   }
 }
+
+<!------- about Us + tour --------->
+
+
+.pictures {
+    width:20%;
+    padding-top: 50px;
+    padding: 15px;
+    padding-bottom: 30px;
+}
+
+
+.text {
+    font-size: 28px;
+    text-align: justify;
+    direction: rtl;
+}
+
+
+.text1 {
+    font-size: 28px;
+    text-align: center;
+    direction: rtl;
+}
+
+
+.title1 {
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size:50px;
+}
+
+
+
+#gridContainer {
+    display: grid;
+    grid-template-areas:
+    'picture picture form'
+    'picture picture form'
+    'picture picture form';
+}
+
+#item1 {
+    grid-area: picture;
+    width: 10px;
+
+}
+
+.onePicture{
+    width: 600px;
+}
+
+#item2 {
+    grid-area: form;
+    text-align: right;
+    width: 300px;
+}
+
+
