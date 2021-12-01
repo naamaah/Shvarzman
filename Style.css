@@ -1,0 +1,130 @@
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+.picturesMain{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+footer {
+    background-color: #555;
+    display:flex;
+    justify-content: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+ }
+
+p{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+/* Navbar or footer links */
+a {
+  float: left;
+  text-align: center;
+  margin-right: 20px;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+
+
+/* Navbar links on mouse-over */
+a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #04AA6D;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+<!------- about Us + tour --------->
+
+
+.pictures {
+    width:20%;
+    padding-top: 50px;
+    padding: 15px;
+    padding-bottom: 30px;
+}
+
+
+.text {
+    font-size: 28px;
+    text-align: justify;
+    direction: rtl;
+}
+
+
+.text1 {
+    font-size: 28px;
+    text-align: center;
+    direction: rtl;
+}
+
+
+.title1 {
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size:50px;
+}
+
+
+
+#gridContainer {
+    display: grid;
+    grid-template-areas:
+    'picture picture form'
+    'picture picture form'
+    'picture picture form';
+}
+
+#item1 {
+    grid-area: picture;
+    width: 10px;
+
+}
+
+.onePicture{
+    width: 600px;
+}
+
+#item2 {
+    grid-area: form;
+    text-align: right;
+    width: 300px;
+}
+
+
