@@ -411,8 +411,8 @@ input[type=submit]:hover {
 
 
 /* Set a style for all buttons */
-.button_Q&A {
-  background-color: #04AA6D;
+.button_QA {
+  background-color: #8c858b;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -422,9 +422,22 @@ input[type=submit]:hover {
 }
 
 /* Add a hover effect for buttons */
-.button_Q&A:hover {
+.button_QA:hover {
   opacity: 0.8;
 }
+
+/* all inages in this page image */
+img.qa {
+  width: 10%;
+  border-radius: 50%;
+}
+
+/* Extra styles for the cancel button */
+#exitbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
 /* --------------Style Login*/
 
 /* --Style for login */
@@ -444,6 +457,11 @@ input[type=text], input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+/* Set a style for signUp button*/
+#button_signUp {
+  background-color: #f44336;
+}
+
 
 /* Set a style for all buttons */
 .button_login {
