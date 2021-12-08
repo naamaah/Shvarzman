@@ -118,7 +118,6 @@ a:hover {
 .magazines:hover {
     background-color: rgba(103,255,191,0.7);
 }
-
 /* --------------Style All Products Page*/
 
 
@@ -380,8 +379,8 @@ input[type=number] {
 }
 
 
-
 /* --------------Style Contact Us*/
+
 
 
 /* Style inputs */
@@ -442,8 +441,134 @@ input[type=submit]:hover {
 }
 /* --------------Style Q&A*/
 
+
+/* Set a style for all buttons */
+.button_QA {
+  background-color: #8c858b;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+.button_QA:hover {
+  opacity: 0.8;
+}
+
+/* all inages in this page image */
+img.qa {
+  width: 10%;
+  border-radius: 50%;
+}
+
+/* Extra styles for the cancel button */
+#exitbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
 /* --------------Style Login*/
 
+/* --Style for login */
+
+/* Bordered form */
+.form_login {
+  border: 3px solid #f1f1f1;
+  text-align:right;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+/* Set a style for signUp button*/
+#button_signUp {
+  background-color: #f44336;
+}
+
+
+/* Set a style for all buttons */
+.button_login {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Add a hover effect for buttons */
+.button_login:hover {
+  opacity: 0.8;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 10%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container_login {
+  padding: 16px;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Extra styles for the cancel button */
+#cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  /*background-color: #474e5d;*/
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  text-align:center;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
 
 
 
@@ -512,4 +637,5 @@ td {
     font-size: 25px;
     color: #48422a;
 }
+
 

@@ -23,6 +23,40 @@
         <a href="mainPage.html"><i class="fas fa-home"></i></a>
     </div>
 
+<!------- body --------->
+
+<!-- Button to open the FAQ-modal -->
+<button class="button_QA" onclick="document.getElementById('id01').style.display='block'">שאלות נפוצות</button>
+
+<!-- Button to open the orders-modal -->
+<button class="button_QA" onclick="document.getElementById('id02').style.display='block'">שאלות על הזמנות</button>
+
+<!-- The Modal FAQ  -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+  <!-- Modal Content -->
+    <div class="modal-content">
+        <p> שאלות נפוצות</p>
+      <img src="pictures/logo.JPG" alt="svh_pic" class="qa">
+    </div>
+      <button class="button_QA" type="button" onclick="document.getElementById('id01').style.display='none'" id="exitbtn">יציאה</button>
+</div>
+
+
+<!-- The Modal orders questions  -->
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'"
+class="close" title="Close Modal">&times;</span>
+  <!-- Modal Content -->
+    <div class="modal-content">
+        <p> שאלות על הזמנות</p>
+      <img src="pictures/logo.JPG" alt="svh_pic" class="qa">
+    </div>
+      <button class="button_QA" type="button" onclick="document.getElementById('id02').style.display='none'" id="exitbtn">יציאה</button>
+</div>
+
+
 <!------- footer --------->
     <footer>
         <a href="https://www.facebook.com/Meshek.Shvarzman/"><i class="fab fa-facebook"></i></a>
