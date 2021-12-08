@@ -81,22 +81,19 @@ a:hover {
 
 /* --------------Style about Us*/
 
-.pictures {
+.picturesAboutUs {
     width:20%;
     padding-top: 50px;
     padding: 15px;
     padding-bottom: 30px;
 }
 
-
-.text {
-    font-size: 28px;
-    text-align: justify;
-    direction: rtl;
+.picturesAbout{
+       text-align: center;
 }
 
 
-.text1 {
+.textAboutUs {
     font-size: 28px;
     text-align: center;
     direction: rtl;
@@ -110,14 +107,16 @@ a:hover {
     font-size:50px;
 }
 
+.magazines{
+    align: center;
+    background-color: rgba(31,148,139,0.7) ;
+    color: rgba(148,104,51,0.7);
+    margin: 10px;
 
+}
 
-#gridContainer {
-    display: grid;
-    grid-template-areas:
-    'picture picture form'
-    'picture picture form'
-    'picture picture form';
+.magazines:hover {
+    background-color: rgba(103,255,191,0.7);
 }
 
 /* --------------Style All Products Page*/
@@ -315,40 +314,74 @@ h5 {
     margin-right:auto;
 }
 
-/* -------------- tour  */
+/* --------------Style Tour*/
 
-.onePicture{
-    width: 600px;
+.tourPicture{
+    width: 100%;
+}
+.tourForm {
+    width: 100%;
+
 }
 
-.text2 {
+.textTour1 {
     font-size: 28px;
     text-align: center;
     direction: rtl;
+    margin-bottom: 60px;
 }
 
-#item1 {
-    grid-area: picture;
-    width: 10px;
-
-}
-
-
-#item2 {
-    grid-area: form;
+.textTour2 {
+    font-size: 20px;
     text-align: right;
-    width: 300px;
+    direction: rtl;
+}
+#gridContainer {
+    display: grid;
+    grid-template-areas:
+    'picture picture picture form'
+    'picture picture picture form'
+    'picture picture picture form';
+     border-radius: 5px;
+     background-color: #f2f2f2;
+     text-align: right;
+    align: center;
+
 }
 
-.title2 {
+#item picture tour {
+    grid-area: picture;
+    width: 100px;
+    text-align: left;
+    padding-right: 10px;
+}
+
+#item form tour {
+    grid-area: form;
+    max-width: 30px;
+    align: right;
+    margin: 20px;
+}
+
+.titleTour {
     text-align: center;
     padding-top: 0px;
     padding-bottom: 10px;
     font-size:50px;
 }
 
-/* --------------Style Contact Us*/
+input[type=number] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
 
+
+
+/* --------------Style Contact Us*/
 
 
 /* Style inputs */
@@ -411,7 +444,72 @@ input[type=submit]:hover {
 
 /* --------------Style Login*/
 
+
+
+
 /* --------------Style Shopping Cart*/
 
+.titleCart{
+      text-align: center;
+      padding-top: 0px;
+      padding-bottom: 15px;
+      font-size:45px;
+      color: #48422a;
+      font-weight: bold;
+}
 
+.cart-quantity {
+    max-width: 40pt;
+    font-size: 25px;
+    color: #48422a;
+}
+
+.cart-table img {
+    max-width: 120px;
+}
+
+.payment button {
+  text-align: center;
+  width: 18%;
+  font-size: 35px;
+  color: #48422a;
+  background-color: #9c7c81;
+  border: none;
+  cursor: pointer;
+  align: center;
+}
+
+.pay button{
+  text-align: center;
+}
+
+.payment button:hover {
+  background-color: #E2DAD5;
+  color: #48422a;
+}
+
+.cart-table {
+    text-align: center;
+    padding: 0px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 5px;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+th {
+      font-size: 30px;
+      color: #48422a;
+}
+
+td {
+    font-size: 25px;
+    color: #48422a;
+}
 

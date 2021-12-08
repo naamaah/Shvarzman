@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style.css">
+    <script src="checkForms.js"> </script>
     <!--<link rel="stylesheet" href="contactus.css"/>
     <link rel="stylesheet" href="header and footer.css">-->
 </head>
@@ -34,7 +35,7 @@
   </div>
   <div class="row">
     <div class="column">
-      <form action="/action_page.php">
+      <form action="/action_page.php" name="myForm" onsubmit="return validateForm()" method="post" >
         <label for="fname">שם פרטי</label>
         <input type="text" id="fname" name="firstname">
         <label for="lname">שם משפחה</label>
@@ -44,7 +45,7 @@
         <label for="email">כתובת מייל</label>
         <input type="text" id="email" name="emailaddress">
         <label for="subject">הערות</label>
-        <textarea id="subject" name="subject" style="height:170px"></textarea>
+        <textarea id="subject" name="subject" style="height:170px" ></textarea>
         <input type="submit" value="שלח">
       </form>
     </div>

@@ -5,7 +5,9 @@
         <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="Style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<script src="https://kit.fontawesome.com/380d4e098b.js" crossorigin="anonymous"></script>-->
+        <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
+        <script src="checkForms.js">var tour="tour";
+        </script>
     </head>
 
 
@@ -28,33 +30,41 @@
 <!------- body --------->
 
 
-<h1 class="title2">סיור מודרך במשק</h1>
-           <p class="text2">
-               מזמינים אתכם להצטרף אלינו לסיור מודרך בשטחים החקלאיים שלנו במושב נטעים.<br>
-               במהלך הסיור נלמד על עקרונות הגידול האורגני. <br>
-               הצטרפו לסיור ותוכלו ללמוד, לטעום, להריח ולהנות!<br>
+<h1 class="titleTour">סיור מודרך במשק</h1>
+           <p class="textTour1">
+               מזמינים אתכם להצטרף לסיור מודרך בשטחים החקלאיים שלנו!<br>
+               במהלך הסיור נלמד על עקרונות הגידול האורגני <br>
+               ונקטוף פירות וירקות טריים ישר מהאדמה. <br>
+                בסוף הסיור נכין סלטים ותבשילים מהפירות וירקות שליקטנו.<br>
+
            </p>
 
 
 <div id="gridContainer">
-    <div id="item1">
-        <img src="pictures/pumpkin.jpg" alt="picture" class="onePicture">
+    <div id="item picture tour">
+        <img src="pictures/pumpkin.jpg" alt="picture" class="tourPicture">
     </div>
-    <div id="item2">
-        <h1 class="titleRight">טופס הרשמה לסיור</h1>
-        <form class="form">
-        <label for="fname">שם פרטי:</label>
-        <input type="text" id="fname" name="fname"><br>
-        <label for="lname">שם משפחה:</label>
-        <input type="text" id="lname" name="lname"><br>
-        <label for="email">אימייל:</label>
-        <input type="text" id="email" name="email"><br>
-        <label for="Phone Number">טלפון נייד:</label>
-        <input type="number" id="Phone Number" name="Phone Number"><br>
-        <label for="comment">הערות:</label>
-        <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
-        <input type="submit" value="אישור">
-       </form>
+
+    <div id="item form tour">
+        <h1 class="titleReg">טופס הרשמה לסיור</h1>
+        <p class="textTour2">
+               על מנת להירשם לסיור מלאו את הפרטים הבאים:<br>
+        </p>
+        <form class="tourForm" action="/action_page.php"  name="myForm" onsubmit="return validateForm(tour)" method="post" >
+        <label for="fname">שם פרטי</label>
+        <input type="text" id="fname" name="firstname">
+        <label for="lname">שם משפחה</label>
+        <input type="text" id="lname" name="lastname">
+        <label for="phone">טלפון</label>
+        <input type="text" id="phone" name="phonenumer">
+        <label for="email">כתובת מייל</label>
+        <input type="text" id="email" name="emailaddress">
+        <label for="numOfTickets">כמות כרטיסים</label>
+        <input type="number" id="numOfTickets" name="numOfTickets" min="1" max="10"><br>
+        <label for="subject">הערות</label>
+        <textarea id="subject" name="subject" style="height:170px" ></textarea>
+        <input type="submit" value="שלח">
+      </form>
     </div>
 </div>
 
