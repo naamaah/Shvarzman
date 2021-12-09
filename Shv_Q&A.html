@@ -33,25 +33,43 @@
             <button class="tablinks" onclick="openQASub(event, 'generalQA')" id="defaultOpen">שאלות נפוצות</button>
             <button class="tablinks" onclick="openQASub(event, 'orderQA')">שאלות בנושא הזמנות</button>
             <button class="tablinks" onclick="openQASub(event, 'TourQA')">שאלות בנושא סיורים</button>
-        </div>
+        </div>י
 
         <div id="generalQA" class="tabcontent">
             <h3>שאלות נפוצות</h3>
-                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
-                <div class="content" id="content1" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <button class="question" onclick="openQuestion('content1',)">אילו אישורי אורגנים יש לכם?</button>
+                <div class="content" id="content1" style="display: none">אגריו ורשות לחקלאות</div>
                 <br><br>
-                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
-                <div class="content" id="content2" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <button class="question" onclick="openQuestion('content2')">האם אתם כשרים?</button>
+                <div class="content" id="content2" style="display: none">משק שוורצמן כשר לחלוטין!</div>
                 <br><br>
-                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
-                <div class="content" id="content3" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <button class="question" onclick="openQuestion('content3')"> במידה ואני מגיע טיפה אחרי שעות הפתיחה, תקבלו אותי ?</button>
+                <div class="content" id="content3" style="display: none">במידה ותתקשר, נעשה כמה שיותר בשביל לעזור לך ולהישאר פתוחים</div>
                 <br><br>
         </div>
 
         <div id="orderQA" class="tabcontent">
             <h3>שאלות בנושא הזמנות</h3>
-                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
-                <div class="content" id="content4" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <button class="question" onclick="openQuestion('content4')"> כמה זמן אני אצטרך לחכות למשלוח ?</button>
+                <div class="content" id="content4" style="display: none">במידה וכל המוצרים שהזמנתם במלאי, המשלוח יגיע בין 3-5 שעות מרגע ההזמנה</div>
+                <br><br>
+                <button class="question" onclick="openQuestion('content5')"> המשלוח עולה כסף?</button>
+                <div class="content" id="content5" style="display: none">במשק שוורצמן אתם יכולים לקבל משלוח חינם בהזמנה מעל 50 שח !</div>
+                <br><br>
+                <button class="question" onclick="openQuestion('content6')">יש צורך להביא טיפ לשליח?</button>
+                <div class="content" id="content6" style="display: none">במשק שוורצמן אנחנו דואגים לשליחים שלנו, אתם לא חייבים לתת טיפ </div>
+                <br><br>
+        </div>
+        <div id="TourQA" class="tabcontent">
+            <h3>שאלות בנושא הזמנות</h3>
+                <button class="question" onclick="openQuestion('content7')"> בעונות החורף יש סיור?</button>
+                <div class="content" id="content7" style="display: none">בטח שכן! התקופה הכי טובה לראות את השטחים החקלאים</div>
+                <br><br>
+                <button class="question" onclick="openQuestion('content8')"> יש אפשרות לארגן סיורי מותאם אישי?</button>
+                <div class="content" id="content8" style="display: none">כמובן, אנחנו פה בשבילכם, מוזמנים ליצור קשר ואנחנו נתאם סיור בהתאם לגודל הקבוצה והרצונות שלכם</div>
+                <br><br>
+                <button class="question" onclick="openQuestion('content9')">יש אוכל בסיור?</button>
+                <div class="content" id="content9" style="display: none">בהחלט, במהלך הסיור תקבלו טעימות של הפירות וירקות שלנו, ובסוף נעשה ארוחה בריאה וטעימה </div>
                 <br><br>
         </div>
 
