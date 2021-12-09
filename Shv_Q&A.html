@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Style.css">
-    <title>Title</title>
+    <link rel="stylesheet" href="qa.css">
+    <script src="Qa.js"></script>
+    <title>Q&A</title>
 </head>
-<body>
 
+<body>
 
 <!------- header --------->
     <header class="navbar">
@@ -24,40 +25,39 @@
 
     </header>
 
-
 <!------- body --------->
+    <h1>עמוד שאלות ותשובות</h1>
 
-<!-- Button to open the FAQ-modal -->
-<button class="button_QA" onclick="document.getElementById('id01').style.display='block'">שאלות נפוצות</button>
+    <div class="QA" dir="rtl" >
+        <div class="tab">
+            <button class="tablinks" onclick="openQASub(event, 'generalQA')" id="defaultOpen">שאלות נפוצות</button>
+            <button class="tablinks" onclick="openQASub(event, 'orderQA')">שאלות בנושא הזמנות</button>
+            <button class="tablinks" onclick="openQASub(event, 'TourQA')">שאלות בנושא סיורים</button>
+        </div>
 
-<!-- Button to open the orders-modal -->
-<button class="button_QA" onclick="document.getElementById('id02').style.display='block'">שאלות על הזמנות</button>
+        <div id="generalQA" class="tabcontent">
+            <h3>שאלות נפוצות</h3>
+                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
+                <div class="content" id="content1" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <br><br>
+                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
+                <div class="content" id="content2" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <br><br>
+                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
+                <div class="content" id="content3" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <br><br>
+        </div>
 
-<!-- The Modal FAQ  -->
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'"
-class="close" title="Close Modal">&times;</span>
-  <!-- Modal Content -->
-    <div class="modal-content">
-        <p> שאלות נפוצות</p>
-      <img src="pictures/logo.JPG" alt="svh_pic" class="qa">
+        <div id="orderQA" class="tabcontent">
+            <h3>שאלות בנושא הזמנות</h3>
+                <button class="question" onclick="openQuestion('content1')"> כמה זמן אני אצטרך לחכות לאמפנדס שהזמנתי ?</button>
+                <div class="content" id="content4" style="display: none">קרלוס משקיע בכל אמפנדס ואמפנדס ולכן מרגע ההזמנה ייקחו בין 3 ל-4 שעות עד שהאמפנדס יגיעו אליכם.</div>
+                <br><br>
+        </div>
+
     </div>
-      <button class="button_QA" type="button" onclick="document.getElementById('id01').style.display='none'" id="exitbtn">יציאה</button>
-</div>
 
-
-<!-- The Modal orders questions  -->
-<div id="id02" class="modal">
-  <span onclick="document.getElementById('id02').style.display='none'"
-class="close" title="Close Modal">&times;</span>
-  <!-- Modal Content -->
-    <div class="modal-content">
-        <p> שאלות על הזמנות</p>
-      <img src="pictures/logo.JPG" alt="svh_pic" class="qa">
-    </div>
-      <button class="button_QA" type="button" onclick="document.getElementById('id02').style.display='none'" id="exitbtn">יציאה</button>
-</div>
-
+    <h3>במידה ויש שאלות נוספות מוזמנים ליצור איתנו קשר :)</h3>
 
 <!------- footer --------->
     <footer>
@@ -65,6 +65,9 @@ class="close" title="Close Modal">&times;</span>
         <a href="https://www.google.com/maps/place/%D7%9E%D7%A9%D7%A7+%D7%A9%D7%95%D7%95%D7%A8%D7%A6%D7%9E%D7%9F%E2%80%AD/@31.9444462,34.773705,17z/data=!4m5!3m4!1s0x1502b6ad13bd5d89:0x7f627dbb7f6dfc50!8m2!3d31.9444462!4d34.7758937"><i class="fas fa-map-marker-alt"></i></a>
         <a href="https://www.instagram.com/meshek.shvarzman/"><i class="fab fa-instagram"></i></a>
     </footer>
+
+
+<script> document.getElementById("defaultOpen").click(); </script>
 
 
 </body>
