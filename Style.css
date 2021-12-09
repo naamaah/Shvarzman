@@ -1,11 +1,6 @@
 /* --------------Style for General Design */
 
 body {
-<<<<<<< HEAD
-  /--font-family: Calibri, Helvetica, sans-serif;/
-=======
-  /*--font-family: Calibri, Helvetica, sans-serif;*/
->>>>>>> 136ee9b423ffa2527ba98c17dab82ed727d87c11
   background-image: url("pictures/floor-tile.png"); /* The image used */
 }
 
@@ -41,11 +36,12 @@ footer {
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #fcec9a;
   text-align: center;
   padding: 20px;
   font-size: 30px;
   font-weight: bold;
+  border-style:solid;
  }
 
 p{
@@ -294,7 +290,7 @@ h5 {
 /* Container for image text */
 .caption-container {
   text-align: center;
-  background-color: #222;
+  background-color: #4f6a07;
   padding: 2px 16px;
   color: white;
 }
@@ -315,6 +311,7 @@ h5 {
 .demo {
   opacity: 0.6;
 }
+
 
 .active,
 .demo:hover {
