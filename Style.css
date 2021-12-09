@@ -8,6 +8,53 @@ body {
   font-family: Calibri, Helvetica, sans-serif;
   box-sizing: border-box;
 }
+a {
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+h1{
+
+    text-align: center;
+    padding: 5px;
+    font-size:50px;
+    font-weight: bold;
+}
+
+h2{
+    text-align:center;
+}
+
+
+p{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+button {
+  background-color: #52796f;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  color: white;
+}
+
+button:hover {
+    background-color: #84a98c;
+}
+
+footer {
+    background-color: #555;
+    display:flex;
+    justify-content: center;
+}
+
 
 
 /* --------------Style the navigation bar & main & Footer */
@@ -15,17 +62,18 @@ body {
   width: 100%;
   background-color: #555;
   overflow: auto;
-}
-.picturesMain{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+
 }
 
-footer {
-    background-color: #555;
-    display:flex;
-    justify-content: center;
+
+.picturesMain{
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+
 }
 
 .grid-container {
@@ -36,7 +84,7 @@ footer {
 }
 
 .grid-item {
-  background-color: #fcec9a;
+  background-color: #b5cbb7;
   text-align: center;
   padding: 20px;
   font-size: 30px;
@@ -44,21 +92,10 @@ footer {
   border-style:solid;
  }
 
-p{
-    font-size: 20px;
-    font-weight: normal;
-}
+
 
 /* Navbar or footer links */
-a {
-  float: left;
-  text-align: center;
-  margin-right: 0.5%;
-  padding: 20px;
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-}
+
 
 .video {
     float: none;
@@ -72,7 +109,7 @@ a:hover {
 
 /* Current/active navbar link */
 .active {
-  background-color: #92aa3a;
+  background-color: #b5cbb7;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
@@ -81,6 +118,18 @@ a:hover {
     float: none;
     display: block;
   }
+}
+
+.btnMain {
+  margin-right: 10vh;
+  margin-left: 10vh;
+  width: 80%;
+  text-align: right;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  outline: none;
+  font-size: 20px;
 }
 
 /* --------------Style about Us*/
@@ -103,12 +152,7 @@ a:hover {
     direction: rtl;
 }
 
-h1{
-    text-align: center;
-    padding: 5px;
-    font-size:50px;
-    font-weight: bold;
-}
+
 
 hr{
     border: 0;
@@ -119,14 +163,14 @@ hr{
 
 .magazines{
     float:none;
-    background-color: #4f6a07 ;
+    background-color: #b5cbb7 ;
     color: white;
     margin: 10px;
 
 }
 
 .magazines:hover {
-    background-color: #92aa3a;
+    background-color: #d2e4c4;
 }
 /* --------------Style All Products Page*/
 
@@ -275,7 +319,7 @@ h5 {
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #d2e4c4;
 }
 
 /* Number text (1/3 etc) */
@@ -290,7 +334,7 @@ h5 {
 /* Container for image text */
 .caption-container {
   text-align: center;
-  background-color: #4f6a07;
+  background-color: #b5cbb7;
   padding: 2px 16px;
   color: white;
 }
@@ -326,6 +370,7 @@ h5 {
 }
 
 /* --------------Style Tour*/
+
 
 .tourPicture{
     width: 100%;
@@ -393,8 +438,6 @@ input[type=number] {
 
 /* --------------Style Contact Us*/
 
-
-
 /* Style inputs */
 input[type=text], select, textarea {
   width: 100%;
@@ -406,21 +449,21 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-  background-color: #04AA6D;
+  background-color: #354f52;
   color: white;
   padding: 12px 20px;
   border: none;
   cursor: pointer;
+  width:100%;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #52796f;
 }
 
 /* Style the container/contact section */
-.container {
+.containerContact {
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 10px;
 }
 
@@ -451,25 +494,33 @@ input[type=submit]:hover {
 .product-image {
   position: relative;
 }
+
+
 /* --------------QA */
+
+/* Style the tab content */
+.tabcontent {
+  text-align:center;
+  float: left;
+  width: 80%;
+  border-left: none;
+  height: 100%;
+  font-size:25px;
+}
 
 .question {
   margin-right: 10vh;
   margin-left: 10vh;
   width: 80%;
-  text-align:right;
-  background-color: rgba(233, 196, 106, 0.6);
-  color: #444;
+  text-align: right;
   cursor: pointer;
   padding: 18px;
   border: none;
   outline: none;
   font-size: 20px;
+  color: white;
 }
 
-.question:hover {
-  background-color: green;
-}
 
 .question:after {
   content: '\002B';
@@ -480,84 +531,45 @@ input[type=submit]:hover {
 }
 
 .content {
+  margin-left: 10vh;
   margin-right: 10vh;
-  text-align:right;
+  text-align:center;
   padding: 15px;
   display: none;
-  background-color: transparent;
-  height: 3vh;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 /* Style the tab */
 .tab {
   float: left;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
   width: 20%;
-  height: 300px;
+  height: 100%;
+
+
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
   display: block;
-  background-color: inherit;
-  color: black;
+  color: white;
   padding: 22px 16px;
   width: 100%;
   border: none;
   outline: none;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
-  transition: 0.3s;
+  font-size: 20px;
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #bfd783;
+.tab button:hover , .question:hover{
+  background-color: #d2e4c4;
+
 }
 
 /* Create an active/current "tab button" class */
-.tab button.active {
-  background-color: #92aa3a;
-}
-
-/* Style the tab content */
-.tabcontent {
-  float: left;
-  padding: 0px 12px;
-  border: 1px solid #ccc;
-  width: 80%;
-  border-left: none;
-  height: 300px;
-}
-
-/* Set a style for all buttons */
-.button_QA {
-  background-color: #8c858b;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-/* Add a hover effect for buttons */
-.button_QA:hover {
-  opacity: 0.8;
-}
-
-/* all inages in this page image */
-img.qa {
-  width: 10%;
-  border-radius: 50%;
-}
-
-/* Extra styles for the cancel button */
-#exitbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
+.tab button.active{
+  background-color: #b5cbb7;
 }
 
 /* --------------Style Login*/
@@ -665,14 +677,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 /* --------------Style Shopping Cart*/
 
-.titleCart{
-      text-align: center;
-      padding-top: 0px;
-      padding-bottom: 15px;
-      font-size:45px;
-      color: #48422a;
-      font-weight: bold;
-}
+
 
 .cart-quantity {
     max-width: 40pt;
@@ -688,8 +693,8 @@ input[type=text]:focus, input[type=password]:focus {
   text-align: center;
   width: 18%;
   font-size: 35px;
-  color: #48422a;
-  background-color: #9c7c81;
+  color: white;
+  background-color: #354f52;
   border: none;
   cursor: pointer;
   align: center;
@@ -700,8 +705,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .payment button:hover {
-  background-color: #E2DAD5;
-  color: #48422a;
+  background-color: #52796f;
 }
 
 .cart-table {
@@ -713,7 +717,7 @@ table {
     border-collapse: collapse;
     border-spacing: 5px;
     width: 100%;
-    border: 1px solid #ddd;
+
 }
 tr:nth-child(even) {
     background-color: #f2f2f2

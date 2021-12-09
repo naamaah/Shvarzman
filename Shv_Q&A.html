@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="qa.css">
+    <link rel="stylesheet" href="Style.css">
     <script src="Qa.js"></script>
     <title>Q&A</title>
 </head>
@@ -26,18 +26,20 @@
     </header>
 
 <!------- body --------->
+<hr>
     <h1>עמוד שאלות ותשובות</h1>
-
+<hr>
     <div class="QA" dir="rtl" >
         <div class="tab">
             <button class="tablinks" onclick="openQASub(event, 'generalQA')" id="defaultOpen">שאלות נפוצות</button>
             <button class="tablinks" onclick="openQASub(event, 'orderQA')">שאלות בנושא הזמנות</button>
             <button class="tablinks" onclick="openQASub(event, 'TourQA')">שאלות בנושא סיורים</button>
+            <img src="pictures/QA.png" alt="QA" width="40%" height="60%" class="picturesMain">
         </div>י
 
         <div id="generalQA" class="tabcontent">
-            <h3>שאלות נפוצות</h3>
-                <button class="question" onclick="openQuestion('content1',)">אילו אישורי אורגנים יש לכם?</button>
+            <h2>שאלות נפוצות</h2>
+                <button class="question" onclick="openQuestion('content1')">אילו אישורי אורגנים יש לכם?</button>
                 <div class="content" id="content1" style="display: none">אגריו ורשות לחקלאות</div>
                 <br><br>
                 <button class="question" onclick="openQuestion('content2')">האם אתם כשרים?</button>
@@ -49,7 +51,7 @@
         </div>
 
         <div id="orderQA" class="tabcontent">
-            <h3>שאלות בנושא הזמנות</h3>
+            <h2>שאלות בנושא הזמנות</h2>
                 <button class="question" onclick="openQuestion('content4')"> כמה זמן אני אצטרך לחכות למשלוח ?</button>
                 <div class="content" id="content4" style="display: none">במידה וכל המוצרים שהזמנתם במלאי, המשלוח יגיע בין 3-5 שעות מרגע ההזמנה</div>
                 <br><br>
@@ -61,7 +63,7 @@
                 <br><br>
         </div>
         <div id="TourQA" class="tabcontent">
-            <h3>שאלות בנושא הזמנות</h3>
+            <h2>שאלות בנושא הזמנות</h2>
                 <button class="question" onclick="openQuestion('content7')"> בעונות החורף יש סיור?</button>
                 <div class="content" id="content7" style="display: none">בטח שכן! התקופה הכי טובה לראות את השטחים החקלאים</div>
                 <br><br>
@@ -72,10 +74,9 @@
                 <div class="content" id="content9" style="display: none">בהחלט, במהלך הסיור תקבלו טעימות של הפירות וירקות שלנו, ובסוף נעשה ארוחה בריאה וטעימה </div>
                 <br><br>
         </div>
-
     </div>
 
-    <h3>במידה ויש שאלות נוספות מוזמנים ליצור איתנו קשר :)</h3>
+    <h2>במידה ויש שאלות נוספות מוזמנים ליצור איתנו קשר :)</h2>
 
 <!------- footer --------->
     <footer>
