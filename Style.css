@@ -1,7 +1,11 @@
 /* --------------Style for General Design */
 
 body {
+<<<<<<< HEAD
   /--font-family: Calibri, Helvetica, sans-serif;/
+=======
+  /*--font-family: Calibri, Helvetica, sans-serif;*/
+>>>>>>> 136ee9b423ffa2527ba98c17dab82ed727d87c11
   background-image: url("pictures/floor-tile.png"); /* The image used */
 }
 
