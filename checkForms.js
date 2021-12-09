@@ -77,5 +77,20 @@ function formApproved () {
 }
 
 
+// tour
+var imgs = ["pictures/pumpkin.jpg","pictures/sweetPotato.jpg"];
+var i=0;
+function stopMotion () {
+    setTimeOut(()=>{
+                document.getElementById("img").src= imgs[i];
+                i++;
+                if (i < imgs.length) {
+                    stopMotion ();
+                }
+                else {
+                    i=0;
+                }
+},500);
+}
 
 
