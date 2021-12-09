@@ -11,7 +11,7 @@
 
 
 <!------- header --------->
-    <div class="navbar">
+    <header class="navbar">
         <a class="active" href="Shv_shopPage.html"><i class="fas fa-shopping-cart"></i></a>
         <a href="Shv_Login.html"><i class="fa fa-fw fa-user"></i></a>
         <a href="Shv_Q&A.html"><i class="fas fa-question-circle"></i> שאלות ותשובות</a>
@@ -22,36 +22,66 @@
         <a href="allProductsPage.html"><i class="fas fa-carrot"></i>מוצרים</a>
         <a href="aboutUs.html"><i class="fas fa-users"></i>עלינו</a>
         <a href="mainPage.html"><i class="fas fa-home"></i></a>
-    </div>
+    </header>
 
 
 
 <!---- body ---->
 
-<!-- creating card -->
+<!-- shopping cart -->
+<h1 class="titleCart">סל קניות</h1>
+<table class="table cart-table" id="myTable">
+            <tr>
+                <th>תמונה</th>
+                <th>שם המוצר</th>
+                <th>מחיר</th>
+                <th>כמות</th>
+                <th>סה"כ</th>
+                <th> הסר פריט</th>
+            </tr>
 
+            <tr id="basket1">
+                <td><img src="pictures/artishok.jpg" alt="picture"></td>
+                <td>קישוא בהיר</td>
+                <td>8 ש"ח לקילו</td>
+                <td><input class="cart-quantity" type="number" id="quantity1" name="quantity1" min="0" value="2"></td>
+                <td id="total1">16 ש"ח</td>
+                <td>
+                    <button class="remove-item" type="button" onclick="return remove_item('sweetRow');">X</button>
+                </td>
+            </tr>
+            <tr id="basket2">
+                <td><img src="pictures/sweetPotato.jpg" alt="picture"></td>
+                <td>בטטה סגולה</td>
+                <td>10 ש"ח לקילו</td>
+                <td><input class="cart-quantity" type="number" id="quantity2" name="quantity2" min="0" value="1"></td>
+                <td id="total2">10 ש"ח</td>
+                <td>
+                    <button class="remove-item" type="button" onclick="return remove_item('cakeRow');">X</button>
+                </td>
+            </tr>
+            <tr id="basket3">
+                <td><img src="pictures/spacail%20crovit.jpg"></td>
+                <td>כרובית</td>
+                <td>10 שח לקילו</td>
+                <td><input class="cart-quantity" type="number" id="quantity3" name="quantity3" min="0" value="1"></td>
+                <td id="total3">10 ש"ח</td>
+                <td>
+                    <button class="remove-item" type="button" onclick="return remove_item('cakeRow');">X</button>
+                </td>
+            </tr>
+</table>
 
- <div class=”Cart-Container”></div>
+<br>
+<br>
 
--- adding card header
- <div class=”Header”>
-    <h3 class=”Heading”>Shopping Cart</h3>
-     <h5 class=”Action”>Remove all</h5>
- </div>
+<div class="payment button">
+    <button class="pay button" type="submit">מעבר לתשלום</button>
+</div>
 
---adding a product details
-<div class=”Cart-Items”>
- <div class=”image-box”>
- <img src=”images/apple.png” style={{ height=”120px” }} />
- </div>
- <div class=”about”>
- <h1 class=”title”>Apple Juice</h1>
- <h3 class=”subtitle”>250ml</h3>
- <img src=”images/veg.png” style={{ height=”30px” }}/>
- </div>
- <div class=”counter”></div>
- <div class=”prices”></div>
- </div>
+<br>
+<br>
+
 
 <!------- footer --------->
     <footer>
