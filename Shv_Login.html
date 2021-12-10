@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style.css">
-    <script src="checkForms.js"></script>
-    <title>LogIn</title>
+    <script src="functions.js"></script>
+    <title>Title</title>
 </head>
 <body>
 
 <!------- header --------->
-    <header class="navbar">
+    <div class="navbar">
         <a href="Shv_shopPage.html"><i class="fas fa-shopping-cart"></i></a>
         <a class="active" href="Shv_Login.html"><i class="fa fa-fw fa-user"></i></a>
         <a href="Shv_Q&A.html"><i class="fas fa-question-circle"></i> שאלות ותשובות</a>
@@ -21,35 +21,27 @@
         <a href="allProductsPage.html"><i class="fas fa-carrot"></i>מוצרים</a>
         <a href="aboutUs.html"><i class="fas fa-users"></i>עלינו</a>
         <a href="mainPage.html"><i class="fas fa-home"></i></a>
-
+    </div>
 
 <!------- body --------->
 
 <!--Login Part-->
 
-<form class ="form_login"  name="myForm" action="/action_page.php" method="post">
+<form class ="form_login" action="action_page.php" onsubmit="return validateFormlogIn()" name="logInForm" method="post">
   <div class="imgcontainer">
     <img src="pictures/Login_Avatar.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container_login">
     <label for="Email_Login"><b>כתובת מייל</b></label>
-    <input style="text-align:right" type="email" id="Email_Login" placeholder="הכנס כתובת מיל" name="Email_Login" required >
-
+    <input style="text-align:right" type="text" id="Email_Login" placeholder="הכנס כתובת מיל" name="Email_Login">
     <label for="psw"><b>סיסמא</b></label>
-    <input style="text-align:right" type="password" id="psw" placeholder="הכנס סיסמא" name="psw" required >
-
-      <a href=formApproval.html>
-          <button class="button_login" type="submit">כניסה</button>
-      </a>
+    <input style="text-align:right" type="password" id="psw" placeholder="הכנס סיסמא" name="psw">
+    <input class="button_login" type="submit" value="כניסה">
     <!--<label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>-->
   </div>
-
-
-
-
 
   <!--<div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
@@ -65,7 +57,7 @@
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span>
-  <form class="modal-content"  name="myForm" onsubmit="return validateFormSignUp()" action="/action_page.php">
+  <form class="modal-content" action="/action_page.php" onsubmit="return validateFormSignUp()" name="signUpForm" method="post">
     <div class="container_Login">
         <div class="imgcontainer">
             <img src="pictures/SignUp_Avatar.png" alt="Avatar" class="avatar">
@@ -73,14 +65,12 @@
       <h1>Sign Up</h1>
       <p>בבקשה מלא טופס זה ליצירת חשבון משתמש</p>
       <hr>
-      <label for="email"><b>כתובת אי-מייל</b></label>
-      <input style="text-align:right" type="email" id="Email_Login1" placeholder="הכנס כתובת מייל" name="Email_Login" required>
-
-      <label for="psw"><b>סיסמא</b></label>
-      <input style="text-align:right" type="password" id="psw1" placeholder="הכנס סיסמא" name="psw" required>
-
-      <label for="psw-repeat"><b>אימות סיסמא</b></label>
-      <input style="text-align:right" type="password" id="psw-repeat" placeholder="אימות סיסמא" name="psw-repeat" required>
+      <label for="emailSignUp"><b>כתובת אי-מייל</b></label>
+      <input style="text-align:right" type="text" placeholder="הכנס כתובת מייל" name="emailSignUp" id="emailSignUp">
+      <label for="psw1"><b>סיסמא</b></label>
+      <input style="text-align:right" type="password" placeholder="הכנס סיסמא" name="psw1" id="psw1">
+      <label for="psw-repeat1"><b>אימות סיסמא</b></label>
+      <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1">
 
       <!--<label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -90,7 +80,7 @@
 
       <div class="clearfix">
         <button class="button_login" type="button" onclick="document.getElementById('id01').style.display='none'" id="cancelbtn">יציאה</button>
-        <button class="button_login" type="submit">הירשם</button>
+        <input class="button_login" type="submit" value="צור חשבון">
       </div>
     </div>
   </form>
