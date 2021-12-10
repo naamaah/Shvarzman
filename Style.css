@@ -8,7 +8,7 @@ body {
   font-family: Calibri, Helvetica, sans-serif;
   box-sizing: border-box;
 }
-a {
+a.nav {
   padding: 20px;
   color: white;
   text-decoration: none;
@@ -103,13 +103,17 @@ footer {
 }
 
 /* Navbar links on mouse-over */
-a:hover {
+a.nav:hover {
   background-color: #000;
 }
 
 /* Current/active navbar link */
 .active {
   background-color: #b5cbb7;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
@@ -118,7 +122,12 @@ a:hover {
     float: none;
     display: block;
   }
+    .button-37 {
+    padding: 10px 30px;
+  }
 }
+}
+
 
 .btnMain {
   margin-right: 10vh;
@@ -174,6 +183,29 @@ hr{
 }
 /* --------------Style All Products Page*/
 
+.product-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.product-container > div {
+  background-color: rgba(211,224,212, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.product-item {
+  border: solid;
+  transition: transform 1s;
+}
+
+.product-item:hover {
+  transform: scale(1.1);
+  cursor:pointer;
+}
 
 /* --------------Style Recipes*/
 
@@ -186,23 +218,35 @@ font-family: font1;
 src: url(AmaticSC-Bold.ttf);
 }
 
-.body1 {
-  padding-bottom: 100px;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 1240px;
-  font-family: font1;
-  background-color: #EDE9E2;
+.recipe-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
 }
 
-/*
-h1 {
-padding-top: 50px;
-  font-size: 45px;
-  font-weight: 300;
-  flex: 1;
+.recipe-container > div {
+  background-color: rgba(211,224,212, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
 }
-*/
+
+.recipe-item {
+  border: solid;
+  cursor:pointer;
+  overflow: hidden;
+}
+
+.recipe-image: {
+  border: solid;
+}
+
+.recipe-image:hover {
+  transition: transform 0.9s;
+  transform: scale(1.25);
+}
+
 
 h4 {
   font-weight: 500;
@@ -214,29 +258,6 @@ h5 {
   font-size: 20px;
 }
 
-.products {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-
-  padding: 2%;
-  flex: 1 16%;
-
-  background-color: #dacec2;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.product-image {
-  position: relative;
-}
-
-.product-image img {
-  width: 100%;
-}
 .icons {
   opacity: 0;
   width: 40%;
@@ -244,33 +265,7 @@ h5 {
   cursor: pointer;
   transition: 0.4s;
 }
-.protuct-hover {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  padding: 50% 0;
-  transition: 0.3s;
-}
 
-.protuct-hover:hover {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  opacity: 0.6;
-}
-
-.protuct-hover:hover .icons {
-  opacity: 0.9;
-}
-
-.product-info {
-  font-size: 30px;
-  margin-top: auto;
-  padding-top: 20px;
-  text-align: center;
-}
 
 /* --------------Style Photo Gallery*/
 
@@ -437,6 +432,12 @@ input[type=number] {
 
 
 /* --------------Style Contact Us*/
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
 
 /* Style inputs */
 input[type=text], select, textarea {
@@ -450,15 +451,30 @@ input[type=text], select, textarea {
 
 input[type=submit] {
   background-color: #354f52;
-  color: white;
-  padding: 12px 20px;
-  border: none;
+  border: 1px solid #354f52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
   width:100%;
 }
 
 input[type=submit]:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   background-color: #52796f;
+  transform: translateY(-2px);
 }
 
 /* Style the container/contact section */
