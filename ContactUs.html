@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style.css">
-    <script src="checkForms.js"></script>
+    <script src="functions.js"></script>
     <!--<link rel="stylesheet" href="contactus.css"/>
     <link rel="stylesheet" href="header and footer.css">-->
 </head>
@@ -37,14 +37,14 @@
     <div class="row">
         <div class="column">
             <form action="/action_page.php" name="myForm" onsubmit="return validateForm()" method="post">
-                <label for="fname">שם פרטי</label>
-                <input type="text" id="fname" name="firstname">
-                <label for="lname">שם משפחה</label>
-                <input type="text" id="lname" name="lastname">
-                <label for="phone">טלפון</label>
-                <input type="text" id="phone" name="phonenumer">
-                <label for="email">כתובת מייל</label>
-                <input type="text" id="email" name="emailaddress">
+                <label for="firstname">שם פרטי</label>
+                <input type="text" id="firstname" name="firstname">
+                <label for="lastname">שם משפחה</label>
+                <input type="text" id="lastname" name="lastname">
+                <label for="phonenumer">טלפון</label>
+                <input type="text" id="phonenumer" name="phonenumer">
+                <label for="emailaddress">כתובת מייל</label>
+                <input type="text" id="emailaddress" name="emailaddress">
                 <label for="subject">הערות</label>
                 <textarea id="subject" name="subject" style="height:170px"></textarea>
                 <a href="formApproval.html" target="_blank">

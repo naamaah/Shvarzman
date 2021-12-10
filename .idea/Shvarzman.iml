@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module type="PYTHON_MODULE" version="4">
+<module version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="pytest" />
-  </component>
-=======
->>>>>>> a96579a2f294245c4e34ddacf5241df736987491
->>>>>>> c2373e13dc8b7738d4233cd11994fd54e0f68b9a
 </module>

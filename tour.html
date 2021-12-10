@@ -6,9 +6,7 @@
         <link rel="stylesheet" href="Style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
-        <script src="checkForms.js"></script>
-        <script src="Qa.js"></script>
-
+        <script src="functions.js"></script>
     </head>
 
 
@@ -79,19 +77,19 @@
         <p class="textTour2">
                על מנת להירשם לסיור מלאו את הפרטים הבאים:<br>
         </p>
-        <form class="tourForm" action="/action_page.php"  name="myForm" onsubmit="return validateForm()" method="post" >
-        <label for="fname">שם פרטי</label>
-        <input type="text" id="fname" name="firstname">
-        <label for="lname">שם משפחה</label>
-        <input type="text" id="lname" name="lastname">
-        <label for="phone">טלפון</label>
-        <input type="text" id="phone" name="phonenumer">
-        <label for="email">כתובת מייל</label>
-        <input type="text" id="email" name="emailaddress">
+        <form class="tourForm" action="action_page.php"  name="myForm" onsubmit="return validateForm()" method="post" >
+        <label for="firstname">שם פרטי</label>
+        <input style="text-align:right" type="text" id="firstname" name="firstname">
+        <label for="lastname">שם משפחה</label>
+        <input style="text-align:right" type="text" id="lastname" name="lastname">
+        <label for="phonenumer">טלפון</label>
+        <input style="text-align:right" type="text" id="phonenumer" name="phonenumer">
+        <label for="emailaddress">כתובת מייל</label>
+        <input style="text-align:right" type="text" id="emailaddress" name="emailaddress">
         <label for="numOfTickets">כמות כרטיסים</label>
-        <input type="number" id="numOfTickets" name="numOfTickets" min="1" max="10"><br>
+        <input style="text-align:right" type="number" id="numOfTickets" name="numOfTickets" min="1" max="10" required><br>
         <label for="subject">הערות</label>
-        <textarea id="subject" name="subject" style="height:170px" ></textarea>
+        <textarea style="text-align:right" id="subject" name="subject" style="height:170px" ></textarea>
         <input type="submit" value="שלח">
       </form>
     </div>
