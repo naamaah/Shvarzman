@@ -1,8 +1,11 @@
+/* --------------Style for General Design */
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("pictures/floor-tile.png"); /* The image used */
 }
 
 * {
+  font-family: Calibri, Helvetica, sans-serif;
   box-sizing: border-box;
 }
 
@@ -17,15 +20,16 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-  background-color: #04AA6D;
+  background-color: #354f52;
   color: white;
   padding: 12px 20px;
   border: none;
   cursor: pointer;
+  width:100%;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #52796f;
 }
 
 /* Style the container/contact section */

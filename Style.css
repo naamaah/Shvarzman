@@ -8,6 +8,53 @@ body {
   font-family: Calibri, Helvetica, sans-serif;
   box-sizing: border-box;
 }
+a.nav {
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+h1{
+
+    text-align: center;
+    padding: 5px;
+    font-size:50px;
+    font-weight: bold;
+}
+
+h2{
+    text-align:center;
+}
+
+
+p{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+button {
+  background-color: #52796f;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  color: white;
+}
+
+button:hover {
+    background-color: #84a98c;
+}
+
+footer {
+    background-color: #555;
+    display:flex;
+    justify-content: center;
+}
+
 
 
 /* --------------Style the navigation bar & main & Footer */
@@ -15,17 +62,18 @@ body {
   width: 100%;
   background-color: #555;
   overflow: auto;
-}
-.picturesMain{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+
 }
 
-footer {
-    background-color: #555;
-    display:flex;
-    justify-content: center;
+
+.picturesMain{
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+
 }
 
 .grid-container {
@@ -36,28 +84,18 @@ footer {
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #b5cbb7;
   text-align: center;
   padding: 20px;
   font-size: 30px;
   font-weight: bold;
+  border-style:solid;
  }
 
-p{
-    font-size: 20px;
-    font-weight: normal;
-}
+
 
 /* Navbar or footer links */
-a {
-  float: left;
-  text-align: center;
-  margin-right: 0.5%;
-  padding: 20px;
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-}
+
 
 .video {
     float: none;
@@ -65,13 +103,17 @@ a {
 }
 
 /* Navbar links on mouse-over */
-a:hover {
+a.nav:hover {
   background-color: #000;
 }
 
 /* Current/active navbar link */
 .active {
-  background-color: #92aa3a;
+  background-color: #b5cbb7;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
@@ -80,6 +122,23 @@ a:hover {
     float: none;
     display: block;
   }
+    .button-37 {
+    padding: 10px 30px;
+  }
+}
+}
+
+
+.btnMain {
+  margin-right: 10vh;
+  margin-left: 10vh;
+  width: 80%;
+  text-align: right;
+  cursor: pointer;
+  padding: 18px;
+  border: none;
+  outline: none;
+  font-size: 20px;
 }
 
 /* --------------Style about Us*/
@@ -102,12 +161,7 @@ a:hover {
     direction: rtl;
 }
 
-h1{
-    text-align: center;
-    padding: 5px;
-    font-size:50px;
-    font-weight: bold;
-}
+
 
 hr{
     border: 0;
@@ -118,17 +172,40 @@ hr{
 
 .magazines{
     float:none;
-    background-color: #4f6a07 ;
+    background-color: #b5cbb7 ;
     color: white;
     margin: 10px;
 
 }
 
 .magazines:hover {
-    background-color: #92aa3a;
+    background-color: #d2e4c4;
 }
 /* --------------Style All Products Page*/
 
+.product-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.product-container > div {
+  background-color: rgba(211,224,212, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.product-item {
+  border: solid;
+  transition: transform 1s;
+}
+
+.product-item:hover {
+  transform: scale(1.1);
+  cursor:pointer;
+}
 
 /* --------------Style Recipes*/
 
@@ -141,23 +218,35 @@ font-family: font1;
 src: url(AmaticSC-Bold.ttf);
 }
 
-.body1 {
-  padding-bottom: 100px;
-  margin: 0 auto;
-  width: 90%;
-  max-width: 1240px;
-  font-family: font1;
-  background-color: #EDE9E2;
+.recipe-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
 }
 
-/*
-h1 {
-padding-top: 50px;
-  font-size: 45px;
-  font-weight: 300;
-  flex: 1;
+.recipe-container > div {
+  background-color: rgba(211,224,212, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
 }
-*/
+
+.recipe-item {
+  border: solid;
+  cursor:pointer;
+  overflow: hidden;
+}
+
+.recipe-image: {
+  border: solid;
+}
+
+.recipe-image:hover {
+  transition: transform 0.9s;
+  transform: scale(1.25);
+}
+
 
 h4 {
   font-weight: 500;
@@ -169,29 +258,6 @@ h5 {
   font-size: 20px;
 }
 
-.products {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-
-  padding: 2%;
-  flex: 1 16%;
-
-  background-color: #dacec2;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
-}
-
-.product-image {
-  position: relative;
-}
-
-.product-image img {
-  width: 100%;
-}
 .icons {
   opacity: 0;
   width: 40%;
@@ -199,33 +265,7 @@ h5 {
   cursor: pointer;
   transition: 0.4s;
 }
-.protuct-hover {
-  width: 100%;
-  height: 100%;
-  background-color: transparent;
-  position: absolute;
-  top: 0;
-  padding: 50% 0;
-  transition: 0.3s;
-}
 
-.protuct-hover:hover {
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  opacity: 0.6;
-}
-
-.protuct-hover:hover .icons {
-  opacity: 0.9;
-}
-
-.product-info {
-  font-size: 30px;
-  margin-top: auto;
-  padding-top: 20px;
-  text-align: center;
-}
 
 /* --------------Style Photo Gallery*/
 
@@ -274,7 +314,7 @@ h5 {
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #d2e4c4;
 }
 
 /* Number text (1/3 etc) */
@@ -289,7 +329,7 @@ h5 {
 /* Container for image text */
 .caption-container {
   text-align: center;
-  background-color: #222;
+  background-color: #b5cbb7;
   padding: 2px 16px;
   color: white;
 }
@@ -311,6 +351,7 @@ h5 {
   opacity: 0.6;
 }
 
+
 .active,
 .demo:hover {
   opacity: 1;
@@ -324,6 +365,7 @@ h5 {
 }
 
 /* --------------Style Tour*/
+
 
 .tourPicture{
     width: 100%;
@@ -390,7 +432,11 @@ input[type=number] {
 
 
 /* --------------Style Contact Us*/
-
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
 
 
 /* Style inputs */
@@ -404,21 +450,36 @@ input[type=text], select, textarea {
 }
 
 input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px 20px;
-  border: none;
+  background-color: #354f52;
+  border: 1px solid #354f52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:100%;
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  background-color: #52796f;
+  transform: translateY(-2px);
 }
 
 /* Style the container/contact section */
-.container {
+.containerContact {
   border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 10px;
 }
 
@@ -449,25 +510,33 @@ input[type=submit]:hover {
 .product-image {
   position: relative;
 }
+
+
 /* --------------QA */
+
+/* Style the tab content */
+.tabcontent {
+  text-align:center;
+  float: left;
+  width: 80%;
+  border-left: none;
+  height: 100%;
+  font-size:25px;
+}
 
 .question {
   margin-right: 10vh;
   margin-left: 10vh;
   width: 80%;
-  text-align:right;
-  background-color: rgba(233, 196, 106, 0.6);
-  color: #444;
+  text-align: right;
   cursor: pointer;
   padding: 18px;
   border: none;
   outline: none;
   font-size: 20px;
+  color: white;
 }
 
-.question:hover {
-  background-color: green;
-}
 
 .question:after {
   content: '\002B';
@@ -478,84 +547,45 @@ input[type=submit]:hover {
 }
 
 .content {
+  margin-left: 10vh;
   margin-right: 10vh;
-  text-align:right;
+  text-align:center;
   padding: 15px;
   display: none;
-  background-color: transparent;
-  height: 3vh;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 /* Style the tab */
 .tab {
   float: left;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
   width: 20%;
-  height: 300px;
+  height: 100%;
+
+
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
   display: block;
-  background-color: inherit;
-  color: black;
+  color: white;
   padding: 22px 16px;
   width: 100%;
   border: none;
   outline: none;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
-  transition: 0.3s;
+  font-size: 20px;
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #bfd783;
+.tab button:hover , .question:hover{
+  background-color: #d2e4c4;
+
 }
 
 /* Create an active/current "tab button" class */
-.tab button.active {
-  background-color: #92aa3a;
-}
-
-/* Style the tab content */
-.tabcontent {
-  float: left;
-  padding: 0px 12px;
-  border: 1px solid #ccc;
-  width: 80%;
-  border-left: none;
-  height: 300px;
-}
-
-/* Set a style for all buttons */
-.button_QA {
-  background-color: #8c858b;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-/* Add a hover effect for buttons */
-.button_QA:hover {
-  opacity: 0.8;
-}
-
-/* all inages in this page image */
-img.qa {
-  width: 10%;
-  border-radius: 50%;
-}
-
-/* Extra styles for the cancel button */
-#exitbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
+.tab button.active{
+  background-color: #b5cbb7;
 }
 
 /* --------------Style Login*/
@@ -663,14 +693,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 /* --------------Style Shopping Cart*/
 
-.titleCart{
-      text-align: center;
-      padding-top: 0px;
-      padding-bottom: 15px;
-      font-size:45px;
-      color: #48422a;
-      font-weight: bold;
-}
+
 
 .cart-quantity {
     max-width: 40pt;
@@ -686,8 +709,8 @@ input[type=text]:focus, input[type=password]:focus {
   text-align: center;
   width: 18%;
   font-size: 35px;
-  color: #48422a;
-  background-color: #9c7c81;
+  color: white;
+  background-color: #354f52;
   border: none;
   cursor: pointer;
   align: center;
@@ -698,8 +721,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .payment button:hover {
-  background-color: #E2DAD5;
-  color: #48422a;
+  background-color: #52796f;
 }
 
 .cart-table {
@@ -711,7 +733,7 @@ table {
     border-collapse: collapse;
     border-spacing: 5px;
     width: 100%;
-    border: 1px solid #ddd;
+
 }
 tr:nth-child(even) {
     background-color: #f2f2f2

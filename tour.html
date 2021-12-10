@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
         <script src="checkForms.js"></script>
+        <script src="Qa.js"></script>
 
     </head>
 
@@ -15,22 +16,23 @@
 
 <!------- header --------->
     <header class="navbar">
-        <a href="Shv_shopPage.html"><i class="fas fa-shopping-cart"></i></a>
-        <a href="Shv_Login.html"><i class="fa fa-fw fa-user"></i></a>
-        <a href="Shv_Q&A.html"><i class="fas fa-question-circle"></i> שאלות ותשובות</a>
-        <a href="ContactUs.html"><i class="fa fa-fw fa-envelope"></i>יצירת קשר</a>
+        <a class="nav" href="Shv_shopPage.html"><i class="fas fa-shopping-cart"></i></a>
+        <a class="nav" href="Shv_Login.html"><i class="fa fa-fw fa-user"></i></a>
+        <a class="nav" href="Shv_Q&A.html"><i class="fas fa-question-circle"></i> שאלות ותשובות</a>
+        <a class="nav" href="ContactUs.html"><i class="fa fa-fw fa-envelope"></i>יצירת קשר</a>
         <a class="active" href="tour.html"><i class="fas fa-directions"></i>סיור במשק</a>
-        <a href="Shv_photoGallery.html"><i class="fas fa-images"></i>גלריית תמונות</a>
-        <a href="Recipes.html"><i class="fas fa-utensils"></i>מתכונים</a>
-        <a href="allProductsPage.html"><i class="fas fa-carrot"></i>מוצרים</a>
-        <a href="aboutUs.html"><i class="fas fa-users"></i>עלינו</a>
-        <a href="mainPage.html"><i class="fas fa-home"></i></a>
+        <a class="nav" href="Shv_photoGallery.html"><i class="fas fa-images"></i>גלריית תמונות</a>
+        <a class="nav" href="Recipes.html"><i class="fas fa-utensils"></i>מתכונים</a>
+        <a class="nav" href="allProductsPage.html"><i class="fas fa-carrot"></i>מוצרים</a>
+        <a class="nav" href="aboutUs.html"><i class="fas fa-users"></i>עלינו</a>
+        <a class="nav" href="mainPage.html"><i class="fas fa-home"></i></a>
     </header>
 
 <!------- body --------->
 
-
-<h1 class="titleTour">סיור מודרך במשק</h1>
+            <hr>
+            <h1 class="titleTour">סיור מודרך במשק</h1>
+            <hr>
            <p class="textTour1">
                מזמינים אתכם להצטרף לסיור מודרך בשטחים החקלאיים שלנו!<br>
                במהלך הסיור נלמד על עקרונות הגידול האורגני <br>
@@ -38,12 +40,39 @@
                 בסוף הסיור נכין סלטים ותבשילים מהפירות וירקות שליקטנו.<br>
 
            </p>
+    <hr>
+    <div class="grid-container">
+        <div class="grid-item">סיור קטיפה
+            <img src="pictures/picking.jpeg" alt="picking" width="260" height="160" class="picturesMain">
+            <p>
+                כל יום שישי ושלישי בין השעות 10:00-12:00<br>
+               בחודשי החורף בלבד<br>
+                מחיר - 100<br>
+            </p>
+        </div>
+        <div class="grid-item">סיור VIP
+            <img src="pictures/vip.jpeg" alt="vip" width="260" height="160" class="picturesMain">
+             <p>
+                כל יום שני ורביעי בין השעות 10:00-14:00<br>
+               כולל ארוחת צהריים בריאה ומזינה<br>
+                מחיר - 150<br>
+            </p>
+        </div>
+        <div class="grid-item">סיור בשדות
+            <img src="pictures/tour1.jpeg" alt="tour1" width="260" height="160" class="picturesMain">
+             <p>
+                כל יום ראשון וחמישי בין השעות 10:00-12:00<br>
+                מחיר - 100<br>
+            </p>
+        </div>
 
-
-<div id="gridContainer">
-    <div id="item picture tour">
-        <img src="pictures/pumpkin.jpg" alt="picture" class="tourPicture">
     </div>
+
+    <button type="button" onclick=openForm()>הירשם</button>
+
+
+<div id="gridContainer" style="display: none">
+
 
     <div id="item form tour">
         <h1 class="titleReg">טופס הרשמה לסיור</h1>
@@ -67,13 +96,14 @@
       </form>
     </div>
 </div>
+<br>
 
 
 <!------- footer --------->
     <footer>
-        <a href="https://www.facebook.com/Meshek.Shvarzman/"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.google.com/maps/place/%D7%9E%D7%A9%D7%A7+%D7%A9%D7%95%D7%95%D7%A8%D7%A6%D7%9E%D7%9F%E2%80%AD/@31.9444462,34.773705,17z/data=!4m5!3m4!1s0x1502b6ad13bd5d89:0x7f627dbb7f6dfc50!8m2!3d31.9444462!4d34.7758937"><i class="fas fa-map-marker-alt"></i></a>
-        <a href="https://www.instagram.com/meshek.shvarzman/"><i class="fab fa-instagram"></i></a>
+        <a class="nav" href="https://www.facebook.com/Meshek.Shvarzman/"><i class="fab fa-facebook"></i></a>
+        <a class="nav" href="https://www.google.com/maps/place/%D7%9E%D7%A9%D7%A7+%D7%A9%D7%95%D7%95%D7%A8%D7%A6%D7%9E%D7%9F%E2%80%AD/@31.9444462,34.773705,17z/data=!4m5!3m4!1s0x1502b6ad13bd5d89:0x7f627dbb7f6dfc50!8m2!3d31.9444462!4d34.7758937"><i class="fas fa-map-marker-alt"></i></a>
+        <a class="nav" href="https://www.instagram.com/meshek.shvarzman/"><i class="fab fa-instagram"></i></a>
     </footer>
 
 </body>

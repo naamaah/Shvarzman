@@ -1,6 +1,4 @@
-
-
-
+//QA
 function openQuestion(name) {
   var x = document.getElementById(name);
   if (x.style.display == "none") {
@@ -9,7 +7,6 @@ function openQuestion(name) {
     x.style.display = "none";
   }
 }
-
 
 function openQASub(evt, type) {
   // Declare all variables
@@ -30,6 +27,17 @@ function openQASub(evt, type) {
   document.getElementById(type).style.display = "block";
   evt.currentTarget.className += " active";
 
-
 }
+
+//tour
+
+function openForm() {
+  var x = document.getElementById('gridContainer');
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
 
