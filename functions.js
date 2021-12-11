@@ -1,24 +1,12 @@
-//main page
-/*function change() {
-var images = [];
+//mainPage
+ function moveAndClick(){
+    window.location='Recipes.html';
+    setTimeout(function(){
+    document.getElementById("defaultOpen").click();
+}, 2000);
 
-images[0] = ['pictures/bazil.jpg'];
-images[1] = ['pictures/green2.jpg'];
-var index = 0;
 
-  document.getElementById("imageMain").src = images[index];
-  if (index == 2) {
-    index = 0;
-  } else {
-    index++;
-  }
 }
-
-window.onload = function () {
-    setInterval(change, 5000);
-};*/
-
-
 
 // check forms inputs
 function checkName(id){

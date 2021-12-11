@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style.css">
+    <script src="functions.js"></script>
     <title>shvarzman</title>
 </head>
 <body>
@@ -46,8 +47,9 @@
 
     <div class="grid-container">
         <div class="grid-item">מתכון יומי
+            <p>סלט חסה חגיגי</p>
             <img src="pictures/fencySalad.jpg" alt="fency Salad" width="260" height="160" class="picturesMain">
-            <button type="button" onclick="document.location='Recipes.html'">סלט חסה חגיגי</button>
+            <button type="button" onclick=window.location='Recipes.html'>מעבר למתכונים</button>
         </div>
         <div class="grid-item">שעות פעילות
              <p>
@@ -56,10 +58,14 @@
                יום שישי- 08:00-14:00<br>
 שבת-ראשון- סגור               <br>
             </p>
+            <img src="pictures/weekly.png" alt="weekly calender" width="480" height="160" class="picturesMain">
         </div>
         <div class="grid-item">מבצעי השבוע
-            <img src="pictures/bazil.jpg" alt="greens" width="260" height="160" class="picturesMain">
-            <!--<img src="" alt="green" id="imageMain" onload="function () {setInterval(change, 5000);};">-->
+            <br><br>
+            <img src="pictures/bazil.jpg" alt="greens" width="260" height="160" class="sildes">
+            <img src="pictures/green2.jpg" alt="greens" width="260" height="160" class="sildes">
+            <img src="pictures/green3.jpg" alt="greens" width="260" height="160" class="sildes">
+            <img src="pictures/green4.jpg" alt="greens" width="260" height="160" class="sildes">
             <p>
                 כל הירקות הירוקים ב50 אחוז הנחה!<br>
             </p>
@@ -74,14 +80,25 @@
         <a class="nav" href="https://www.instagram.com/meshek.shvarzman/"><i class="fab fa-instagram"></i></a>
     </footer>
 
-<!--<script>
-    Let image = document.getElementById("imageMain");
-Let images = ['pictures/bazil.jpg', 'pictures/green2.jpg']
-setInterval(function(){
-     let random=math.floor(Math.random()*2);
-     image.src = images[random];
-},800);
-</script>-->
+<script>
+     var index = 0;
+     change();
+     function change() {
+        var x = document.getElementsByClassName('sildes');
+        for(var i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        index++;
+
+        if(index > x.length) {
+            index = 1;
+        }
+        x[index - 1].style.display = "block";
+
+        //set loop to change image every 3000 milliseconds (3 seconds)
+        setTimeout(change, 3000);
+    }
+</script>
 
 
 </body>

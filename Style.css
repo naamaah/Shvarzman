@@ -74,9 +74,16 @@ footer {
     margin-right: auto;
     margin: 0 auto;
     display: block;
-    transition: 0.3s;
+    }
 
-}
+.sildes {
+    margin-left:auto;
+    margin-right: auto;
+    margin: 0 auto;
+    display: block;
+    }
+
+
 
 .grid-container {
   display: grid;
@@ -164,7 +171,6 @@ a.nav:hover {
 }
 
 
-
 hr{
     border: 0;
     height: 1px;
@@ -173,10 +179,15 @@ hr{
 }
 
 .magazines{
-    float:none;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    color: white;
     background-color: #b5cbb7 ;
     color: white;
-    margin: 10px;
 
 }
 
@@ -738,7 +749,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 .button_login {
-  background-color: #465a5c;
+  background-color: #52796f;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
