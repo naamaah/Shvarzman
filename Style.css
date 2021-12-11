@@ -72,7 +72,9 @@ footer {
 .picturesMain{
     margin-left:auto;
     margin-right: auto;
+    margin: 0 auto;
     display: block;
+    transition: 0.3s;
 
 }
 
