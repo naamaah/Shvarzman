@@ -26,17 +26,17 @@
 
 <!--Login Part-->
 
-<form class ="form_login" action="action_page.php" onsubmit="return validateFormlogIn()" name="logInForm" method="post">
+<form class ="form_login" action="/todo"  name="logInForm" method="post">
   <div class="imgcontainer">
     <img src="pictures/Login_Avatar.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container_login">
     <label for="Email_Login"><b>כתובת מייל</b></label>
-    <input style="text-align:right" type="text" id="Email_Login" placeholder="הכנס כתובת מיל" name="Email_Login">
+    <input style="text-align:right" type="text" id="Email_Login" placeholder="הכנס כתובת מיל" name="Email_Login" onblur="checkEmail('Email_Login')">
     <label for="psw"><b>סיסמא</b></label>
-    <input style="text-align:right" type="password" id="psw" placeholder="הכנס סיסמא" name="psw">
-    <input class="button_login" type="submit" value="כניסה">
+    <input style="text-align:right" type="password" id="psw" placeholder="הכנס סיסמא" name="psw" onblur="checkPassword('psw')">
+    <button class="button_login" type="button" onclick="submitlogIn()">כניסה</button>
     <!--<label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>-->
@@ -56,7 +56,7 @@
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span>
-  <form class="modal-content" action="/action_page.php" onsubmit="return validateFormSignUp()" name="signUpForm" method="post">
+  <form class="modal-content" action="/todo" name="signUpForm" method="post">
     <div class="container_Login">
         <div class="imgcontainer">
             <img src="pictures/SignUp_Avatar.png" alt="Avatar" class="avatar">
@@ -65,11 +65,11 @@
       <p>בבקשה מלא טופס זה ליצירת חשבון משתמש</p>
       <hr>
       <label for="emailSignUp"><b>כתובת אי-מייל</b></label>
-      <input style="text-align:right" type="text" placeholder="הכנס כתובת מייל" name="emailSignUp" id="emailSignUp">
+      <input style="text-align:right" type="text" placeholder="הכנס כתובת מייל" name="emailSignUp" id="emailSignUp" onblur="checkEmail('emailSignUp')">
       <label for="psw1"><b>סיסמא</b></label>
-      <input style="text-align:right" type="password" placeholder="הכנס סיסמא" name="psw1" id="psw1">
+      <input style="text-align:right" type="password" placeholder="הכנס סיסמא" name="psw1" id="psw1" onblur="checkPassword('psw1')">
       <label for="psw-repeat1"><b>אימות סיסמא</b></label>
-      <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1">
+      <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1" onblur="checkPassword('psw-repeat1')">
 
       <!--<label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -79,7 +79,7 @@
 
       <div class="clearfix">
         <button class="button_login" type="button" onclick="document.getElementById('id01').style.display='none'" id="cancelbtn">יציאה</button>
-        <input class="button_login" type="submit" value="צור חשבון">
+          <button class="button_login" type="button" onclick="submitSignUp()">צור חשבון</button>
       </div>
     </div>
   </form>

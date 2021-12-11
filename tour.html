@@ -5,10 +5,8 @@
         <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="Style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
         <script src="functions.js"></script>
     </head>
-
 
 <body>
 
@@ -66,7 +64,7 @@
 
     </div>
 
-    <button type="button" onclick=openForm()>הירשם</button>
+    <button class=formButton type="button" onclick=openForm()>הירשם</button>
 
 
 <div id="gridContainer" style="display: none">
@@ -77,20 +75,20 @@
         <p class="textTour2">
                על מנת להירשם לסיור מלאו את הפרטים הבאים:<br>
         </p>
-        <form class="tourForm" action="action_page.php"  name="myForm" onsubmit="return validateForm()" method="post" >
+        <form class="tourForm" action="/todo"  name="myForm" method="post" >
         <label for="firstname">שם פרטי</label>
-        <input style="text-align:right" type="text" id="firstname" name="firstname">
+        <input style="text-align:right" type="text" id="firstname" name="firstname" onblur="checkName('firstname')">
         <label for="lastname">שם משפחה</label>
-        <input style="text-align:right" type="text" id="lastname" name="lastname">
+        <input style="text-align:right" type="text" id="lastname" name="lastname" onblur="checkName('lastname')">
         <label for="phonenumer">טלפון</label>
-        <input style="text-align:right" type="text" id="phonenumer" name="phonenumer">
+        <input style="text-align:right" type="text" id="phonenumer" name="phonenumer" onblur="checkPhone('phonenumer')">
         <label for="emailaddress">כתובת מייל</label>
-        <input style="text-align:right" type="text" id="emailaddress" name="emailaddress">
+        <input style="text-align:right" type="text" id="emailaddress" name="emailaddress" onblur="checkEmail('emailaddress')">
         <label for="numOfTickets">כמות כרטיסים</label>
-        <input style="text-align:right" type="number" id="numOfTickets" name="numOfTickets" min="1" max="10" required><br>
+        <input style="text-align:right" type="text" id="numOfTickets" name="numOfTickets" onblur="checkNumOfTickets('numOfTickets')"><br>
         <label for="subject">הערות</label>
         <textarea style="text-align:right" id="subject" name="subject" style="height:170px" ></textarea>
-        <input type="submit" value="שלח">
+        <button class="ConfirmationButton" type="button" onclick="submitForm()">לחץ לאישור</button>
       </form>
     </div>
 </div>

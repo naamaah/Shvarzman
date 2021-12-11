@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style.css">
-    <script src="functions.js"></script>
+    <script src="shopPage.js"></script>
     <title>Shv_shopPage</title>
 </head>
 <body>
@@ -30,55 +30,65 @@
 <!---- body ---->
 
 <!-- shopping cart -->
-<hr>
+
 <h1>סל קניות</h1>
-<hr>
 <table class="table cart-table" id="myTable">
             <tr>
                 <th>תמונה</th>
                 <th>שם המוצר</th>
-                <th>מחיר</th>
+                <th> ₪מחיר לק"ג </th>
                 <th>כמות</th>
-                <th>סה"כ</th>
                 <th> הסר פריט</th>
             </tr>
 
-            <tr id="basket1">
+            <tr>
                 <td><img src="pictures/artishok.jpg" alt="picture"></td>
                 <td>קישוא בהיר</td>
-                <td>8 ש"ח לקילו</td>
-                <td><input class="cart-quantity" type="number" id="quantity1" name="quantity1" min="0" value="2"></td>
-                <td id="total1">16 ש"ח</td>
+                <td class="price"> 8</td>
                 <td>
-                    <button class="remove-item" type="button" onclick="return remove_item('sweetRow');">X</button>
+                <input type="button" value="-" class="button-minus" data-field="quantity">
+                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="button" value="+" class="button-plus" data-field="quantity">
+                </td>
+                <td>
+                   <img src="pictures/cancel.svg" alt="delete button" class="ShopPicCart deleteButton">
                 </td>
             </tr>
-            <tr id="basket2">
+
+            <tr>
                 <td><img src="pictures/sweetPotato.jpg" alt="picture"></td>
                 <td>בטטה סגולה</td>
-                <td>10 ש"ח לקילו</td>
-                <td><input class="cart-quantity" type="number" id="quantity2" name="quantity2" min="0" value="1"></td>
-                <td id="total2">10 ש"ח</td>
+                <td class="price">10</td>
                 <td>
-                    <button class="remove-item" type="button" onclick="return remove_item('cakeRow');">X</button>
+                <input type="button" value="-" class="button-minus" data-field="quantity">
+                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="button" value="+" class="button-plus" data-field="quantity">
+                </td>
+                <td>
+                    <img src="pictures/cancel.svg" alt="delete button" class="ShopPicCart deleteButton">
                 </td>
             </tr>
-            <tr id="basket3">
+
+            <tr>
                 <td><img src="pictures/spacail%20crovit.jpg"></td>
-                <td>כרובית</td>
-                <td>10 שח לקילו</td>
-                <td><input class="cart-quantity" type="number" id="quantity3" name="quantity3" min="0" value="1"></td>
-                <td id="total3">10 ש"ח</td>
+                <td>כרובית אלמוגית</td>
+                <td class="price">10</td>
                 <td>
-                    <button class="remove-item" type="button" onclick="return remove_item('cakeRow');">X</button>
+                <input type="button" value="-" class="button-minus" data-field="quantity">
+                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="button" value="+" class="button-plus" data-field="quantity">
+                </td>
+                <td>
+                   <img src="pictures/cancel.svg" alt="delete button" class="ShopPicCart deleteButton">
                 </td>
             </tr>
 </table>
 
-<hr>
-<p class="totalPay" id="totalPriceText">totalSum()</p>
+
+<p class="total-price-text" id="totalPriceText"></p>
+<input type="hidden" name="totalPrice" id="totalPrice" value="0" />
 <div class="payment button">
-    <button class="pay button" type="submit">מעבר לתשלום</button>
+    <button class="pay button" onclick="window.location.href='Shv_paying.html'">מעבר לתשלום</button>
 </div>
 
 <br>

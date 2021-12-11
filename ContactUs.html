@@ -6,8 +6,6 @@
     <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Style.css">
     <script src="functions.js"></script>
-    <!--<link rel="stylesheet" href="contactus.css"/>
-    <link rel="stylesheet" href="header and footer.css">-->
 </head>
 <body>
 
@@ -36,22 +34,19 @@
     </div>
     <div class="row">
         <div class="column">
-            <form action="/action_page.php" name="myForm" onsubmit="return validateForm()" method="post">
+            <form action="/todo" name="myForm" method="post">
                 <label for="firstname">שם פרטי</label>
-                <input type="text" id="firstname" name="firstname">
+                <input type="text" id="firstname" name="firstname" onblur="checkName('firstname')">
                 <label for="lastname">שם משפחה</label>
-                <input type="text" id="lastname" name="lastname">
+                <input type="text" id="lastname" name="lastname" onblur="checkName('lastname')">
                 <label for="phonenumer">טלפון</label>
-                <input type="text" id="phonenumer" name="phonenumer">
+                <input type="text" id="phonenumer" name="phonenumer" onblur="checkPhone('phonenumer')">
                 <label for="emailaddress">כתובת מייל</label>
-                <input type="text" id="emailaddress" name="emailaddress">
+                <input type="text" id="emailaddress" name="emailaddress" onblur="checkEmail('emailaddress')">
                 <label for="subject">הערות</label>
                 <textarea id="subject" name="subject" style="height:170px"></textarea>
-                <a href="formApproval.html" target="_blank">
-                    <input type="submit" value="שלח">
-                </a>
+                <button type="button" onclick="submitFormContact()">לחץ לאישור</button>
             </form>
-
         </div>
         <div class="column">
             <div style="text-align:center">

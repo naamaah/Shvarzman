@@ -694,11 +694,37 @@ input[type=text]:focus, input[type=password]:focus {
 /* --------------Style Shopping Cart*/
 
 
+.quantity-field {
+  max-width: 40pt;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
 
-.cart-quantity {
-    max-width: 40pt;
-    font-size: 25px;
-    color: #48422a;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.btn-group .button-minus,
+.btn-group .button-plus {
+  font-weight: bold;
+  background-color: rgb(250, 237, 203);
+  height: 3vh;
+  padding: 0;
+  width: 3vh;
+  right: -14vh;
+  position: relative;
+  outline: none;
 }
 
 .cart-table img {
@@ -747,4 +773,42 @@ th {
 td {
     font-size: 25px;
     color: #48422a;
+}
+
+.total-price-text{
+    text-align: center;
+    font-size: 27px;
+
+}
+
+/* --------------paying page*/
+
+.payment {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    grid-gap: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+.approvePayButton {
+  text-align: center;
+  float: none;
+  max-width: 150px;
+  font-size: 50px;
+  color: white;
+  background-color: #354f52;
+  border: none;
+  cursor: pointer;
+  align: center;
+}
+
+.buttonPay {
+    text-align: center;
+      background-color: #354f52;
+}
+
+buttonPay:hover {
+      background-color: #354f52;
 }

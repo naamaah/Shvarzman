@@ -1,77 +1,183 @@
 
-// check tour and contact us forms
-function validateForm() {
-    var x = document.forms["myForm"]["firstname"].value;
-    var y = document.forms["myForm"]["lastname"].value;
-    var z = document.forms["myForm"]["phonenumer"].value;
-    var k = document.forms["myForm"]["emailaddress"].value;
-    if (x == "" || y == "") {
-        alert("Full name must be filled out");
-        fname.focus();
-        lname.focus();
-        return false;
+// check forms inputs
+function checkName(id){
+  var name=document.getElementById(id).value;
+  if (name.length<=1){
+    alert("שם חייב להכיל לפחות 2 אותיות");
+    document.getElementById(id).value="";
+  }
+}
+
+function checkID (id){
+  var idNumber=document.getElementById(id).value;
+  var checkIdNumber=onlyNumbers(idNumber);
+  if (checkIdNumber.length!=9) {
+    alert("תעודת זהות צריכה להכיל בדיוק 9 ספרות");
+    document.getElementById(id).value="";
+  }
+  else{
+    document.getElementById(id).value=checkIdNumber;
+  }
+}
+
+function checkCreditNum(id){
+  var creditNum=document.getElementById(id).value;
+  var checkCreditNum=onlyNumbers(creditNum);
+  if (checkCreditNum.length<9 || checkCreditNum.length>16){
+    alert("מספר הספרות של כרטיס האשראי נדרש להיות בין 9-16 ספרות");
+    document.getElementById(id).value="";
+  }
+  else{
+    document.getElementById(id).value=checkCreditNum;
+  }
+}
+
+function checkCVV (id){
+  var cvv=document.getElementById(id).value;
+  var checkCvv=onlyNumbers(cvv);
+  if (checkCvv.length!=3){
+    alert("נדרש להכיל 3 ספרות בדיוק");
+    document.getElementById(id).value="";
+  }
+  else{
+    document.getElementById(id).value=checkCvv;
+  }
+}
+
+function checkEmail (id){
+  var email=document.getElementById(id).value;
+  var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+  if (!email.match(mailformat)){
+        alert("כתובת דואר אלקטרוני שהוזנה לא תקינה");
+        document.getElementById(id).value="";
+  }
+}
+
+function checkPhone (id){
+  var phone=document.getElementById(id).value;
+  var checkPhone=onlyNumbers(phone);
+  var phoneFormat = /^\d{10}$/;
+    if (!checkPhone.match(phoneFormat)) {
+         alert("מספר הטלפון שהוזן אינו תקין");
+    document.getElementById(id).value="";
+  }
+  else{
+    document.getElementById(id).value=checkPhone;
+  }
+}
+
+function checkNumOfTickets(id){
+  var numOfTickets=document.getElementById(id).value;
+  if (numOfTickets<=0 || numOfTickets>10){
+    alert("ניתן לרכוש באתר בין 1-10 כרטיסים, במידה ואתם קבוצה גדולה יותר צרו איתנו קשר");
+    document.getElementById(id).value="";
+  }
+}
+
+function checkPassword(id){
+  var password=document.getElementById(id).value;
+  if (password.length<6){
+    alert("סיסמא צריכה לכלול לפחות 6 תווים");
+    document.getElementById(id).value="";
+  }
+}
+
+function onlyNumbers(num){
+  var ans="";
+  var i;
+  for (i = 0; i < num.length; i++) {
+    var digit = num[i];
+    if (digit=='0' || digit=='1' || digit=='2' || digit=='3' || digit=='4' || digit=='5' || digit=='6' || digit=='7' || digit=='8' || digit=='9'){
+      ans += num[i];
     }
-    var phoneFormat = /^\d{10}$/;
-    if (!z.match(phoneFormat)) {
-        alert("You have entered an invalid phone number!");
-        phone.focus();
-        return false;
-    }
-    var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
-    if (!k.match(mailformat)){
-        alert("You have entered an invalid email address!");
-        email.focus();
-        return false;
-    }
-    alert("The form was successfully received");
-    return true;
+  }
+  return ans;
 }
 
 
-// check sign-in form
-function validateFormlogIn() {
-          var x = document.forms["logInForm"]["Email_Login"].value;
-          var y = document.forms["logInForm"]["psw"].value;
-          var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-          if (!x.match(mailformat)) {
-              alert("You have entered an invalid email address!");
-              Email_Login.focus();
-              return false;
-          }
-          if (y.length < 6) {
-              alert("Password must include at least 6 chars!");
-              psw.focus();
-              return false;
-          }
-          alert("Login successfully (:");
-          return true;
+function submitPayment() {
+  if (checkallInput()){
+    alert("התשלום בוצע בהצלחה, אישור התשלום נשלח למייל. הינך מועבר/ת לעמוד הבית");
+    window.location="mainPage.html";
+  }
+  else{
+    alert("לא ניתן לבצע תשלום מכיוון שלא כל השדות מולאו באופן תקין");
+  }
 }
 
-// check sign-up form
-function validateFormSignUp() {
-          var x = document.forms["signUpForm"]["emailSignUp"].value;
-          var y = document.forms["signUpForm"]["psw1"].value;
-          var z = document.forms["signUpForm"]["psw-repeat1"].value;
-          var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-          if (!x.match(mailformat)) {
-              alert("You have entered an invalid email address!");
-              emailSignUp.focus();
-              return false;
-          }
-          if (y.length < 6) {
-              alert("Password must include at least 6 chars!");
-              psw.focus();
-              return false;
-          }
-          if (z!=y){
-              alert("Passwords are not the same");
-              psw1.focus();
-              psw-repeat1.focus();
-              return false;
-          }
-          alert("Sign up successfully (:");
-          return true;
+function checkallInput(){
+  if(document.getElementById('visa').checked || document.getElementById('mastercard').checked){
+    if (document.getElementById('creditCardNum').value.length==0 || document.getElementById('creditCardCVVInput').value.length==0){
+      return false;
+    }
+  }
+  else if (!document.getElementById('cash').checked){
+    return false;
+  }
+  if (document.getElementById('firstName').value.length==0 ||
+      document.getElementById('lastName').value.length==0 ||
+      document.getElementById('id').value.length==0) {
+        return false;
+      }
+  return true;
 }
+
+
+function submitForm() {
+         if (document.getElementById('firstname').value.length==0 ||
+             document.getElementById('lastname').value.length==0 ||
+             document.getElementById('phonenumer').value.length==0 ||
+             document.getElementById('emailaddress').value.length==0 ||
+             document.getElementById('numOfTickets').value.length==0)  {
+              alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
+             }
+         else {
+              alert("הטופס נשלח בהצלחה. הינך מועבר/ת לעמוד הבית");
+              window.location="mainPage.html";
+           }
+}
+
+
+function submitFormContact() {
+         if (document.getElementById('firstname').value.length==0 ||
+             document.getElementById('lastname').value.length==0 ||
+             document.getElementById('phonenumer').value.length==0 ||
+             document.getElementById('emailaddress').value.length==0){
+              alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
+               }
+         else {
+                 alert("הטופס נשלח בהצלחה. הינך מועבר/ת לעמוד הבית");
+                 window.location="mainPage.html";
+          }
+}
+
+
+function submitlogIn(){
+     if (document.getElementById('Email_Login').value.length==0 ||
+      document.getElementById('psw').value.length==0){
+       alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
+      }
+     else {
+         alert("כניסתך למערכת בוצעה בהצלחה. הינך מועבר/ת לעמוד הבית");
+         window.location="mainPage.html";
+     }
+}
+
+function submitSignUp(){
+     if (document.getElementById('emailSignUp').value.length==0 ||
+      document.getElementById('psw1').value.length==0 ||
+          document.getElementById('psw-repeat1').value.length==0){
+       alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
+      }
+     else if (document.getElementById('psw1').value != document.getElementById('psw-repeat1').value) {
+        alert("הסיסמאות שהוזנו אינן זהות זו לזו");
+     }
+     else {
+         alert("נרשמת בהצלחה למערכת. הינך מועבר/ת לעמוד הבית");
+         window.location="mainPage.html";
+     }
+}
+
 
 // log in page
 // Get the modal
@@ -84,31 +190,6 @@ window.onclick = function(event) {
   }
 }
 
-
-// tour
-/*var imgs = ["pictures/pumpkin.jpg","pictures/sweetPotato.jpg"];
-var i=0;
-function stopMotion () {
-    setTimeOut(()=>{
-                document.getElementById("img").src= imgs[i];
-                i++;
-                if (i < imgs.length) {
-                    stopMotion ();
-                }
-                else {
-                    i=0;
-                }
-},500);
-}
-
-if (formType == "tour") {
-        const inpObj = document.getElementById("numOfTickets");
-        if (!inpObj.checkValidity()) {
-            alert("number of tickects must have between 0 to 10");
-            return false;
-        }
-
-*/
 
 // QA
 function openQuestion(name) {
@@ -152,6 +233,7 @@ function openForm() {
 }
 
 
+
 // photo gallery
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -183,3 +265,5 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
+
+
