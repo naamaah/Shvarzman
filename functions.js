@@ -266,4 +266,10 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
 
+// recipes
 
+  $(document).ready(function(){
+   $(".more.btn").on('click', function(){
+    $(this).parent().parent().find(".more-text").toggleClass("active");
+   });
+  });
