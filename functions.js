@@ -1,3 +1,12 @@
+//mainPage
+ function moveAndClick(){
+    window.location='Recipes.html';
+    setTimeout(function(){
+    document.getElementById("defaultOpen").click();
+}, 2000);
+
+
+}
 
 // check forms inputs
 function checkName(id){
@@ -266,4 +275,10 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
 
+// recipes
 
+  $(document).ready(function(){
+   $(".more.btn").on('click', function(){
+    $(this).parent().parent().find(".more-text").toggleClass("active");
+   });
+  });

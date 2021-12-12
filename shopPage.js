@@ -74,3 +74,22 @@ function updateTotalPrice() {
   document.querySelector('#totalPrice').value =sum;
   document.querySelector('#totalPriceText').textContent ="₪ " + sum +  " סך הכל לתשלום ";
 }
+
+function submitCart() {
+const quantities = document.querySelectorAll('.quantity-field');
+let isItem = false;
+ for (let j = 0; j < quantities.length; j++) {
+    if (quantities[j].value!=0) {
+        isItem = true;
+    }
+}
+
+if (isItem == false)  {
+      alert("לא ניתן לעבור לתשלום מכיוון שאין פריטים בסל קניות");
+}
+else {
+    window.location="Shv_paying.html";
+}
+}
+
+

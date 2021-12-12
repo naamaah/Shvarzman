@@ -30,8 +30,9 @@
 <!---- body ---->
 
 <!-- shopping cart -->
-
+<hr>
 <h1>סל קניות</h1>
+<hr>
 <table class="table cart-table" id="myTable">
             <tr>
                 <th>תמונה</th>
@@ -87,9 +88,7 @@
 
 <p class="total-price-text" id="totalPriceText"></p>
 <input type="hidden" name="totalPrice" id="totalPrice" value="0" />
-<div class="payment button">
-    <button class="pay button" onclick="window.location.href='Shv_paying.html'">מעבר לתשלום</button>
-</div>
+<button class="paymentButton" onclick=submitCart()>מעבר לתשלום</button>
 
 <br>
 <br>

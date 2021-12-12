@@ -72,9 +72,18 @@ footer {
 .picturesMain{
     margin-left:auto;
     margin-right: auto;
+    margin: 0 auto;
     display: block;
+    }
 
-}
+.sildes {
+    margin-left:auto;
+    margin-right: auto;
+    margin: 0 auto;
+    display: block;
+    }
+
+
 
 .grid-container {
   display: grid;
@@ -162,7 +171,6 @@ a.nav:hover {
 }
 
 
-
 hr{
     border: 0;
     height: 1px;
@@ -171,10 +179,15 @@ hr{
 }
 
 .magazines{
-    float:none;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    color: white;
     background-color: #b5cbb7 ;
     color: white;
-    margin: 10px;
 
 }
 
@@ -191,7 +204,7 @@ hr{
 }
 
 .product-container > div {
-  background-color: rgba(211,224,212, 0.8);
+      background-color: rgba(211,224,212, 0.8);
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
@@ -242,11 +255,122 @@ src: url(AmaticSC-Bold.ttf);
   border: solid;
 }
 
+.recipe-content {
+
+  text-align:center;
+  padding: 15px;
+  display: none;
+  font-size: 20px;
+}
+
+
+.question-btn {
+  margin-right: 10vh;
+  margin-left: 10vh;
+  width: 100px;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  color: white;
+}
+
+.recipe-img: {
+  height: 100%;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  width: 400px;
+  padding-bottom: 50px;
+  background-color: #fff;
+  box-shadow: 0 21px 35px rgb(0 0 0 / 0.10);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.card .text {
+  padding: 15px;
+}
+
+.card p{
+  font-size:16px;
+  line-height: 30px;
+}
+
+.card h2{
+ font-size: 32px;
+ margin-bottom: 20px;
+}
+
+.card .more-btn {
+ width:100px;
+ height:100px;
+ background-color:#ea7f04;
+ border-radius: 50%;
+ position: absolute;
+ bottom: -60px;
+ left: 0;
+ right: 0;
+ margin: 0 auto;
+ text-align:center;
+ line-height: 60px;
+ font-size: 20px;
+ transition: all ease 0.5s;
+}
+
+.card .more-btn:hover{
+ background-color: #f7f7f7;
+ color: #ea7f04;
+}
+
+.more-text{
+ position: absolute;
+ bottom: -100%;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: #ff8800;
+ padding: 30px;
+ overflow-y: auto;
+ transition: all ease 0.7s;
+}
+
+.more-text::-webkit-scrollbar{
+ width: 7px;
+ background-color: #b3b3b3;
+
+}
+
+.more-text::-webkit-scrollbar-thumb{
+ background-color: #c76d06;
+}
+.more-text h2{
+ color: #fff;
+}
+.more-text p{
+ color: #fff;
+ font-size: 18px;
+ line-height: 30px
+ font-weight: 500;
+}
+.more-text.active{
+ bottom: 0;
+}
+
 .recipe-image:hover {
   transition: transform 0.9s;
   transform: scale(1.25);
 }
-
 
 h4 {
   font-weight: 500;
@@ -394,7 +518,6 @@ h5 {
     'picture picture picture form'
     'picture picture picture form';
      border-radius: 5px;
-     background-color: #f2f2f2;
      text-align: right;
     align: center;
 
@@ -508,8 +631,19 @@ input[type=submit]:hover {
 }
 
 .product-image {
-  position: relative;
+    position: relative;
+
 }
+
+
+#mapBox{
+    border-color: rgba(0, 0, 0, .15);
+    border-width: 0.5vh;
+    border-radius: 5%;
+    width: 100%;
+    height:55vh;
+}
+
 
 
 /* --------------QA */
@@ -609,13 +743,13 @@ input[type=text], input[type=password] {
 }
 /* Set a style for signUp button*/
 #button_signUp {
-  background-color: #f44336;
+  background-color: #f56156;
 }
 
 
 /* Set a style for all buttons */
 .button_login {
-  background-color: #04AA6D;
+  background-color: #52796f;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -655,7 +789,7 @@ input[type=text]:focus, input[type=password]:focus {
 /* Extra styles for the cancel button */
 #cancelbtn {
   padding: 14px 20px;
-  background-color: #f44336;
+  background-color: #f56156;
 }
 
 /* The Modal (background) */
@@ -703,6 +837,7 @@ input[type=text]:focus, input[type=password]:focus {
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
+  background-color: #f2f2f2;
 }
 
 input::-webkit-outer-spin-button,
@@ -715,23 +850,27 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.btn-group .button-minus,
-.btn-group .button-plus {
+.button-minus,
+.button-plus {
   font-weight: bold;
-  background-color: rgb(250, 237, 203);
+  font-size: 25px;
   height: 3vh;
   padding: 0;
   width: 3vh;
-  right: -14vh;
   position: relative;
-  outline: none;
+  background-color: transparent;
+  border: transparent;
+
+
 }
 
 .cart-table img {
     max-width: 120px;
 }
 
-.payment button {
+
+
+.paymentButton {
   text-align: center;
   width: 18%;
   font-size: 35px;
@@ -739,14 +878,9 @@ input[type=number] {
   background-color: #354f52;
   border: none;
   cursor: pointer;
-  align: center;
 }
 
-.pay button{
-  text-align: center;
-}
-
-.payment button:hover {
+.paymentButton:hover {
   background-color: #52796f;
 }
 
@@ -762,7 +896,7 @@ table {
 
 }
 tr:nth-child(even) {
-    background-color: #f2f2f2
+    background-color: rgba(211,224,212, 0.8);
 }
 
 th {
@@ -771,6 +905,7 @@ th {
 }
 
 td {
+    text-align: center;
     font-size: 25px;
     color: #48422a;
 }
@@ -792,21 +927,9 @@ td {
     font-size: 20px;
 }
 
-.approvePayButton {
-  text-align: center;
-  float: none;
-  max-width: 150px;
-  font-size: 50px;
-  color: white;
-  background-color: #354f52;
-  border: none;
-  cursor: pointer;
-  align: center;
-}
 
 .buttonPay {
-    text-align: center;
-      background-color: #354f52;
+    background-color: #354f52;
 }
 
 buttonPay:hover {
