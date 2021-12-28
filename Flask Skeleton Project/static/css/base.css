@@ -1,5 +1,5 @@
 @import "variables.css";
-
+/*
 * { box-sizing: border-box; }
 
 body {
@@ -17,4 +17,99 @@ a[href]:visited {
 
 a[href]:active {
     color: var(--active-link-color);
+}*/
+
+
+/* --------------Style for General Design */
+
+body {
+  background-image: url("../../../static/media/floor-tile.png");
+
+}
+
+* {
+  font-family: Calibri, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+h1{
+
+    text-align: center;
+    padding: 5px;
+    font-size:50px;
+    font-weight: bold;
+}
+
+h2{
+    text-align:center;
+}
+
+
+p{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+button {
+  background-color: #52796f;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  color: white;
+}
+
+button:hover {
+    background-color: #84a98c;
+}
+
+/* --------------footer and header*/
+a.nav {
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+a.nav:hover {
+  background-color: #000;
+}
+
+footer {
+    background-color: #555;
+    display:flex;
+    justify-content: center;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+  text-align: center;
+  display:flex;
+  justify-content: center;
+
+}
+
+
+/* Current/active navbar link */
+.active {
+  background-color: #b5cbb7;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+    .button-37 {
+    padding: 10px 30px;
+  }
 }

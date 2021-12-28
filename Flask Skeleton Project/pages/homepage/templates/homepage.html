@@ -3,6 +3,74 @@
 
 {% set page_head_title = 'Homepage' %}
 
-{% block page_body_content %}
-    Welcome!!
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{url_for('homepage.static', filename='css/homepage.css')}}"/>
+{% endblock %}
+
+{% block page_body_main %}
+    <hr>
+        <h1>ברוכים הבאים למשק שוורצמן </h1>
+    <hr>
+    <div class="pic">
+        <img src="../../../static/media/logoWithoutBackgroung.png" alt="Shvarzman Logo" class="picturesMain">
+    </div>
+
+
+    <div class="video">
+        <br>
+        <br>
+        <iframe width="600" height="400"
+                src="https://www.youtube.com/embed/o_--WnRCi3w">
+        </iframe><br><br><br><br>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item">מתכון יומי
+            <p>סלט חסה חגיגי</p>
+            <img src="../../../static/media/fencySalad.jpg" alt="fency Salad" width="260" height="160" class="picturesMain">
+            <button type="button" onclick=window.location='Recipes.html'>מעבר למתכונים</button>
+        </div>
+        <div class="grid-item">שעות פעילות
+            <p>
+                יום שני- 11:00-17:30<br>
+                ימים שלישי עד חמישי- 08:00-17:30<br>
+                יום שישי- 08:00-14:00<br>
+                שבת-ראשון- סגור <br>
+            </p>
+            <img src="../../../static/media/weekly.png" alt="weekly calender" width="480" height="160" class="picturesMain">
+        </div>
+        <div class="grid-item">מבצעי השבוע
+            <br><br>
+            <img src="../../../static/media/bazil.jpg" alt="greens" width="260" height="160" class="sildes">
+            <img src="../../../static/media/green2.jpg" alt="greens" width="260" height="160" class="sildes">
+            <img src="../../../static/media/green3.jpg" alt="greens" width="260" height="160" class="sildes">
+            <img src="../../../static/media/green4.jpg" alt="greens" width="260" height="160" class="sildes">
+            <p>
+                !כל הירקות הירוקים ב50 אחוז הנחה<br>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        var index = 0;
+        change();
+
+        function change() {
+            var x = document.getElementsByClassName('sildes');
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            index++;
+
+            if (index > x.length) {
+                index = 1;
+            }
+            x[index - 1].style.display = "block";
+
+            //set loop to change image every 3000 milliseconds (3 seconds)
+            setTimeout(change, 3000);
+        }
+    </script>
+
 {% endblock %}

@@ -6,13 +6,79 @@
     <link rel="stylesheet" href="{{ url_for('Q_and_A.static', filename='css/Q_and_A.css') }}"/>
 {% endblock %}
 
-{% block page_body_content %}
-    <h1>Q_and_A</h1>
-    <p>This is an example Q_and_A page</p>
+{% block page_body_main %}
+    <hr>
+    <h1>עמוד שאלות ותשובות</h1>
+<hr>
+    <div class="QA" dir="rtl">
+        <div class="tab">
+            <button class="tablinks" onclick="openQASub(event, 'generalQA')" id="defaultOpen">שאלות נפוצות</button>
+            <button class="tablinks" onclick="openQASub(event, 'orderQA')">שאלות בנושא הזמנות</button>
+            <button class="tablinks" onclick="openQASub(event, 'TourQA')">שאלות בנושא סיורים</button>
+            <img src="../../../static/media/QA.png" alt="QA" width="40%" height="60%" class="QApic">
+        </div>
+
+        <div id="generalQA" class="tabcontent">
+            <h2>שאלות נפוצות</h2>
+            <button class="question" onclick="openQuestion('content1')">אילו אישורי אורגנים יש לכם?</button>
+            <div class="content" id="content1" style="display: none">אגריאור ורשות לחקלאות</div>
+            <br><br>
+            <button class="question" onclick="openQuestion('content2')">האם אתם כשרים?</button>
+            <div class="content" id="content2" style="display: none">משק שוורצמן כשר לחלוטין!</div>
+            <br><br>
+            <button class="question" onclick="openQuestion('content3')"> במידה ואני מגיע טיפה אחרי שעות הפתיחה, תקבלו
+                אותי ?
+            </button>
+            <div class="content" id="content3" style="display: none">במידה ותתקשר, נעשה כמה שיותר בשביל לעזור לך ולהישאר
+                פתוחים
+            </div>
+            <br><br>
+        </div>
+
+        <div id="orderQA" class="tabcontent">
+            <h2>שאלות בנושא הזמנות</h2>
+            <button class="question" onclick="openQuestion('content4')"> כמה זמן אני אצטרך לחכות למשלוח ?</button>
+            <div class="content" id="content4" style="display: none">במידה וכל המוצרים שהזמנתם במלאי, המשלוח יגיע בין
+                3-5 שעות מרגע ההזמנה
+            </div>
+            <br><br>
+            <button class="question" onclick="openQuestion('content5')"> המשלוח עולה כסף?</button>
+            <div class="content" id="content5" style="display: none">במשק שוורצמן אתם יכולים לקבל משלוח חינם בהזמנה מעל
+                50 שח !
+            </div>
+            <br><br>
+            <button class="question" onclick="openQuestion('content6')">יש צורך להביא טיפ לשליח?</button>
+            <div class="content" id="content6" style="display: none">במשק שוורצמן אנחנו דואגים לשליחים שלנו, אתם לא
+                חייבים לתת טיפ
+            </div>
+            <br><br>
+        </div>
+        <div id="TourQA" class="tabcontent">
+            <h2>שאלות בנושא הזמנות</h2>
+            <button class="question" onclick="openQuestion('content7')"> בעונות החורף יש סיור?</button>
+            <div class="content" id="content7" style="display: none">בטח שכן! התקופה הכי טובה לראות את השטחים החקלאים
+            </div>
+            <br><br>
+            <button class="question" onclick="openQuestion('content8')"> יש אפשרות לארגן סיורי מותאם אישי?</button>
+            <div class="content" id="content8" style="display: none">כמובן, אנחנו פה בשבילכם, מוזמנים ליצור קשר ואנחנו
+                נתאם סיור בהתאם לגודל הקבוצה והרצונות שלכם
+            </div>
+            <br><br>
+            <button class="question" onclick="openQuestion('content9')">יש אוכל בסיור?</button>
+            <div class="content" id="content9" style="display: none">בהחלט, במהלך הסיור תקבלו טעימות של הפירות וירקות
+                שלנו, ובסוף נעשה ארוחה בריאה וטעימה
+            </div>
+            <br><br>
+        </div>
+    </div>
+
+    <h2> :) במידה ויש שאלות נוספות מוזמנים ליצור איתנו קשר</h2>
+
 {% endblock %}
 
 {% block page_body_footer %}{% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('Q_and_A.static', filename='js/Q_and_A.js') }}"></script>
+    <script> document.getElementById("defaultOpen").click(); </script>
 {% endblock %}
