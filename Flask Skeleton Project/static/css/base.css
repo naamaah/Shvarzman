@@ -23,8 +23,7 @@ a[href]:active {
 /* --------------Style for General Design */
 
 body {
-  background-image: url("../../../static/media/floor-tile.png");
-
+  background-image: url("/../../static/media/img/floor-tile.png");
 }
 
 * {
@@ -33,7 +32,6 @@ body {
 }
 
 h1{
-
     text-align: center;
     padding: 5px;
     font-size:50px;

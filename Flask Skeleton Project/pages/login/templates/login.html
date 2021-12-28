@@ -7,8 +7,71 @@
 {% endblock %}
 
 {% block page_body_main %}
-    <h1>login</h1>
-    <p>This is an example login page</p>
+
+
+<!--Login Part-->
+
+<form class ="form_login" action="/todo"  name="logInForm" method="post">
+  <div class="imgcontainer">
+    <img src="/static/media/img/Login_Avatar.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container_login">
+    <label for="Email_Login"><b>כתובת מייל</b></label>
+    <input style="text-align:right" type="text" id="Email_Login" placeholder="הכנס כתובת מיל" name="Email_Login" onblur="checkEmail('Email_Login')">
+    <label for="psw"><b>סיסמא</b></label>
+    <input style="text-align:right" type="password" id="psw" placeholder="הכנס סיסמא" name="psw" onblur="checkPassword('psw')">
+    <button class="button_login" type="button" onclick="submitlogIn()">כניסה</button>
+    <!--<label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>-->
+  </div>
+
+  <!--<div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>-->
+</form>
+
+<!--Sign Up Part-->
+
+<!-- Button to open the modal -->
+<button class="button_login" id="button_signUp" onclick="document.getElementById('id01').style.display='block'">עדיין אין משתמש קיים? התחבר</button>
+
+<!-- The Modal (contains the Sign Up form) -->
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span>
+  <form class="modal-content" action="/todo" name="signUpForm" method="post">
+    <div class="container_Login">
+        <div class="imgcontainer">
+            <img src="/static/media/img/SignUp_Avatar.png" alt="Avatar" class="avatar">
+        </div>
+      <h1>Sign Up</h1>
+      <p>בבקשה מלא טופס זה ליצירת חשבון משתמש</p>
+      <hr>
+      <label for="emailSignUp"><b>כתובת אי-מייל</b></label>
+      <input style="text-align:right" type="text" placeholder="הכנס כתובת מייל" name="emailSignUp" id="emailSignUp" onblur="checkEmail('emailSignUp')">
+      <label for="psw1"><b>סיסמא</b></label>
+      <input style="text-align:right" type="password" placeholder="הכנס סיסמא" name="psw1" id="psw1" onblur="checkPassword('psw1')">
+      <label for="psw-repeat1"><b>אימות סיסמא</b></label>
+      <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1" onblur="checkPassword('psw-repeat1')">
+
+      <!--<label>
+        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+      </label>-->
+
+      <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
+
+      <div class="clearfix">
+        <button class="button_login" type="button" onclick="document.getElementById('id01').style.display='none'" id="cancelbtn">יציאה</button>
+          <button class="button_login" type="button" onclick="submitSignUp()">צור חשבון</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
 {% endblock %}
 
 {% block page_body_footer %}{% endblock %}

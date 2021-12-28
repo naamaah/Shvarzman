@@ -73,9 +73,3 @@ from components.header.header import header
 app.register_blueprint(header)
 """
 
-
-
-
-
-
-
