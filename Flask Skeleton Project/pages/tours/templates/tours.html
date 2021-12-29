@@ -2,17 +2,82 @@
 
 {% set page_head_title = 'tours' %}
 
-{% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('tours.static', filename='css/tours.css') }}"/>
-{% endblock %}
+{#{% block page_head_css %}#}
+{#    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>#}
+{#{% endblock %}#}
 
 {% block page_body_main %}
-    <h1>tours</h1>
-    <p>This is an example tours page</p>
+
+    <hr>
+    <h1 class="titleTour">סיור מודרך במשק</h1>
+    <hr>
+    <p class="textTour1">
+        מזמינים אתכם להצטרף לסיור מודרך בשטחים החקלאיים שלנו!<br>
+        במהלך הסיור נלמד על עקרונות הגידול האורגני <br>
+        ונקטוף פירות וירקות טריים ישר מהאדמה. <br>
+        בסוף הסיור נכין סלטים ותבשילים מהפירות וירקות שליקטנו.<br>
+    </p>
+    <hr>
+    <div class="grid-container">
+        <div class="grid-item">סיור קטיפה
+            <img src="/static/media/img/picking.jpeg" alt="picking" width="260" height="160" class="picturesMain">
+            <p>
+                כל יום שישי ושלישי בין השעות 10:00-12:00<br>
+                בחודשי החורף בלבד<br>
+                מחיר - 100<br>
+            </p>
+        </div>
+        <div class="grid-item">VIP סיור
+            <img src="/static/media/img/vip.jpeg" alt="vip" width="260" height="160" class="picturesMain">
+            <p>
+                כל יום שני ורביעי בין השעות 10:00-14:00<br>
+                כולל ארוחת צהריים בריאה ומזינה<br>
+                מחיר - 150<br>
+            </p>
+        </div>
+        <div class="grid-item">סיור בשדות
+            <img src="/static/media/img/tour1.jpeg" alt="tour1" width="260" height="160" class="picturesMain">
+            <p>
+                כל יום ראשון וחמישי בין השעות 10:00-12:00<br>
+                מחיר - 100<br>
+            </p>
+        </div>
+    </div>
+    <button class=formButton type="button" onclick=openForm()>הירשם</button>
+    <div id="gridContainer" style="display: none">
+        <div id="item form tour">
+            <h1 class="titleReg">טופס הרשמה לסיור</h1>
+            <p class="textTour2">
+                על מנת להירשם לסיור מלאו את הפרטים הבאים:<br>
+            </p>
+            <form class="tourForm" action="/todo" name="myForm" method="post">
+                <label for="firstname">שם פרטי</label>
+                <input style="text-align:right" type="text" id="firstname" name="firstname"
+                       onblur="checkName('firstname')">
+                <label for="lastname">שם משפחה</label>
+                <input style="text-align:right" type="text" id="lastname" name="lastname"
+                       onblur="checkName('lastname')">
+                <label for="phonenumer">טלפון</label>
+                <input style="text-align:right" type="text" id="phonenumer" name="phonenumer"
+                       onblur="checkPhone('phonenumer')">
+                <label for="emailaddress">כתובת מייל</label>
+                <input style="text-align:right" type="text" id="emailaddress" name="emailaddress"
+                       onblur="checkEmail('emailaddress')">
+                <label for="numOfTickets">כמות כרטיסים</label>
+                <input style="text-align:right" type="text" id="numOfTickets" name="numOfTickets"
+                       onblur="checkNumOfTickets('numOfTickets')"><br>
+                <label for="subject">הערות</label>
+                <textarea style="text-align:right" id="subject" name="subject" style="height:170px"></textarea>
+                <button class="ConfirmationButton" type="button" onclick="submitForm()">לחץ לאישור</button>
+            </form>
+        </div>
+    </div>
+    <br>
 {% endblock %}
 
-{% block page_body_footer %}{% endblock %}
+
+
 
 {% block page_body_js %}
-    <script src="{{ url_for('tours.static', filename='js/tours.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
 {% endblock %}

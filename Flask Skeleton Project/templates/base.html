@@ -27,8 +27,8 @@ Base page blocks:
 -- page_body_js
  #}
 <!DOCTYPE html>
- <html lang="{{ page_lang|default("en", true) }}">
-    <head>
+<html lang="{{ page_lang|default("en", true) }}">
+<head>
     {% block page_head %}
         {# Title #}
         <title>{{ page_head_title|default('Shvarzman', true) }}</title>
@@ -39,7 +39,8 @@ Base page blocks:
             <meta charset="UTF-8"/>
             <meta name="author" content="Shvarzman"/>
             <meta name="description" content="Flask skeleton project as a base to start developing on"/>
-            <meta name="keywords" content="flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education"/>
+            <meta name="keywords"
+                  content="flask, lean, skeleton, project, structure, environment, setup, template, fullstack, web, development, app, university, education"/>
             {% block page_head_meta_extra %}{% endblock %}
         {% endblock %}
 
@@ -55,37 +56,39 @@ Base page blocks:
         {% block page_head_css %}{% endblock %}
     {% endblock %}
 
-    </head>
-    <body>
-        {% block page_body_content %}
+</head>
+<body>
+{% block page_body_content %}
 
-            {# Header #}
-            {% block page_body_header %}
-                <header class="page-header">
-                </header>
+    {# Header #}
+    {% block page_body_header %}
+        <header class="page-header">
+            {% include('header.html') %}
+        </header>
+    {% endblock %}
+
+
+    {# Main #}
+    {% block page_body_main %}
+        <main class="page-main">
+            {% block page_body_main_content %}
             {% endblock %}
+        </main>
+    {% endblock %}
 
-
-            {# Main #}
-            {% block page_body_main %}
-                <main class="page-main">
-                  {% block page_body_main_content %}
-                  {% endblock %}
-                </main>
+    {# Footer #}
+    {% block page_body_footer %}
+        <footer class="page-footer">
+        {% include('footer.html') %}
+            {% block page_body_footer_content %}
             {% endblock %}
+        </footer>
+    {% endblock %}
 
-            {# Footer #}
-            {% block page_body_footer %}
-                <footer class="page-footer">
-                  {% block page_body_footer_content %}
-                  {% endblock %}
-                </footer>
-            {% endblock %}
+{% endblock %}
 
-        {% endblock %}
-
-        {# JS #}
-        <script src="{{ url_for('static', filename='js/base.js') }}"></script>
-        {% block page_body_js %}{% endblock %}
-    </body>
+{# JS #}
+<script src="{{ url_for('static', filename='js/base.js') }}"></script>
+{% block page_body_js %}{% endblock %}
+</body>
 </html>

@@ -3,15 +3,73 @@
 {% set page_head_title = 'aboutUs' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('aboutUs.static', filename='css/aboutUs.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
 {% endblock %}
 
 {% block page_body_main %}
-    <h1>about us</h1>
-    <p>This is an example aboutUs us page</p>
+    <hr>
+    <h1> ?איך הכל התחיל</h1>
+
+    <p class="textAboutUs">
+        צבי, סבו של זיו, מחלוצי העלייה השנייה, עלה על הקרקע והקים משק קטן במושב נטעים אשר כלל פרדס ובית אימון
+        לאפרוחים.<br>
+        דוד, אביו של זיו, המשיך והרחיב את המשק.<br>
+        זיו, אשר גדל אל תוך עולם עבודת האדמה, הוביל ופיתח את המשק לכיוון האורגני.<br>
+        בראשית הדרך, הגידול העיקרי היה פאפיה. עם הזמן כתוצאה מעליה בביקוש זיו הרחיב את המשק. <br>
+        כיום במשק אנו מגדלים מבחר גדול של ירקות ופירות אורגניים ביניהם: <br>
+        תותים, תירס, אנונה, אפונה, שעועית ירוקה, ברוקולי, כרובית, חסה ומגוון עשבי תבלין.<br>
+        מזה 35 שנה, זיו עדיין ממשיך לטפח ולפתח את המשק באהבה גדולה. <br>
+    </p>
+
+    <div class="picturesAbout">
+        <img src="/static/media/img/krovit.jpg" class="picturesAboutUs">
+        <img src="/static/media/img//artishok.jpg" class="picturesAboutUs">
+        <img src="/static/media/img//krovit.jpg" class="picturesAboutUs">
+    </div>
+    <hr>
+    <h1>החנות הקסומה שלנו</h1>
+
+    <p class="textAboutUs">
+        בחנות הקטנה שלנו אשר ממוקמת במושב נטעים בבית אריזה הבנוי מלבנים תוכלו למצוא שפע ירקות ופירות אורגניים.<br>
+        השאיפה שלנו היא לספק לכם את התוצרת האורגנית האיכותית והטרייה ביותר ולכן התוצרת נקטפת מספר פעמים במשך היום ומגיעה
+        לחנות ישר מהשטח.<br>
+        בנוסף, אנו מציעים מבחר גדול של אגוזים וגרעינים, דגנים, קטניות, פסטות, מוצרים ללא גלוטן, פירות יבשים,<br>
+        לחמים, מוצרי חלב, גבינות טבעוניות, ביצים, שמן זית, תוספי תזונה ומוצרי קוסמטיקה טבעיים.<br>
+        חגיגה אורגנית של ממש!<br>
+        אנו בוחרים את כל המוצרים בקפידה על מנת לספק לכם את הטוב ביותר האפשרי.<br>
+        שמחים לתת לכם שירות מכל הלב ולספק חוויית קנייה המעוררת את כל החושים.<br>
+        בואו להתאהב...
+    </p>
+
+    <div class="picturesAbout">
+        <img src="/static/media/img//selek.jpg" class="picturesAboutUs">
+        <img src="/static/media/img//artishok.jpg" class="picturesAboutUs">
+        <img src="/static/media/img//cerrot2.jpg" class="picturesAboutUs">
+    </div>
+
+    <hr>
+    <h1> שעות פעילות החנות</h1>
+
+    <p class="textAboutUs">
+        יום שני- 11:00-17:30<br>
+        ימים שלישי עד חמישי- 08:00-17:30<br>
+        יום שישי- 08:00-14:00<br>
+        שבת-ראשון- סגור <br>
+    </p>
+
+    <hr>
+    <h1>:כתבו עלינו</h1>
+
+    <p class="textAboutUs">
+        <a class="magazines" href="https://food.walla.co.il/item/2722177"> כתבה באתר וואלה</a>
+        <a class="magazines" href="https://www.regba.co.il/magazine/design/shvarzman-farm/"></i> כתבה במגזין רגבה</a>
+        <a class="magazines" href="https://www.haaretz.co.il/food/vegetables/.premium-1.2296281"> כתבה בעיתון הארץ</a>
+    </p>
+    <hr>
+
+    <br>
 {% endblock %}
 
-{% block page_body_footer %}{% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('aboutUs.static', filename='js/aboutUs.js') }}"></script>

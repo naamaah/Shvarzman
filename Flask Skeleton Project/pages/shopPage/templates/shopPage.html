@@ -3,15 +3,80 @@
 {% set page_head_title = 'shopPage' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('shopPage.static', filename='css/shopPage.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
 {% endblock %}
 
 {% block page_body_main %}
-    <h1>shopPage</h1>
-    <p>This is an example shopPage page</p>
+    <hr>
+    <h1>סל קניות</h1>
+    <hr>
+    <table class="table cart-table" id="myTable">
+        <tr>
+            <th>תמונה</th>
+            <th>שם המוצר</th>
+            <th> ₪מחיר לק"ג</th>
+            <th>כמות</th>
+            <th> הסר פריט</th>
+        </tr>
+
+        <tr>
+            <td><img src="/static/media/img/artishok.jpg" alt="picture"></td>
+            <td>קישוא בהיר</td>
+            <td class="price"> 8</td>
+            <td>
+                <input type="button" value="-" class="button-minus" data-field="quantity">
+                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="button" value="+" class="button-plus" data-field="quantity">
+            </td>
+            <td>
+                <img src="/static/media/img/cancel.jpg" alt="delete button" class="ShopPicCart deleteButton">
+            </td>
+        </tr>
+
+        <tr>
+            <td><img src="/static/media/img/sweetPotato.jpg" alt="picture"></td>
+            <td>בטטה סגולה</td>
+            <td class="price">10</td>
+            <td>
+                <input type="button" value="-" class="button-minus" data-field="quantity">
+                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="button" value="+" class="button-plus" data-field="quantity">
+            </td>
+            <td>
+                <img src="/static/media/img/cancel.jpg" alt="delete button" class="ShopPicCart deleteButton">
+            </td>
+        </tr>
+
+        <tr>
+            <td><img src="/static/media/img/spacail%20crovit.jpg"></td>
+            <td>כרובית אלמוגית</td>
+            <td class="price">10</td>
+            <td>
+                <input type="button" value="-" class="button-minus" data-field="quantity">
+                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="button" value="+" class="button-plus" data-field="quantity">
+            </td>
+            <td>
+                <img src="/static/media/img/cancel.jpg" alt="delete button" class="ShopPicCart deleteButton">
+            </td>
+        </tr>
+    </table>
+
+
+    <p class="total-price-text" id="totalPriceText"></p>
+    <input type="hidden" name="totalPrice" id="totalPrice" value="0"/>
+    <button class="paymentButton" onclick=submitCart()>מעבר לתשלום</button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 {% endblock %}
 
-{% block page_body_footer %}{% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('shopPage.static', filename='js/shopPage.js') }}"></script>
