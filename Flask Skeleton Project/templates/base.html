@@ -63,7 +63,7 @@ Base page blocks:
     {# Header #}
     {% block page_body_header %}
         <header class="page-header">
-            {% include('header.html') %}
+            {% include('productsPage.html') %}
         </header>
     {% endblock %}
 
@@ -79,8 +79,8 @@ Base page blocks:
     {# Footer #}
     {% block page_body_footer %}
         <footer class="page-footer">
-        {% include('footer.html') %}
             {% block page_body_footer_content %}
+                        {# {% include('footer.html') %} #}
             {% endblock %}
         </footer>
     {% endblock %}
