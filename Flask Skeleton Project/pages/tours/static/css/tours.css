@@ -1,0 +1,65 @@
+
+/* --------------Style Tour*/
+
+
+.tourPicture{
+    width: 100%;
+}
+.tourForm {
+    width: 100%;
+
+}
+
+.textTour1 {
+    font-size: 28px;
+    text-align: center;
+    direction: rtl;
+    margin-bottom: 60px;
+}
+
+.textTour2 {
+    font-size: 20px;
+    text-align: right;
+    direction: rtl;
+}
+#gridContainer {
+    display: grid;
+    grid-template-areas:
+    'picture picture picture form'
+    'picture picture picture form'
+    'picture picture picture form';
+     border-radius: 5px;
+     text-align: right;
+    align: center;
+
+}
+
+#item picture tour {
+    grid-area: picture;
+    width: 100px;
+    text-align: left;
+    padding-right: 10px;
+}
+
+#item form tour {
+    grid-area: form;
+    max-width: 30px;
+    align: right;
+    margin: 20px;
+}
+
+.titleTour {
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size:50px;
+}
+
+input[type=number] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}

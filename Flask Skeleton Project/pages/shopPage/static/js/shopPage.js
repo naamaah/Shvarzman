@@ -88,7 +88,7 @@ if (isItem == false)  {
       alert("לא ניתן לעבור לתשלום מכיוון שאין פריטים בסל קניות");
 }
 else {
-    window.location="payment.html";
+    window.location="../../../payment/templates/payment.html";
 }
 }
 

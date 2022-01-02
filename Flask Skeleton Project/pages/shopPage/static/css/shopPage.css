@@ -1,0 +1,92 @@
+
+
+/* --------------Style Shopping Cart*/
+
+
+.quantity-field {
+  max-width: 40pt;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  background-color: #f2f2f2;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.button-minus,
+.button-plus {
+  font-weight: bold;
+  font-size: 25px;
+  height: 3vh;
+  padding: 0;
+  width: 3vh;
+  position: relative;
+  background-color: transparent;
+  border: transparent;
+
+
+}
+
+.cart-table img {
+    max-width: 120px;
+}
+
+
+
+.paymentButton {
+  text-align: center;
+  width: 18%;
+  font-size: 35px;
+  color: white;
+  background-color: #354f52;
+  border: none;
+  cursor: pointer;
+}
+
+.paymentButton:hover {
+  background-color: #52796f;
+}
+
+.cart-table {
+    text-align: center;
+    padding: 0px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 5px;
+    width: 100%;
+
+}
+tr:nth-child(even) {
+    background-color: rgba(211,224,212, 0.8);
+}
+
+th {
+      font-size: 30px;
+      color: #48422a;
+}
+
+td {
+    text-align: center;
+    font-size: 25px;
+    color: #48422a;
+}
+
+.total-price-text{
+    text-align: center;
+    font-size: 27px;
+
+}

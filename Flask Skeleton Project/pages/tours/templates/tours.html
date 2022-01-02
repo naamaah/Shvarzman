@@ -79,5 +79,6 @@
 
 
 {% block page_body_js %}
+    <script src="{{ url_for('tours.static', filename='js/tours.js') }}"></script>
     <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
 {% endblock %}

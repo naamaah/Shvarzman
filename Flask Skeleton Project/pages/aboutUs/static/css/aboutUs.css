@@ -1,0 +1,45 @@
+
+/* --------------Style about Us*/
+
+.picturesAboutUs {
+    width:20%;
+    padding-top: 50px;
+    padding: 15px;
+    padding-bottom: 20px;
+}
+
+.picturesAbout{
+       text-align: center;
+}
+
+
+.textAboutUs {
+    font-size: 28px;
+    text-align: center;
+    direction: rtl;
+}
+
+
+hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.magazines{
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    background-color: #b5cbb7 ;
+    color: white;
+
+}
+
+.magazines:hover {
+    background-color: #d2e4c4;
+}

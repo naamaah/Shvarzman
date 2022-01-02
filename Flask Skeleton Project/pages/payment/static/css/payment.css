@@ -1,0 +1,20 @@
+
+/* --------------paying page*/
+
+.payment {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    grid-gap: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+
+.buttonPay {
+    background-color: #354f52;
+}
+
+buttonPay:hover {
+      background-color: #354f52;
+}

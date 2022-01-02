@@ -228,7 +228,7 @@ body {
 
 @font-face {
 font-family: font1;
-src: url(AmaticSC-Bold.ttf);
+/*src: url(AmaticSC-Bold.ttf);*/
 }
 
 .recipe-container {
@@ -251,7 +251,7 @@ src: url(AmaticSC-Bold.ttf);
   overflow: hidden;
 }
 
-.recipe-image: {
+.recipe-image {
   border: solid;
 }
 
@@ -277,7 +277,7 @@ src: url(AmaticSC-Bold.ttf);
   color: white;
 }
 
-.recipe-img: {
+.recipe-img {
   height: 100%;
 }
 
@@ -360,7 +360,7 @@ src: url(AmaticSC-Bold.ttf);
 .more-text p{
  color: #fff;
  font-size: 18px;
- line-height: 30px
+ line-height: 30px;
  font-weight: 500;
 }
 .more-text.active{
