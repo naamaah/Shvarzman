@@ -19,10 +19,11 @@
             <th> הסר פריט</th>
         </tr>
 
+        {% for product in products %}
         <tr>
-            <td><img src="/static/media/img/artishok.jpg" alt="picture"></td>
-            <td>קישוא בהיר</td>
-            <td class="price"> 8</td>
+            <td><img src={{ product.product_picture }} alt="picture"></td>
+            <td>{{ product.product_name }}</td>
+            <td class="price"> {{ product.product_price}}</td>
             <td>
                 <input type="button" value="-" class="button-minus" data-field="quantity">
                 <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
@@ -32,34 +33,7 @@
                 <img src="/static/media/img/cancel.jpg" alt="delete button" class="ShopPicCart deleteButton">
             </td>
         </tr>
-
-        <tr>
-            <td><img src="/static/media/img/sweetPotato.jpg" alt="picture"></td>
-            <td>בטטה סגולה</td>
-            <td class="price">10</td>
-            <td>
-                <input type="button" value="-" class="button-minus" data-field="quantity">
-                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
-                <input type="button" value="+" class="button-plus" data-field="quantity">
-            </td>
-            <td>
-                <img src="/static/media/img/cancel.jpg" alt="delete button" class="ShopPicCart deleteButton">
-            </td>
-        </tr>
-
-        <tr>
-            <td><img src="/static/media/img/spacail%20crovit.jpg"></td>
-            <td>כרובית אלמוגית</td>
-            <td class="price">10</td>
-            <td>
-                <input type="button" value="-" class="button-minus" data-field="quantity">
-                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
-                <input type="button" value="+" class="button-plus" data-field="quantity">
-            </td>
-            <td>
-                <img src="/static/media/img/cancel.jpg" alt="delete button" class="ShopPicCart deleteButton">
-            </td>
-        </tr>
+        {% endfor %}
     </table>
 
 

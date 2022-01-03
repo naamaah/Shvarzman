@@ -6,140 +6,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
 {% endblock %}
 
-{% block page_body_content %}
+{% block page_body_main %}
     <div>
         <hr>
         <h1>מתכונים</h1>
         <hr>
     </div>
 
-    <div class="recipe-container">
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe1.png" width="250" height="160" class="recipe-image">
-            <h3>סלט חסה חגיגי</h3>
-            <button class="question-btn" onclick="openQuestion('content1')">קרא עוד</button>
-            <div class="recipe-content" id="content1" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
+    <div class="recipe-container" dir="rtl">
+        {% for recipe in recipes %}
+            <div class="recipe-item">
+            <img src={{ recipe.picture }} width="250" height="160" class="recipe-image">
+            <h3>{{ recipe.recipe_name }}</h3>
+            <button id=btnRes{{ recipe.recipe_id }} class="question-btn" onclick="openQuestion('content{{ recipe.recipe_id }}')">קרא עוד</button>
+            <div class="recipe-content" id=content{{ recipe.recipe_id }} style="display: none; direction: rtl">
+                {{ recipe.description }}
             </div>
-        </div>
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe2.png" width="250" height="160" class="recipe-image">
-            <h3>קרפצ'יו תאנים</h3>
-            <button class="question-btn" onclick="openQuestion('content2')">קרא עוד</button>
-            <div class="recipe-content" id="content2" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
             </div>
-        </div>
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe3.png" width="250" height="160" class="recipe-image">
-            <h3>סלט נבטים</h3>
-            <button class="question-btn" onclick="openQuestion('content3')">קרא עוד</button>
-            <div class="recipe-content" id="content3" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
-            </div>
-        </div>
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe4.png" width="250" height="160" class="recipe-image">
-            <h3>חומוס עדשים כתומות</h3>
-            <button class="question-btn" onclick="openQuestion('content4')">קרא עוד</button>
-            <div class="recipe-content" id="content4" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
-            </div>
-        </div>
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe5.png" width="250" height="160" class="recipe-image">
-            <h3>גווקאמולי</h3>
-            <button class="question-btn" onclick="openQuestion('content5')">קרא עוד</button>
-            <div class="recipe-content" id="content5" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
-            </div>
-        </div>
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe6.png" width="250" height="160" class="recipe-image">
-            <h3>סלט תירס מקסיקני</h3>
-            <button class="question-btn" onclick="openQuestion('content6')">קרא עוד</button>
-            <div class="recipe-content" id="content6" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
-            </div>
-        </div>
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe7.png" width="250" height="160" class="recipe-image">
-            <h3>סלט תלתלי גזר</h3>
-            <button class="question-btn" onclick="openQuestion('content7')">קרא עוד</button>
-            <div class="recipe-content" id="content7" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
-            </div>
-        </div>
-        <div class="recipe-item">
-            <img src="/static/media/img/recipe8.png" width="250" height="160" class="recipe-image">
-            <h3>סלט שורשים</h3>
-            <button class="question-btn" onclick="openQuestion('content8')">קרא עוד</button>
-            <div class="recipe-content" id="content8" style="display: none; direction: rtl">מרכיבים:<br>
-                תאנים, אגוזי מלך קלויים, עלי נענע, מעט פלפל חריף, גבינה בולגרית/גבינה כחולה
-                <br>לתיבול:<br>
-                שמן זית, מיץ לימון, חומץ בלסמי מצומצם, מעט מלח
-                <br>
-                אופן הכנה:<br>
-                להניח על מגש תאנים קלופות ופרוסות.<br>
-                לפזר מעל את אגוזי המלך, נענע, פלפל חריץ קצוץ דק, גבינה ולבסוף את הרוטב.<br>
-                <br>בתאבון!
-            </div>
-        </div>
+        {% endfor %}
     </div>
-    <hr>
+     <hr>
 
 {% endblock %}
 
-{% block page_body_footer %}{% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('recipesPage.static', filename='js/recipesPage.js') }}"></script>

@@ -6,10 +6,10 @@ class Orders:
     @staticmethod
     def insert_order(payer_id, order_cost, date):
         date = date.strftime("%Y-%m-%d %H:%M:%S")
-        insert_order_res = dbManager.commit(
+        insertOrder = dbManager.commit(
             f"INSERT INTO orders (payer_id, order_cost, date) VALUES ({payer_id}, {order_cost}, '{date}')")
-        if insert_order_res != 1:
-            raise Exception(f"{insert_order_res} rows was affected by the query")
+        if insertOrder != 1:
+            raise Exception(f"{insertOrder} rows was affected by the query")
 
         orders = dbManager.fetch(
             f"SELECT * FROM orders WHERE payer_id={payer_id} AND order_cost={order_cost} AND date='{date}'")

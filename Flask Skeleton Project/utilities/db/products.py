@@ -4,7 +4,7 @@ from utilities.db.db_manager import dbManager
 
 class Products:
     @staticmethod
-    def get_all_products():
+    def getAllProducts():
         return dbManager.fetch("SELECT * FROM products")
 
     @staticmethod
