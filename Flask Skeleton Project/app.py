@@ -61,6 +61,8 @@ app.register_blueprint(page_error_handlers)
 """
 
 
+# if __name__ == '__main__':
+#     app.run(debug=True)
 
 """
 ###### Components

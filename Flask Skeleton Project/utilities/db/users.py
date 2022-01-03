@@ -10,9 +10,9 @@ class Users:
         return dbManager.fetch(f"SELECT * FROM users WHERE email='{email}'")
 
     @staticmethod
-    def insert_user(email, username, password):
+    def insert_user(email, firstName, lastName, password, phoneNumber, address):
         return dbManager.commit(
-            f"INSERT INTO users (email, full_name, password) VALUES ('{email}', '{username}', '{password}')")
+            f"INSERT INTO users (email, first_name, last_name, password, phone_number, address) VALUES ('{email}', '{firstName}', '{lastName}', '{password}', '{phoneNumber}', '{address}')")
 
     @staticmethod
     def update_password(user_id, password):

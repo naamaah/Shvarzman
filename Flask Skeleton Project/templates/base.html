@@ -70,6 +70,7 @@ Base page blocks:
 
     {# Main #}
     {% block page_body_main %}
+        <h3>Welcome, {{session.userName | default('Guest', true)}}</h3>
         <main class="page-main">
             {% block page_body_main_content %}
             {% endblock %}

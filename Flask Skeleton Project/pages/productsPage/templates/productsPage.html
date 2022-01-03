@@ -13,9 +13,10 @@
         <hr>
     </div>
 
+    {% for pro in products %}
     <div class="product-container">
         <div class="product-item">
-            <h3>אספרגוס אורגני</h3>
+            <h3>{{pro.product_name}}</h3>
             <p>יחידה - 29 ש"ח</p>
             <img src="/static/media/img/product1.jfif" width="200" height="135">
         </div>
@@ -67,6 +68,7 @@
     </div>
     </div>
     <hr>
+    {% endfor %}
 
 {% endblock %}
 
