@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
 {% endblock %}
 
-{% block page_body_content %}
+{% block page_body_main %}
     <div class="containerContact" dir="rtl">
         <div>
             <hr>
@@ -43,7 +43,6 @@
     </div>
 {% endblock %}
 
-{% block page_body_footer %}{% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('static', filename='js/functions.js') }}"></script>

@@ -3,74 +3,29 @@
 {% set page_head_title = 'productsPage' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/productsPage.css') }}"/>
 {% endblock %}
 
-{% block page_body_content %}
+{% block page_body_main %}
     <div>
         <hr>
         <h1>מוצרים</h1>
         <hr>
     </div>
 
-    <div class="product-container">
-        <div class="product-item">
-            <h3>אספרגוס אורגני</h3>
-            <p>יחידה - 29 ש"ח</p>
-            <img src="/static/media/img/product1.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>גזר</h3>
-            <p>קילו - 12 ש"ח</p>
-            <img src="/static/media/img/product2.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>אבוקדו</h3>
-            <p>קילו - 13 ש"ח</p>
-            <img src="/static/media/img/product3.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>בצל יבש</h3>
-            <p>קילו - 12 ש"ח</p>
-            <img src="/static/media/img/product4.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>גינג'ר</h3>
-            <p>קילו - 39 ש"ח</p>
-            <img src="/static/media/img/product5.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>עגבניה אשכול</h3>
-            <p>קילו - 12 ש"ח</p>
-            <img src="/static/media/img/product6.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>תפוח עץ</h3>
-            <p>קילו - 25 ש"ח</p>
-            <img src="/static/media/img/product7.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>דלעת</h3>
-            <p>קילו - 12 ש"ח</p>
-            <img src="/static/media/img/product8.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>פלפל</h3>
-            <p>קילו - 12 ש"ח</p>
-            <img src="/static/media/img/product9.jfif" width="200" height="135">
-        </div>
-        <div class="product-item">
-            <h3>תפוח אדמה</h3>
-            <p>קילו - 11 ש"ח</p>
-            <img src="/static/media/img/product10.jfif" width="200" height="135">
-        </div>
+    <div class="product-container" dir="rtl">
+        {% for product in products %}
+            <div class="product-item">
+                <h3>{{ product.product_name }} </h3>
+                <p>מחיר לקילו - {{ product.product_price }}  ש"ח </p>
+                <img src={{ product.product_picture }} width="200" height="135">
+                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                 <button type="submit" id=btnPro{{ product.product_id}} class="question-btn" onclick=window.location='/productsPage' >הוסף לסל</button>
+            </div>
+        {% endfor %}
     </div>
-    </div>
-    <hr>
-
+     <hr>
 {% endblock %}
-
-{% block page_body_footer %}{% endblock %}
 
 {% block page_body_js %}
     <script src="{{ url_for('productsPage.static', filename='js/productsPage.js') }}"></script>

@@ -63,13 +63,14 @@ Base page blocks:
     {# Header #}
     {% block page_body_header %}
         <header class="page-header">
-            {# {% include('productsPage.html') %} #}
+            {% include('header.html') %}
         </header>
     {% endblock %}
 
 
     {# Main #}
     {% block page_body_main %}
+        <h3>Welcome, {{session.userName | default('Guest', true)}}</h3>
         <main class="page-main">
             {% block page_body_main_content %}
             {% endblock %}
@@ -80,7 +81,7 @@ Base page blocks:
     {% block page_body_footer %}
         <footer class="page-footer">
             {% block page_body_footer_content %}
-                        {# {% include('footer.html') %} #}
+                {% include('/footer.html') %}
             {% endblock %}
         </footer>
     {% endblock %}

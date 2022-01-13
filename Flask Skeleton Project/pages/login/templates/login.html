@@ -41,7 +41,7 @@
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span>
-  <form class="modal-content" action="/todo" name="signUpForm" method="post">
+  <form class="modal-content" action="/insert_user" name="signUpForm" method="post">
     <div class="container_Login">
         <div class="imgcontainer">
             <img src="/static/media/img/SignUp_Avatar.png" alt="Avatar" class="avatar">
@@ -49,22 +49,31 @@
       <h1>Sign Up</h1>
       <p>בבקשה מלא טופס זה ליצירת חשבון משתמש</p>
       <hr>
-      <label for="emailSignUp"><b>כתובת אי-מייל</b></label>
-      <input style="text-align:right" type="text" placeholder="הכנס כתובת מייל" name="emailSignUp" id="emailSignUp" onblur="checkEmail('emailSignUp')">
-      <label for="psw1"><b>סיסמא</b></label>
-      <input style="text-align:right" type="password" placeholder="הכנס סיסמא" name="psw1" id="psw1" onblur="checkPassword('psw1')">
-      <label for="psw-repeat1"><b>אימות סיסמא</b></label>
-      <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1" onblur="checkPassword('psw-repeat1')">
-
-      <!--<label>
-        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-      </label>-->
-
-      <!--<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>-->
+        <!--email-->
+        <label for="emailSignUp"><b>כתובת אי-מייל</b></label>
+        <input style="text-align:right" type="text" placeholder="הכנס כתובת מייל" name="emailSignUp" id="emailSignUp" onblur="checkEmail('emailSignUp')">
+        <!--first name-->
+        <label for="firstName"><b>שם פרטי</b></label>
+        <input style="text-align:right" type="text" placeholder="הכנס שם פרטי" name="firstName" id="firstName" onblur="checkName('firstName')">
+        <!--last name-->
+        <label for="lastName"><b>שם משפחה</b></label>
+        <input style="text-align:right" type="text" placeholder="הכנס שם משפחה" name="lastName" id="lastName" onblur="checkName('lastName')">
+        <!--password-->
+        <label for="psw1"><b>סיסמא</b></label>
+        <input style="text-align:right" type="password" placeholder="הכנס סיסמא" name="psw1" id="psw1" onblur="checkPassword('psw1')">
+        <!--check password-->
+        <label for="psw-repeat1"><b>אימות סיסמא</b></label>
+        <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1" onblur="checkPassword('psw-repeat1')">
+        <!--phone number-->
+        <label for="phoneNumber"><b>מספר טלפון</b></label>
+        <input style="text-align:right" type="tel" placeholder="הכנס מספר טלפון" name="phoneNumber" id="phoneNumber">
+        <!--address-->
+        <label for="address"><b>כתובת</b></label>
+        <input style="text-align:right" type="text" placeholder="הכנס כתובת" name="address" id="address">
 
       <div class="clearfix">
         <button class="button_login" type="button" onclick="document.getElementById('id01').style.display='none'" id="cancelbtn">יציאה</button>
-          <button class="button_login" type="button" onclick="submitSignUp()">צור חשבון</button>
+          <button class="button_login" type="submit" value="הירשם" onclick="submitSignUp()">צור חשבון</button>
       </div>
     </div>
   </form>

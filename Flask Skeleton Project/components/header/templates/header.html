@@ -17,30 +17,55 @@
     <a class="active" href="homepage.html"><i class="fas fa-home"></i></a>
 </header>
 -->
-<header>
-    <h1> This is the header </h1>
-
-    <link rel="stylesheet" href="{{ url_for('header.static', filename='css/header.css') }}"/>
-
+<header class="navbar">
+    <script src="https://kit.fontawesome.com/8f059f76f5.js" crossorigin="anonymous"></script>
     {%
         set header_items = {
-            'homepage': '/homepage',
-            'QA': url_for('QAPage')
+            'shopPage': {'href': '/shopPage','icon':"fas fa-shopping-cart"},
+            'Login': {'href': '/login','icon':"fa fa-fw fa-user"},
+            'QA':{'href': '/QA','icon':"fas fa-question-circle", 'name':"שאלות ותשובות"},
+            'contactUs':{'href': '/contactUs','icon':"fa fa-fw fa-envelope", 'name': "יצירת קשר"},
+            'tours': {'href': '/tours','icon':"fas fa-directions", 'name':"סיורים"},
+            'photoGallery': {'href': '/photoGallery','icon':"fas fa-images", 'name': "גלריית תמונות"},
+            'recipesPage': {'href': '/recipesPage','icon':"fas fa-utensils", 'name': "מתכונים"},
+            'productsPage': {'href': '/productsPage','icon':"fas fa-carrot", 'name': "מוצרים"},
+            'AboutUs': {'href': '/aboutUs','icon':"fas fa-users", 'name':"עלינו"},
+            'homepage': {'href': '/homepage','icon':"fas fa-home"}
         }
     %}
 
-{% for item in header_items %}
-    <li>
-        <a
-            href="{{ header_items[item] }}"
-            {% if header_items[item] == request.path %}
-                class="active"
-            {% endif %}
-        >{{ item | capitalize }}</a>
-    </li>
-{% endfor %}
+    {% for item in header_items.values() %}
+        <a href="{{ item['href'] }}"
+        {% if item['href'] == request.path %}
+            class="active"
+        {% else %}
+           class="nav"
+        {% endif %}
+        ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>
+    {% endfor %}
 
 </header>
 
 
+{#{% for item in header_items %}#}
+{#    <a href="{{ header_items[item] }}"#}
+{#            {% if header_items[item] == request.path %}#}
+{#                class="active"#}
+{#            {% endif %}#}
+{#        >{{ item | capitalize }}</a>#}
+{#{% endfor %}#}
+{#<link rel="stylesheet" href="{{ url_for('header.static', filename='css/header.css') }}"/>#}
+
+
+
+{#    <a class="nav" href="pages/shopPage/templates/shopPage.html"><i class="fas fa-shopping-cart"></i></a>#}
+{#    <a class="nav" href="login.html"><i class="fa fa-fw fa-user"></i></a>#}
+{#    <a class="nav" href="Q_and_A.html"><i class="fas fa-question-circle"></i> שאלות ותשובות</a>#}
+{#    <a class="nav" href="contactUs.html"><i class="fa fa-fw fa-envelope"></i>יצירת קשר</a>#}
+{#    <a class="nav" href="tours.html"><i class="fas fa-directions"></i>סיור במשק</a>#}
+{#    <a class="nav" href="photoGallery.html"><i class="fas fa-images"></i>גלריית תמונות</a>#}
+{#    <a class="nav" href="recipesPage.html"><i class="fas fa-utensils"></i>מתכונים</a>#}
+{#    <a class="nav" href="productsPage.html"><i class="fas fa-carrot"></i>מוצרים</a>#}
+{#    <a class="nav" href="aboutUs.html"><i class="fas fa-users"></i>עלינו</a>#}
+{#    <a class="nav" href="homepage.html"><i class="fas fa-home"></i></a>#}
 

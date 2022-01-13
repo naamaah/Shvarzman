@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from utilities.db.products import Products
 
 # shopPage blueprint definition
 shopPage = Blueprint('shopPage', __name__,
@@ -10,4 +11,5 @@ shopPage = Blueprint('shopPage', __name__,
 # Routes
 @shopPage.route('/shopPage')
 def index():
-    return render_template('shopPage.html')
+    products = Products.getAllProducts()
+    return render_template('shopPage.html', products=products)
