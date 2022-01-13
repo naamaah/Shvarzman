@@ -1,7 +1,6 @@
 
 /* --------------Style Tour*/
 
-
 .tourPicture{
     width: 100%;
 }
@@ -19,9 +18,21 @@
 
 .textTour2 {
     font-size: 20px;
-    text-align: right;
+    text-align: center;
     direction: rtl;
+
 }
+
+.textTour3 {
+    font-size: 20px;
+    text-align: center;
+    direction: rtl;
+    color: red;
+    font-weight: bold;
+}
+
+
+
 #gridContainer {
     display: grid;
     grid-template-areas:
@@ -62,4 +73,64 @@ input[type=number] {
   margin-top: 6px;
   margin-bottom: 16px;
   resize: vertical;
+}
+
+.picturesMain{
+    margin-left:auto;
+    margin-right: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: #b5cbb7;
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  border-style:solid;
+ }
+
+input[type=text], select, textarea {
+  width: 60%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #354f52;
+  border: 1px solid #354f52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width:100%;
+}
+
+input[type=submit]:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  background-color: #52796f;
+  transform: translateY(-2px);
 }

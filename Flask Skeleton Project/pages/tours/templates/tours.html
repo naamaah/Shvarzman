@@ -3,7 +3,7 @@
 {% set page_head_title = 'tours' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('tours.static', filename='css/tours.css') }}"/>
 {% endblock %}
 
 {% block page_body_main %}
@@ -19,62 +19,73 @@
     </p>
     <hr>
     <div class="grid-container">
-        <div class="grid-item">סיור קטיפה
-            <img src="/static/media/img/picking.jpeg" alt="picking" width="260" height="160" class="picturesMain">
-            <p>
-                כל יום שישי ושלישי בין השעות 10:00-12:00<br>
-                בחודשי החורף בלבד<br>
-                מחיר - 100<br>
-            </p>
-        </div>
-        <div class="grid-item">VIP סיור
-            <img src="/static/media/img/vip.jpeg" alt="vip" width="260" height="160" class="picturesMain">
-            <p>
-                כל יום שני ורביעי בין השעות 10:00-14:00<br>
-                כולל ארוחת צהריים בריאה ומזינה<br>
-                מחיר - 150<br>
-            </p>
-        </div>
-        <div class="grid-item">סיור בשדות
-            <img src="/static/media/img/tour1.jpeg" alt="tour1" width="260" height="160" class="picturesMain">
-            <p>
-                כל יום ראשון וחמישי בין השעות 10:00-12:00<br>
-                מחיר - 100<br>
-            </p>
-        </div>
+        {% for tour in tours_list %}
+            <div class="grid-item">
+                {{ tour.tour_name }}
+                <br>
+                <br>
+                <img src={{ tour.picture }} alt="picking" width="260" height="160" class="picturesMain">
+                <p>
+                    {{ tour.tour_dt }} :תאריך ושעה <br>
+                    {{ tour.ticket_price }} :מחיר לכרטיס <br>
+                    {{ tour.description }} <br>
+                    {{ tour.places_left }} :מקומות פנויים <br>
+                </p>
+            </div>
+        {% endfor %}
     </div>
-    <button class=formButton type="button" onclick=openForm()>הירשם</button>
-    <div id="gridContainer" style="display: none">
+
+    {#    <button class=formButton type="button" onclick=openForm()>הירשם</button>#}
+    <div id="gridContainer">
         <div id="item form tour">
-            <h1 class="titleReg">טופס הרשמה לסיור</h1>
+            <h1 class="titleTour">טופס הרשמה לסיור</h1>
             <p class="textTour2">
-                על מנת להירשם לסיור מלאו את הפרטים הבאים:<br>
+                בטופס זה באפשרותכם להירשם לסיור/לעדכן את כמות הכרטיסים עבור רישום קיים/לבטל הרשמה.<br>
+                אם ברצונכם לעדכן את כמות הכרטיסים עבור הזמנה שביצעתם הזינו את הפרטים הבאים:<br>
+                כתובת האימייל איתה ביצעתם את הרישום, תאריך הסיור ואת כמות הכרטיסים העדכנית הרצויה.<br>
+               אם ברצונכם לבטל הרשמה הזינו בכמות הכרטיסים 0.<br>
             </p>
-            <form class="tourForm" action="/todo" name="myForm" method="post">
-                <label for="firstname">שם פרטי</label>
-                <input style="text-align:right" type="text" id="firstname" name="firstname"
-                       onblur="checkName('firstname')">
-                <label for="lastname">שם משפחה</label>
-                <input style="text-align:right" type="text" id="lastname" name="lastname"
-                       onblur="checkName('lastname')">
-                <label for="phonenumer">טלפון</label>
-                <input style="text-align:right" type="text" id="phonenumer" name="phonenumer"
-                       onblur="checkPhone('phonenumer')">
-                <label for="emailaddress">כתובת מייל</label>
+            {% if check_list[0] == False %}
+                <p class="textTour3">
+                    לצערנו חסרים {{ check_list[1] }} מקומות לסדנא, אנא הירשם/עדכן הזמנה מחדש עם כמות כרטיסים תקינה <br>
+                </p>
+            {% elif check_list[2] == False %}
+                <p class="textTour3">
+                    כתובת המייל שהוזנה אינה מזוהה במערכת, על מנת להירשם לסיור הזן מייל של משתמש רשום במערכת<br>
+                </p>
+            {% elif check_list[3] == False %}
+                <p class="textTour3">
+                    לא קיים סיור בתאריך שנבחר<br>
+                </p>
+            {% elif check_list[4] == False %}
+                <p class="textTour3">
+                    כמות הכרטיסים עבור הסיור המבוקש עודכנה<br>
+                </p>
+            {% elif check_list[5] %}
+                <p class="textTour3">
+                    הזמנתך התקבלה! שמחים שבחרת להצטרף לסיור שלנו(:<br>
+                </p>
+            {% endif %}
+
+            <form class="tourForm" method="POST" action="/tours" name="myForm">
+                <label for="emailaddress"> כתובת מייל (בהתאם למשתמש הרשום המערכת)</label><br>
                 <input style="text-align:right" type="text" id="emailaddress" name="emailaddress"
-                       onblur="checkEmail('emailaddress')">
-                <label for="numOfTickets">כמות כרטיסים</label>
+                       onblur="checkEmail('emailaddress')"><br>
+                <label for="tour date">תאריך ושעת הסיור המבוקש</label><br>
+                <select name="tour date" id="tour_dt"><br>
+                    {% for date in tour_dates %}
+                        <option  name="tour date" value='{{ date.tour_dt }}'>{{ date.tour_dt }}</option >
+                    {% endfor %}
+                </select><br>
+                <label for="numOfTickets">כמות כרטיסים</label><br>
                 <input style="text-align:right" type="text" id="numOfTickets" name="numOfTickets"
                        onblur="checkNumOfTickets('numOfTickets')"><br>
-                <label for="subject">הערות</label>
-                <textarea style="text-align:right" id="subject" name="subject" style="height:170px"></textarea>
-                <button class="ConfirmationButton" type="button" onclick="submitForm()">לחץ לאישור</button>
+                <button class="ConfirmationButton" type="submit" onclick="submitFormTours()">לחץ לאישור</button>
             </form>
         </div>
     </div>
     <br>
 {% endblock %}
-
 
 
 

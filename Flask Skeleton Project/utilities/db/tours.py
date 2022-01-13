@@ -1,10 +1,30 @@
 from utilities.db.db_manager import dbManager
 
-#Omri
+#Bar check
 
-class CookingClass:
+class Tours:
+    @staticmethod
+    def get_tour(tour_dt):
+        return dbManager.fetch(f"SELECT * FROM tours WHERE tour_dt='{tour_dt}'")
 
     @staticmethod
-    def insert_cooking_class(email, first_name, last_name, phone_number, group_size):
-        return dbManager.commit(f"INSERT INTO cooking_class (email, first_name, last_name, phone_number, group_size) "
-                                f"VALUES ('{email}', '{first_name}', '{last_name}', '{phone_number}', {group_size})")
+    def get_all_tours():
+        return dbManager.fetch("SELECT * FROM tours")
+
+    @staticmethod
+    def update_places_left(tour_dt, num_of_tickets):
+        result = dbManager.fetch(f"SELECT places_left FROM tours WHERE tour_dt='{tour_dt}'")
+        for tour in result:
+            current_places_left = int(tour.places_left) - int(num_of_tickets)
+        if current_places_left >= 0:
+            dbManager.commit(f"UPDATE tours SET places_left='{current_places_left}' WHERE tour_dt='{tour_dt}'")
+        return current_places_left
+
+    @staticmethod
+    def get_all_dates():
+        return dbManager.fetch("SELECT tour_dt FROM tours")
+
+
+
+
+

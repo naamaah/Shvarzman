@@ -132,17 +132,14 @@ function checkallInput(){
 }
 
 
-function submitForm() {
-         if (document.getElementById('firstname').value.length==0 ||
-             document.getElementById('lastname').value.length==0 ||
-             document.getElementById('phonenumer').value.length==0 ||
+function submitFormTours() {
+         if (document.getElementById('tour_dt').value.length==0 ||
              document.getElementById('emailaddress').value.length==0 ||
              document.getElementById('numOfTickets').value.length==0)  {
               alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
              }
          else {
-              alert("הטופס נשלח בהצלחה. הינך מועבר/ת לעמוד הבית");
-              window.location="mainPage.html";
+               // alert("שמחים שבחרת להגיע לסיור שלנו! הרשמתך נקלטה במערכת");
            }
 }
 
