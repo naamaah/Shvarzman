@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from app import app
+# from app import app
 
 
 # page_error_handlers blueprint definition

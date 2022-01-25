@@ -32,8 +32,28 @@ def get_user_func():
         return "Incorrect password. Try again.", 400
 
 
-@login.route('/insert_user', methods = ['POST'])
-def insert_user_func():
+@login.route('/sign_in', methods = ['POST'])
+def sign_in_func():
+    # get the data
+    email = request.form['Email_Login']
+    password = request.form['psw']
+    result = Users.get_user(email)
+    if not result: # the email does not exist
+        return f"The mail {email} not exists. Try register instead/", 400
+    elif result[0].password == password:
+        session["email"] = result[0].email
+        session['first_name'] = result[0].first_name
+        session['last_name'] = result[0].last_name
+        session['phone_number'] = result[0].phone_number
+        session['address'] = result[0].address
+        session["is_logged_in"] = True
+        return redirect('/homepage')
+    else:
+        return "Incorrect password. Try again.", 400
+
+
+@login.route('/sign_up', methods = ['POST'])
+def sign_up_func():
     # get the data
     email = request.form['emailSignUp']
     firstName = request.form['firstName']
@@ -49,7 +69,12 @@ def insert_user_func():
     else:
         if Users.insert_user(email, firstName, lastName, password, phoneNumber, address) > 0:
             # come back to home page
-            session['userName'] = firstName
+            session["email"] = email
+            session['first_name'] = firstName
+            session['last_name'] = lastName
+            session['phone_number'] = phoneNumber
+            session['address'] = address
+            session["is_logged_in"] = True
             return redirect('/')
         else:
             return "Registration failed. Please try again.", 400
