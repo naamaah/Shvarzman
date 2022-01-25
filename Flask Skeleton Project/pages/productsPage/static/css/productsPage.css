@@ -9,7 +9,7 @@
 }
 
 .product-container > div {
-      background-color: rgba(211,224,212, 0.8);
+  background-color: rgba(211,224,212, 0.8);
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
@@ -25,8 +25,57 @@
   cursor:pointer;
 }
 
+/* Add padding to containers */
+.container_ProductPage {
+  padding: 16px;
+}
 
-/*take from shop*/
+/* Extra styles for the cancel button */
+#cancelbtn {
+  padding: 14px 20px;
+  background-color: #f56156;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: darkred;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  text-align:center;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  text-align: center;
+}
+
+.button-minus,
+.button-plus {
+  font-weight: bold;
+  font-size: 25px;
+  height: 3vh;
+  padding: 0;
+  width: 3vh;
+  position: relative;
+  background-color: transparent;
+  border: transparent;
+}
 
 .quantity-field {
   max-width: 40pt;
@@ -44,22 +93,4 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.button-minus,
-.button-plus {
-  font-weight: bold;
-  font-size: 25px;
-  height: 3vh;
-  padding: 0;
-  width: 3vh;
-  position: relative;
-  background-color: transparent;
-  border: transparent;
-
-
 }

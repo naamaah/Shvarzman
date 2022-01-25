@@ -10,14 +10,21 @@ productsPage = Blueprint('productsPage', __name__,
 
 
 # Routes
-@productsPage.route('/productsPage', methods=['GET', 'POST'])
-def index():
-    if not session.get("shpingCart"):
-        session["shpingCart"] = {}
-    # if request.method == "POST":
-    #     session["cart"][request.json["productId"]] = int(request.json["quantity"])
-    products=Products.getAllProducts()
+@productsPage.route('/productsPage', methods=['GET'])
+def product():
+    products = Products.getAllProducts()
+    # if not session.get("shoppingCart"):
+    #     session["shoppingCart"] = []
+    #product_id_Quantity='product_id={{ product.product_id}} quantity'
+    if 'quantity' in request.args:
+        new_product = request.args['quantity']
+        # session["shoppingCart"].append(new_product)
+        return render_template("productsPage.html", new_product=new_product,products=products)
     return render_template('productsPage.html', products=products)
+
+
+
+
 
 
 # @shop.route('/shop', methods=['GET', 'POST'])

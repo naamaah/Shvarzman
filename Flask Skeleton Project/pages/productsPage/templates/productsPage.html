@@ -3,28 +3,52 @@
 {% set page_head_title = 'productsPage' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/productsPage.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('productsPage.static', filename='css/productsPage.css') }}"/>
 {% endblock %}
 
-{% block page_body_main %}
+{% block page_body_main_content %}
     <div>
         <hr>
         <h1>מוצרים</h1>
         <hr>
     </div>
 
+     {% if 'quantity' in request.args: %}
+        <h2>product from search</h2>
+        product: {{ new_product }}
+    {% endif %}
+
     <div class="product-container" dir="rtl">
         {% for product in products %}
             <div class="product-item">
                 <h3>{{ product.product_name }} </h3>
                 <p>מחיר לקילו - {{ product.product_price }}  ש"ח </p>
-                <img src={{ product.product_picture }} width="200" height="135">
-                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
-                 <button type="submit" id=btnPro{{ product.product_id}} class="question-btn" onclick=window.location='/productsPage' >הוסף לסל</button>
+                <img src={{ product.product_picture }} width="200" height="135"> <br>
+                <button type="submit" id=btnPro{{ product.product_id}} class="question-btn"
+                        onclick="document.getElementById('productPage{{ product.product_id}}').style.display='block'" >להוספה לסל</button>
+                <!-- Button to open the modal -->
+            </div>
+
+            <!-- The Modal (contains the ProductPage form) -->
+            <div class="modal" id=productPage{{ product.product_id}} >
+                <!--<span onclick="document.getElementById('productPage{{ product.product_id}}').style.display='none'" class="close" title="Close Modal"></span>-->
+                <form class="modal-content"  action="/productPage" method="get">
+                    <div class="container_ProductPage">
+                        <h1> {{ product.product_name }}</h1><hr>
+                        <img src={{ product.product_picture }} width="200" height="135">
+                        <p>בבקשה מלאי את מספר היחידות שאת רוצה מהמוצר</p>
+                        <input type="button" value="-" class="button-minus" data-field="quantity">
+                        <input type="number" id=btnquantity{{ product.product_id}} step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                        <input type="button" value="+" class="button-plus" data-field="quantity"><br>
+                        <input type="submit" id=btnShop{{ product.product_id}} class="question-btn" value="הוסף לסל"></input>
+                        <button type="button" id="cancelbtn" onclick="document.getElementById('productPage{{ product.product_id}}').style.display='none'">יציאה</button>
+                    </div>
+                </form>
             </div>
         {% endfor %}
     </div>
      <hr>
+
 {% endblock %}
 
 {% block page_body_js %}
