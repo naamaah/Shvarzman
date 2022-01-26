@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{url_for('shopPage.static', filename='css/shopPage.css')}}"/>
 {% endblock %}
 
-{% block page_body_main %}
+{% block page_body_main_content %}
     <hr>
     <h1>סל קניות</h1>
     <hr>
@@ -19,6 +19,14 @@
             <th> הסר פריט</th>
         </tr>
 
+    {% if session.get("shoppingCart") %}
+        {% for productCart in cart %}
+            productCart
+
+        {% endfor %}
+
+    {% endif %}
+
         {% for product in products %}
         <tr>
             <td><img src={{ product.product_picture }} alt="picture"></td>
@@ -30,7 +38,7 @@
                 <input type="button" value="+" class="button-plus" data-field="quantity">
             </td>
             <td>
-                <img src="/static/media/img/cancel.jpg" alt="delete button" class="ShopPicCart deleteButton">
+                <img src="/static/media/img/Cancel.png" alt="delete button" class="ShopPicCart deleteButton">
             </td>
         </tr>
         {% endfor %}

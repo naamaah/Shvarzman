@@ -62,7 +62,7 @@ from pages.tours.tours import tours
 app.register_blueprint(tours)
 
 # if __name__=='main':
-#     app.run(debug=True)
+#      app.run(debug=True)
 
 """
 ## Users
@@ -70,13 +70,17 @@ from pages.users.users import users
 app.register_blueprint(users)
 
 """
+
+"""
 ## Page error handlers
 from pages.page_error_handlers.page_error_handlers import page_error_handlers
 app.register_blueprint(page_error_handlers)
+"""
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 

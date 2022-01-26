@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="{{ url_for('login.static', filename='css/login.css') }}"/>
 {% endblock %}
 
-{% block page_body_main %}
+{% block page_body_main_content %}
 
 
 <!--Login Part-->
 
-<form class ="form_login" action="/todo"  name="logInForm" method="post">
+<form class ="form_login" action="/sign_in"  name="logInForm" method="post">
   <div class="imgcontainer">
     <img src="/static/media/img/Login_Avatar.png" alt="Avatar" class="avatar">
   </div>
@@ -21,7 +21,7 @@
     <input style="text-align:right" type="text" id="Email_Login" placeholder="הכנס כתובת מיל" name="Email_Login" onblur="checkEmail('Email_Login')">
     <label for="psw"><b>סיסמא</b></label>
     <input style="text-align:right" type="password" id="psw" placeholder="הכנס סיסמא" name="psw" onblur="checkPassword('psw')">
-    <button class="button_login" type="button" onclick="submitlogIn()">כניסה</button>
+    <button class="button_login" type="submit" onclick="submitlogIn()"> כניסה</button>
     <!--<label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>-->
@@ -41,7 +41,7 @@
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span>
-  <form class="modal-content" action="/insert_user" name="signUpForm" method="post">
+  <form class="modal-content" action="/sign_up" name="signUpForm" method="post">
     <div class="container_Login">
         <div class="imgcontainer">
             <img src="/static/media/img/SignUp_Avatar.png" alt="Avatar" class="avatar">
@@ -78,8 +78,6 @@
     </div>
   </form>
 </div>
-
-
 
 {% endblock %}
 
