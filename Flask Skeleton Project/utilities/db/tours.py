@@ -9,7 +9,11 @@ class Tours:
 
     @staticmethod
     def get_all_tours():
-        return dbManager.fetch("SELECT * FROM tours")
+        return dbManager.fetch("SELECT *  FROM tours")
+
+    @staticmethod
+    def get_tours_dictinct():
+        return dbManager.fetch("SELECT distinct tour_name, description,ticket_price, picture FROM tours")
 
     @staticmethod
     def update_places_left(tour_dt, num_of_tickets):
@@ -19,6 +23,7 @@ class Tours:
         if current_places_left >= 0:
             dbManager.commit(f"UPDATE tours SET places_left='{current_places_left}' WHERE tour_dt='{tour_dt}'")
         return current_places_left
+
 
     @staticmethod
     def get_all_dates():

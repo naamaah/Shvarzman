@@ -10,15 +10,21 @@ class Users_tours:
                                 f"VALUES ('{email}', '{tour_dt}', '{num_of_tickets}')")
 
     @staticmethod
-    def get_user_tours(email, tour_dt):
+    def get_user_tours(email):
+        return dbManager.fetch(f"SELECT * FROM users_tours WHERE email='{email}'")
+
+    @staticmethod
+    def get_user_specific_tour(email, tour_dt):
         return dbManager.fetch(f"SELECT * FROM users_tours WHERE email='{email}' and tour_dt='{tour_dt}'")
 
     @staticmethod
-    def update_user_tours(email, tour_dt, num_of_tickets):
+    def update_num_of_tickets(email, tour_dt, num_of_tickets):
         return dbManager.commit(f"UPDATE users_tours SET num_of_tickets='{num_of_tickets}' WHERE email='{email}'"
                                 f" and tour_dt='{tour_dt}'")
 
-
+    @staticmethod
+    def delete_user_tour(email, tour_dt):
+        return dbManager.commit(f"DELETE FROM  users_tours WHERE email='{email}'and tour_dt='{tour_dt}'")
 
 
 
