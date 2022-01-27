@@ -15,7 +15,6 @@ from components.header.header import header
 app.register_blueprint(header)
 
 
-
 ###### Pages
 ## About
 from pages.aboutUs.aboutUs import aboutUs # this line imports the object aboutUs from the path

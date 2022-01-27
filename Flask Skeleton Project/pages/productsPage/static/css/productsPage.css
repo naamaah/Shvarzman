@@ -33,11 +33,12 @@
 /* Extra styles for the cancel button */
 #cancelbtn {
   padding: 14px 20px;
+  font-size: 20px;
   background-color: #f56156;
 }
 
 /* The Modal (background) */
-.modal {
+.modal_product {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -46,14 +47,13 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  background-color: darkred;
+
   padding-top: 50px;
 }
 
 /* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
+.modalPro-content {
+  background-image: url("../../../../static/media/img/floor-tile.png");
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */

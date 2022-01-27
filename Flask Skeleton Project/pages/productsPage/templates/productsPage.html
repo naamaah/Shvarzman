@@ -13,26 +13,27 @@
         <hr>
     </div>
 
-     {% if 'quantity' in request.args: %}
+     {% if 'quantity' in request.args %}
         <h2>product from search</h2>
         product: {{ new_product }}
     {% endif %}
 
     <div class="product-container" dir="rtl">
         {% for product in products %}
+            <!--<form class="modalPro-content"  action="/productPage" method="GET">-->
             <div class="product-item">
                 <h3>{{ product.product_name }} </h3>
                 <p>מחיר לקילו - {{ product.product_price }}  ש"ח </p>
                 <img src={{ product.product_picture }} width="200" height="135"> <br>
-                <button type="submit" id=btnPro{{ product.product_id}} class="question-btn"
-                        onclick="document.getElementById('productPage{{ product.product_id}}').style.display='block'" >להוספה לסל</button>
+                <input type="submit" id=btnPro{{ product.product_id}} class="question-btn" name={{ product.product_id }}
+                        onclick="document.getElementById('productPage{{ product.product_id}}').style.display='block'" value="להוספה לסל"></input>
                 <!-- Button to open the modal -->
             </div>
 
             <!-- The Modal (contains the ProductPage form) -->
-            <div class="modal" id=productPage{{ product.product_id}} >
+            <div class="modal_product" id=productPage{{ product.product_id}} >
                 <!--<span onclick="document.getElementById('productPage{{ product.product_id}}').style.display='none'" class="close" title="Close Modal"></span>-->
-                <form class="modal-content"  action="/productPage" method="get">
+                <form class="modalPro-content"  action="/productPage" method="GET">
                     <div class="container_ProductPage">
                         <h1> {{ product.product_name }}</h1><hr>
                         <img src={{ product.product_picture }} width="200" height="135">
@@ -44,7 +45,9 @@
                         <button type="button" id="cancelbtn" onclick="document.getElementById('productPage{{ product.product_id}}').style.display='none'">יציאה</button>
                     </div>
                 </form>
+
             </div>
+            <!--</form>-->
         {% endfor %}
     </div>
      <hr>
