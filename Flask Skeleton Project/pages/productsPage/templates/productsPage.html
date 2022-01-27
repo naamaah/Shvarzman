@@ -20,20 +20,27 @@
 
     <div class="product-container" dir="rtl">
         {% for product in products %}
-            <!--<form class="modalPro-content"  action="/productPage" method="GET">-->
+            <form class="modalPro-content" action="/productsPage" method="GET">
             <div class="product-item">
                 <h3>{{ product.product_name }} </h3>
                 <p>מחיר לקילו - {{ product.product_price }}  ש"ח </p>
                 <img src={{ product.product_picture }} width="200" height="135"> <br>
-                <input type="submit" id=btnPro{{ product.product_id}} class="question-btn" name={{ product.product_id }}
-                        onclick="document.getElementById('productPage{{ product.product_id}}').style.display='block'" value="להוספה לסל"></input>
+                <!--<input type="submit" id=btnPro{{ product.product_id}} class="question-btn"
+                        onclick="document.getElementById('productPage{{ product.product_id}}').style.display='block'" value="להוספה לסל"></input>-->
+                <input type="hidden" name={{ product.product_id}}>
+                <input type="button" value="-" class="button-minus" data-field="quantity">
+                <input type="number" id=btnquantity{{ product.product_id}} step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="button" value="+" class="button-plus" data-field="quantity"><br>
+                <input type="submit" id=btnShop{{ product.product_id}} class="question-btn" value="הוסף לסל"></input>
                 <!-- Button to open the modal -->
             </div>
+            </form>
+
 
             <!-- The Modal (contains the ProductPage form) -->
-            <div class="modal_product" id=productPage{{ product.product_id}} >
-                <!--<span onclick="document.getElementById('productPage{{ product.product_id}}').style.display='none'" class="close" title="Close Modal"></span>-->
-                <form class="modalPro-content"  action="/productPage" method="GET">
+            <!--<div class="modal_product" id=productPage{{ product.product_id}} >
+                <span onclick="document.getElementById('productPage{{ product.product_id}}').style.display='none'" class="close" title="Close Modal"></span>
+                <form class="modalPro-content"  action="/productsPage" method="GET">
                     <div class="container_ProductPage">
                         <h1> {{ product.product_name }}</h1><hr>
                         <img src={{ product.product_picture }} width="200" height="135">
@@ -46,7 +53,7 @@
                     </div>
                 </form>
 
-            </div>
+            </div>-->
             <!--</form>-->
         {% endfor %}
     </div>

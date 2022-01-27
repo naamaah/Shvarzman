@@ -16,10 +16,10 @@ def product():
     # if not session.get("shoppingCart"):
     #     session["shoppingCart"] = {}
     #product_id_Quantity='product_id={{ product.product_id}} quantity'
-    # if 'quantity' in request.args:
-    #     new_product = request.args['quantity']
-    #     # session["shoppingCart"].append(new_product)
-    #     return render_template("productsPage.html", new_product=new_product,products=products)
+    if 'quantity' in request.args:
+        new_product = request.args['quantity']
+        # session["shoppingCart"].append(new_product)
+        return render_template("productsPage.html", new_product=new_product,products=products)
     return render_template('productsPage.html', products=products)
 
 

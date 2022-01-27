@@ -17,6 +17,7 @@
 
 .product-item {
   border: solid;
+  background-color: rgba(211,224,212, 0.8);
   transition: transform 1s;
 }
 
@@ -31,11 +32,11 @@
 }
 
 /* Extra styles for the cancel button */
-#cancelbtn {
+/*#cancelbtn {
   padding: 14px 20px;
   font-size: 20px;
   background-color: #f56156;
-}
+}*/
 
 /* The Modal (background) */
 .modal_product {
@@ -53,7 +54,8 @@
 
 /* Modal Content/Box */
 .modalPro-content {
-  background-image: url("../../../../static/media/img/floor-tile.png");
+  /*background-image: url("../../../../static/media/img/floor-tile.png");*/
+  background-color: rgba(211,224,212, 0.8);
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
