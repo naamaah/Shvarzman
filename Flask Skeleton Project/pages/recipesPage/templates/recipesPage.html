@@ -18,7 +18,7 @@
             <div class="recipe-item">
             <img src={{ recipe.picture }} width="250" height="160" class="recipe-image">
             <h3>{{ recipe.recipe_name }}</h3>
-            <button id=btnRes{{ recipe.recipe_id }} class="question-btn" onclick="openQuestion('{{ recipe.recipe_id }}')">קרא עוד</button>
+            <button id=btnRes{{ recipe.recipe_id }} class="question-btn" onclick="openRec({{ recipe.recipe_id }})">קרא עוד</button>
             <div class="recipe-content" id=content{{ recipe.recipe_id }} style="display: none; direction: rtl">
                 {{ recipe.description }}
             </div>
