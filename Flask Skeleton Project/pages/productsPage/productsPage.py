@@ -13,14 +13,21 @@ productsPage = Blueprint('productsPage', __name__,
 @productsPage.route('/productsPage', methods=['GET'])
 def product():
     products = Products.getAllProducts()
-    # if not session.get("shoppingCart"):
-    #     session["shoppingCart"] = {}
-    #product_id_Quantity='product_id={{ product.product_id}} quantity'
+    #if "email" in session:
+    if not session.get("shoppingCart"):
+    #if 'shoppingCart' not in session:
+        session["shoppingCart"] = []
     if 'quantity' in request.args:
-        new_product = request.args['quantity']
-        # session["shoppingCart"].append(new_product)
-        return render_template("productsPage.html", new_product=new_product,products=products)
+        product_quantity = request.args['quantity']
+        product_Id = request.args['productId']
+        new_product=Products.get_product_by_id(product_Id)
+        new_product_in_shoppingCart = [new_product[0].product_id,new_product[0].product_name,new_product[0].product_price,new_product[0].product_picture,new_product[0].product_inv,product_quantity]
+        session["shoppingCart"].append(new_product_in_shoppingCart)
+        #session["shoppingCart"][new_product[0].product_id]=[new_product[0].product_name, new_product[0].product_price,new_product[0].product_picture, product_quantity]
+        #return render_template("productsPage.html", product_quantity=product_quantity,product_Id=product_Id,new_product=new_product, products=products)
     return render_template('productsPage.html', products=products)
+
+
 
 
 

@@ -38,29 +38,7 @@
   background-color: #f56156;
 }*/
 
-/* The Modal (background) */
-.modal_product {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
 
-  padding-top: 50px;
-}
-
-/* Modal Content/Box */
-.modalPro-content {
-  /*background-image: url("../../../../static/media/img/floor-tile.png");*/
-  background-color: rgba(211,224,212, 0.8);
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  text-align:center;
-}
 
 input[type=number] {
   -moz-appearance: textfield;

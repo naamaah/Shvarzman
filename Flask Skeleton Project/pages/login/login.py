@@ -41,6 +41,9 @@ def sign_in_func():
     if not result: # the email does not exist
         return f"The mail {email} not exists. Try register instead/", 400
     elif result[0].password == password:
+        # if not session.get("shoppingCart"):
+        #     # if 'shoppingCart' not in session:
+        #     session["shoppingCart"] = []
         session["email"] = result[0].email
         session['first_name'] = result[0].first_name
         session['last_name'] = result[0].last_name

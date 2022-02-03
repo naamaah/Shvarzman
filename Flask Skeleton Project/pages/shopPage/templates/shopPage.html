@@ -7,6 +7,18 @@
 {% endblock %}
 
 {% block page_body_main_content %}
+{#        {% if session.shoppingCart %}#}
+{#        exist session.shoppingCart#}
+{#        {% for productCart in session.shoppingCart %}#}
+{#            inside session.shoppingCart#}
+{#            {% for item in productCart %}#}
+{#                inside item#}
+{#                {{ item[0].product_name }}#}
+{#            {% endfor %}#}
+{#        {% endfor %}#}
+{#    {% endif %}#}
+
+    {{ session.shoppingCart }}
     <hr>
     <h1>סל קניות</h1>
     <hr>
@@ -19,22 +31,14 @@
             <th> הסר פריט</th>
         </tr>
 
-    {% if session.get("shoppingCart") %}
-        {% for productCart in cart %}
-            productCart
-
-        {% endfor %}
-
-    {% endif %}
-
-        {% for product in products %}
+        {% for product in session.shoppingCart %}
         <tr>
-            <td><img src={{ product.product_picture }} alt="picture"></td>
-            <td>{{ product.product_name }}</td>
-            <td class="price"> {{ product.product_price}}</td>
+            <td><img src={{ product[3]}} alt="picture"></td>
+            <td>{{ product[1] }}</td>
+            <td class="price"> {{ product[2]}}</td>
             <td>
                 <input type="button" value="-" class="button-minus" data-field="quantity">
-                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="number" step="1" max="" value={{ product[5] }} name="quantity" min="0" class="quantity-field">
                 <input type="button" value="+" class="button-plus" data-field="quantity">
             </td>
             <td>

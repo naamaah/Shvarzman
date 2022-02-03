@@ -15,14 +15,39 @@
 
     <div class="recipe-container" dir="rtl">
         {% for recipe in recipes %}
-            <div class="recipe-item">
-            <img src={{ recipe.picture }} width="250" height="160" class="recipe-image">
-            <h3>{{ recipe.recipe_name }}</h3>
-            <button id=btnRes{{ recipe.recipe_id }} class="question-btn" onclick="openRec({{ recipe.recipe_id }})">קרא עוד</button>
-            <div class="recipe-content" id=content{{ recipe.recipe_id }} style="display: none; direction: rtl">
-                {{ recipe.description }}
-            </div>
-            </div>
+                <div class="recipe-item">
+                <!--<form action="/recipesPage" method="GET">-->
+                    <img src={{ recipe.picture }} width="250" height="160" class="recipe-image">
+                    <h3>{{ recipe.recipe_name }}</h3>
+                    <!--<button id=btnRes{{ recipe.recipe_id }} class="question-btn" onclick="openRec({{ recipe.recipe_id }})">
+                    קרא עוד
+                </button>-->
+                    <input type="hidden" name="recipeId" value={{ recipe.recipe_id }}>
+                    <input type="submit" id=btnRes{{ recipe.recipe_id }} class="question-btn"
+                           onclick="document.getElementById('recipesPage{{ recipe.recipe_id }}').style.display='block'"
+                           value="קרא עוד"></input>
+                <!--</form>-->
+                </div>
+                <!-- The Modal (contains the ProductPage form) -->
+                <div class="modal_recipe" id=recipesPage{{ recipe.recipe_id }} >
+                    <form class="modalRecipe-content" action="/recipesPage" method="GET">
+                        <div class="container_ProductPage">
+                            <h1> {{ recipe.recipe_name }}</h1>
+                            <hr>
+                            <img src={{ recipe.picture }} width="200" height="135">
+                            <p>{{ recipe.description }}</p>
+                            {% for product in productsInrec %}
+                                productsInrec
+                                <h1> {{ product.product_name }}</h1>
+                                <img src={{ product.product_picture }} width="200" height="135">
+                             {% endfor %}
+                            <button type="button" id="outbtn"
+                                    onclick="document.getElementById('recipesPage{{ recipe.recipe_id }}').style.display='none'">
+                                קרא פחות
+                            </button>
+                        </div>
+                    </form>
+                </div>
         {% endfor %}
     </div>
      <hr>

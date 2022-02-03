@@ -12,10 +12,11 @@
         <h1>מוצרים</h1>
         <hr>
     </div>
-
+        {{ session.shoppingCart }}
      {% if 'quantity' in request.args %}
         <h2>product from search</h2>
-        product: {{ new_product }}
+        productId: {{ product_Id }}
+         quantity: {{ product_quantity }}
     {% endif %}
 
     <div class="product-container" dir="rtl">
@@ -25,13 +26,16 @@
                 <h3>{{ product.product_name }} </h3>
                 <p>מחיר לקילו - {{ product.product_price }}  ש"ח </p>
                 <img src={{ product.product_picture }} width="200" height="135"> <br>
-                <!--<input type="submit" id=btnPro{{ product.product_id}} class="question-btn"
-                        onclick="document.getElementById('productPage{{ product.product_id}}').style.display='block'" value="להוספה לסל"></input>-->
-                <input type="hidden" name={{ product.product_id}}>
-                <input type="button" value="-" class="button-minus" data-field="quantity">
-                <input type="number" id=btnquantity{{ product.product_id}} step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
-                <input type="button" value="+" class="button-plus" data-field="quantity"><br>
-                <input type="submit" id=btnShop{{ product.product_id}} class="question-btn" value="הוסף לסל"></input>
+                <br>
+                {% if session.email %}
+                    <input type="hidden" name="productId" value={{ product.product_id }}>
+                    <input type="button" value="-" class="button-minus" data-field="quantity">
+                    <input type="number" id=btnquantity{{ product.product_id }} step="1" max="" value="0"
+                           name="quantity" min="0" class="quantity-field">
+                    <input type="button" value="+" class="button-plus" data-field="quantity"><br>
+                    <input type="submit" id=btnShop{{ product.product_id }} class="question-btn"
+                           value="הוסף לסל"></input>
+                {% endif %}
                 <!-- Button to open the modal -->
             </div>
             </form>
