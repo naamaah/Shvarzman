@@ -9,29 +9,22 @@
 {% block page_body_main %}
     <div class="main" id="main" class="centered">
         <h2 id="header" class="subtitle fancy"> תשלום מאובטח באשראי</h2>
-        <form class="payment" name="payingForm" action="/todo" method="POST">
+        <form class="payment" method="POST" action="/payment">
             <div class="FormDetails">
                 <label for=firstName>:שם פרטי</label><br>
                 <input style="text-align:right" id="firstName" class="payingInput" onblur="checkName('firstName')"
-                       type="text" name="firstName"><br> </br>
+                       type="text" name="firstName" value={{ session.first_name }}><br> </br>
                 <label for=lastName>:שם משפחה</label><br>
                 <input style="text-align:right" id="lastName" class="payingInput" onblur="checkName('lastName')"
-                       type="text" name="lastName"><br>
+                       type="text" name="lastName" value={{ session.last_name }}><br>
+                 <label for="isDelivery">יש לבחור את האופציה הרצויה</label><br>
+                <select name="isDelivery" id="isDelivery"><br>
+                    <option name="isDelivery" value='0'>איסוף עצמי</option>
+                    <option name="isDelivery" value='1'>משלוח</option>
+                </select><br>
                 <label for=id>:תעודת זהות</label><br>
                 <input style="text-align:right" id="id" class="payingInput" onblur="checkID('id')" type="text"
                        name="id"><br><br>
-                <b class="textPaying" for=Payment>:אמצעי תשלום</b><br>
-                <div style="direction: rtl;">
-                    <input style="text-align:right" type="radio" id="cash" name="paymentOpt"
-                           onclick="chooseCash('dispNone','dispBlock')">
-                    <label for="cash">מזומן</label> <br>
-                    <input style="text-align:right" type="radio" id="visa" name="paymentOpt"
-                           onclick="chooseCash('dispBlock','dispNone')">
-                    <label for="visa">ויזה</label> <br>
-                    <input style="text-align:right" type="radio" id="mastercard" name="paymentOpt"
-                           onclick="chooseCash('dispBlock','dispNone')">
-                    <label for="mastercard">מאסטרקארד</label> <br><br>
-                </div>
                 <div id="creditCardInputs">
                     <label for="creditCardNum">:מספר כרטיס אשראי</label><br>
                     <input style="text-align:right" id='creditCardNum' class="payInput"
@@ -42,7 +35,7 @@
                            onblur="checkCVV('creditCardCVVInput')" type="text" name="creditCardCVVInput"><br><br>
                 </div>
             </div>
-            <button class="buttonPay" type="button" onclick="submitPayment()">לחץ לתשלום</button>
+            <button class="buttonPay" type="submit" onclick="submitPayment()">לחץ לתשלום</button>
             <br>
             <br>
             <br>
@@ -56,5 +49,5 @@
 
 
 {% block page_body_js %}
-    <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
+    <script src="{{ url_for('payment.static', filename='js/payment.js') }}"></script>
 {% endblock %}

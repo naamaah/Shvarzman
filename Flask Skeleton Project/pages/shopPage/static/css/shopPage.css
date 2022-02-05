@@ -2,17 +2,21 @@
 
 /* --------------Style Shopping Cart*/
 
-
-.quantity-field {
+.quantity-field, .quantity-field:hover {
   max-width: 40pt;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-  background-color: #f2f2f2;
+  padding: 10px;
+  /*border: 1px solid #ccc;*/
+  /*border-radius: 4px;*/
+  /*box-sizing: border-box;*/
+  /*margin-top: 6px;*/
+  /*margin-bottom: 16px;*/
+  /*resize: vertical;*/
+  /*background-color: #f2f2f2;*/
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    border-style: none;
 }
 
 input::-webkit-outer-spin-button,
@@ -43,8 +47,6 @@ input[type=number] {
     max-width: 120px;
 }
 
-
-
 .paymentButton {
   text-align: center;
   width: 18%;
@@ -57,6 +59,7 @@ input[type=number] {
 
 .paymentButton:hover {
   background-color: #52796f;
+
 }
 
 .cart-table {
@@ -90,3 +93,9 @@ td {
     font-size: 27px;
 
 }
+.hideBtn, .hideBtn:hover{
+      background-color: transparent;
+}
+/*button:hover {*/
+/*    background-color: #84a98c;*/
+/*}*/

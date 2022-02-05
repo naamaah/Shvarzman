@@ -1,19 +1,16 @@
 from utilities.db.db_manager import dbManager
+import datetime
 
 #Bar
 
 class Orders:
     @staticmethod
-    def insert_order(payer_id, order_cost, date):
-        date = date.strftime("%Y-%m-%d %H:%M:%S")
-        insertOrder = dbManager.commit(
-            f"INSERT INTO orders (payer_id, order_cost, date) VALUES ({payer_id}, {order_cost}, '{date}')")
-        if insertOrder != 1:
-            raise Exception(f"{insertOrder} rows was affected by the query")
+    def insert_order(order_id, is_delivery, user_email, order_cost):
+        #date = date.strftime("%Y-%m-%d %H:%M:%S")
+        date = datetime.datetime.now()
+        return dbManager.commit(
+            f"INSERT INTO orders VALUES ('{order_id}, {date}, {is_delivery}, {user_email}, {order_cost}')")
 
-        orders = dbManager.fetch(
-            f"SELECT * FROM orders WHERE payer_id={payer_id} AND order_cost={order_cost} AND date='{date}'")
-        if not orders:
-            raise Exception("Exception occurred while selecting the order from the DB")
-
-        return orders[0].id
+    @staticmethod
+    def getOrderIds():
+        return dbManager.fetch("SELECT order_id FROM orders")

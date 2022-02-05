@@ -6,21 +6,19 @@
   grid-template-columns: auto auto auto auto auto;
   grid-gap: 10px;
   padding: 10px;
+  text-align: center;
 }
-
 .product-container > div {
   background-color: rgba(211,224,212, 0.8);
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
 }
-
 .product-item {
   border: solid;
   background-color: rgba(211,224,212, 0.8);
   transition: transform 1s;
 }
-
 .product-item:hover {
   transform: scale(1.1);
   cursor:pointer;
@@ -30,15 +28,6 @@
 .container_ProductPage {
   padding: 16px;
 }
-
-/* Extra styles for the cancel button */
-/*#cancelbtn {
-  padding: 14px 20px;
-  font-size: 20px;
-  background-color: #f56156;
-}*/
-
-
 
 input[type=number] {
   -moz-appearance: textfield;

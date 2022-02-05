@@ -8,16 +8,75 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-
-  padding-top: 50px;
+  padding-top: 25px;
 }
 
 /* Modal Content/Box */
 .modalRecipe-content {
   background-image: url("../../../../static/media/img/floor-tile.png");
-  /*background-color: rgba(211,224,212, 0.8);*/
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 70%; /* Could be more or less, depending on screen size */
   text-align:center;
 }
+
+.productInRec-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 5px;
+  text-align: center;
+  background-color: rgba(211,224,212, 0.8);
+  font-size: 25px;
+  justify-content: center;
+
+
+}
+.productInRec-container > div {
+  background-color: rgba(211,224,212, 0.8);
+  text-align: center;
+}
+
+.productInRec-item {
+  border: 2px solid;
+  padding-bottom: 20px;
+  padding-right: 25px;
+  padding-left: 25px;
+
+
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  text-align: center;
+}
+
+.button-minus,
+.button-plus {
+  font-weight: bold;
+  font-size: 25px;
+  height: 3vh;
+  padding: 0;
+  width: 3vh;
+  position: relative;
+  background-color: transparent;
+  border: transparent;
+}
+
+.quantity-field {
+  max-width: 40pt;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+  background-color: #f2f2f2;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
