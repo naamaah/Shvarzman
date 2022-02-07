@@ -83,3 +83,16 @@ def sign_up_func():
             return redirect('/')
         else:
             return "Registration failed. Please try again.", 400
+
+
+@login.route('/logout')
+def logout_func():
+    session["shoppingCart"] = ''
+    session["email"] = ''
+    session['first_name'] = ''
+    session['last_name'] = ''
+    session['phone_number'] = ''
+    session['address'] = ''
+    session["is_logged_in"] = ''
+    # session.clear()
+    return redirect('/homepage')
