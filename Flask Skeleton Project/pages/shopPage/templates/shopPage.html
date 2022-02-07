@@ -6,11 +6,19 @@
     <link rel="stylesheet" href="{{url_for('shopPage.static', filename='css/shopPage.css')}}"/>
 {% endblock %}
 
-{% block page_body_main_content %}
+{% block page_body_main %}
+{#    <div dir="rtl">#}
     <hr>
     <h1>סל קניות</h1>
-    <hr>
-    <table class="table cart-table" id="myTable">
+
+    {% if not session.email %}
+        <h2 dir="rtl">עמוד זה רלוונטי לאנשים מחוברים בלבד :) </h2><hr>
+    {% elif not session.shoppingCart|length %}
+        <h2 dir="rtl"> היי {{ session.first_name }}, הסל ריק, במידה ובאלך להזמין, יש לעבור לדף המוצרים או המתכונים :) </h2><hr>
+    {% else %}
+        <h2 dir="rtl"> היי {{ session.first_name }}, זה הסל קניות שלך!</h2><hr>
+
+            <table class="table cart-table" id="myTable">
         <tr>
             <th>תמונה</th>
             <th>שם המוצר</th>
@@ -19,34 +27,36 @@
             <th> הסר פריט</th>
         </tr>
 
-    {% if session.get("shoppingCart") %}
-        {% for productCart in cart %}
-            productCart
-
-        {% endfor %}
-
-    {% endif %}
-
-        {% for product in products %}
+        {% for product in session.shoppingCart %}
         <tr>
-            <td><img src={{ product.product_picture }} alt="picture"></td>
-            <td>{{ product.product_name }}</td>
-            <td class="price"> {{ product.product_price}}</td>
+            <td><img src={{ product[3]}} alt="picture"></td>
+            <td>{{ product[1] }}</td>
+            <td class="price"> {{ product[2]}}</td>
             <td>
+                <form class="changeQuantity" action="/shopPage" method="GET">
+                    <input type="hidden" name="changeId" value={{ product[0]}} >
+                    <button class="hideBtn" onclick="updateTotalPrice()">
                 <input type="button" value="-" class="button-minus" data-field="quantity">
-                <input type="number" step="1" max="" value="0" name="quantity" min="0" class="quantity-field">
+                <input type="number" step="1" max="" value={{ product[5] }} name="quantity" min="0" class="quantity-field" readonly>
                 <input type="button" value="+" class="button-plus" data-field="quantity">
+                    </button>
+                </form>
             </td>
             <td>
-                <img src="/static/media/img/Cancel.png" alt="delete button" class="ShopPicCart deleteButton">
+                <form class="deleteProduct" action="/shopPage" method="GET">
+                <input type="hidden" name="deleteId" value={{ product[0]}}>
+                    <button class="hideBtn"><img src="/static/media/img/Cancel.png" alt="delete button" class="ShopPicCart deleteButton"></button>
+
+                </form>
             </td>
         </tr>
         {% endfor %}
     </table>
 
-
-    <p class="total-price-text" id="totalPriceText"></p>
-    <input type="hidden" name="totalPrice" id="totalPrice" value="0"/>
+{#    <p class="total-price-text" id="totalPriceText" value="updateTotalPrice()"></p>#}
+{#    <input type="hidden" name="totalPrice" id="totalPrice" value="0"/>#}
+    <hr>
+    <p class="total-price-text" id="totalPriceText">₪ {{ totalPrice }} סך הכל לתשלום </p>
     <button class="paymentButton" onclick=submitCart()>מעבר לתשלום</button>
 
     <br>
@@ -57,6 +67,10 @@
     <br>
     <br>
     <br>
+    {% endif %}
+
+
+
 {% endblock %}
 
 

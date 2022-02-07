@@ -3,6 +3,7 @@
     {%
         set header_items = {
             'shopPage': {'href': '/shopPage','icon':"fas fa-shopping-cart"},
+            'logOut': {'href': '/logout', 'icon':"fas fa-user-alt-slash",'name':"התנתקות"},
             'Login': {'href': '/login','icon':"fa fa-fw fa-user"},
             'QA':{'href': '/QA','icon':"fas fa-question-circle", 'name':"שאלות ותשובות"},
             'contactUs':{'href': '/contactUs','icon':"fa fa-fw fa-envelope", 'name': "יצירת קשר"},
@@ -15,16 +16,79 @@
         }
     %}
 
-    {% for item in header_items.values() %}
-        <a href="{{ item['href'] }}"
-        {% if item['href'] == request.path %}
-            class="active"
-        {% else %}
-           class="nav"
+    {% for key,item in header_items.items() %}
+        {% if not session.email %} {# the session dont exist #}
+            {% if key != 'logOut' %}
+                <a href="{{ item['href'] }}"
+                        {% if item['href'] == request.path %}
+                   class="active"
+                        {% else %}
+                   class="nav"
+                        {% endif %}
+                ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>
+            {% endif %}
+        {% elif not session.email|length %} {# the session exist but the length is zero - the user didnt sign in #}
+            {% if key != 'logOut' %}
+                <a href="{{ item['href'] }}"
+                        {% if item['href'] == request.path %}
+                   class="active"
+                        {% else %}
+                   class="nav"
+                        {% endif %}
+                ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>
+            {% endif %}
+        {% elif session.email|length %} {# the session exist and the length not zero - the user sign in #}
+            {% if key != 'Login' %}
+                <a href="{{ item['href'] }}"
+                        {% if item['href'] == request.path %}
+                   class="active"
+                        {% else %}
+                   class="nav"
+                        {% endif %}
+                ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>
+            {% endif %}
         {% endif %}
-        ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>
     {% endfor %}
 
+
+
+{#    {% for item in header_items.values() %}#}
+{#        {% if item.key != 'logOut' and item.key != 'Login' %}#}
+{#            not login and not logiut#}
+{#            <a href="{{ item['href'] }}"#}
+{#                {% if item['href'] == request.path %}#}
+{#                    class="active"#}
+{#                {% else %}#}
+{#                    class="nav"#}
+{#                {% endif %}#}
+{#            ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>#}
+{#        {% else %}#}
+{#                {% if item.key == 'logOut' %}#}
+{#                    logout#}
+{#                    {% if session.email|length %}#}
+{#                        <a href="{{ item['href'] }}"#}
+{#                            {% if item['href'] == request.path %}#}
+{#                                class="active"#}
+{#                            {% else %}#}
+{#                                class="nav"#}
+{#                            {% endif %}#}
+{#                        ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>#}
+{#                        {% endif %}#}
+{#                {% else %}#}
+{#                    {% if item.key == 'Login' %}#}
+{#                        Login#}
+{#                        {% if not session.email|length %}#}
+{#                            <a href="{{ item['href'] }}"#}
+{#                                {% if item['href'] == request.path %}#}
+{#                                    class="active"#}
+{#                                {% else %}#}
+{#                                    class="nav"#}
+{#                                {% endif %}#}
+{#                            ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>#}
+{#                        {% endif %}#}
+{#                    {% endif %}#}
+{#                {% endif %}#}
+{#        {% endif %}#}
+{#    {% endfor %}#}
+
 </header>
-
-

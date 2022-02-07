@@ -6,20 +6,19 @@
   grid-template-columns: auto auto auto auto auto;
   grid-gap: 10px;
   padding: 10px;
+  text-align: center;
 }
-
 .product-container > div {
   background-color: rgba(211,224,212, 0.8);
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
 }
-
 .product-item {
   border: solid;
+  background-color: rgba(211,224,212, 0.8);
   transition: transform 1s;
 }
-
 .product-item:hover {
   transform: scale(1.1);
   cursor:pointer;
@@ -28,36 +27,6 @@
 /* Add padding to containers */
 .container_ProductPage {
   padding: 16px;
-}
-
-/* Extra styles for the cancel button */
-#cancelbtn {
-  padding: 14px 20px;
-  font-size: 20px;
-  background-color: #f56156;
-}
-
-/* The Modal (background) */
-.modal_product {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-
-  padding-top: 50px;
-}
-
-/* Modal Content/Box */
-.modalPro-content {
-  background-image: url("../../../../static/media/img/floor-tile.png");
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  text-align:center;
 }
 
 input[type=number] {

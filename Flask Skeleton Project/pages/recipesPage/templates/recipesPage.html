@@ -6,26 +6,79 @@
     <link rel="stylesheet" href="{{ url_for('recipesPage.static', filename='css/recipesPage.css') }}"/>
 {% endblock %}
 
-{% block page_body_main_content %}
-    <div>
+{% block page_body_main %}
+    <div dir="rtl">
         <hr>
         <h1>מתכונים</h1>
         <hr>
+    {% if not session.email %}
+        <h2>בשביל להזמין מוצרים השייכים למתכון מסוים יש להתחבר קודם, במידה ולא באלך מוזמן/ת להישאר ולהתסכל על המתכונים :) </h2>
+    {% else %}
+        <h2> היי {{ session.first_name }}, במידה ובאלך להזמין מוצרים השייכים למכון מסויים, יש לבחור ללחוץ על קרא עוד, לשנות כמות וללחוץ על הוסף לסל :) </h2>
+        <h3> במידה והוספת מוצרים לסל, הכמות תופיע במוצר המתאים </h3>
+    {% endif %}
     </div>
 
     <div class="recipe-container" dir="rtl">
         {% for recipe in recipes %}
             <div class="recipe-item">
-            <img src={{ recipe.picture }} width="250" height="160" class="recipe-image">
-            <h3>{{ recipe.recipe_name }}</h3>
-            <button id=btnRes{{ recipe.recipe_id }} class="question-btn" onclick="openRec({{ recipe.recipe_id }})">קרא עוד</button>
-            <div class="recipe-content" id=content{{ recipe.recipe_id }} style="display: none; direction: rtl">
-                {{ recipe.description }}
+                <!--<form action="/recipesPage" method="GET">-->
+                <img src={{ recipe.picture }} width="250" height="160" class="recipe-image">
+                <h3>{{ recipe.recipe_name }}</h3>
+                <!--<button id=btnRes{{ recipe.recipe_id }} class="question-btn" onclick="openRec({{ recipe.recipe_id }})">
+                    קרא עוד
+                </button>-->
+                <input type="submit" id=btnRes{{ recipe.recipe_id }} class="question-btn"
+                       onclick="document.getElementById('recipesPage{{ recipe.recipe_id }}').style.display='block'"
+                       value="קרא עוד"></input>
+                <!--</form>-->
             </div>
+            <!-- The Modal (contains the ProductPage form) -->
+            <div class="modal_recipe" id=recipesPage{{ recipe.recipe_id }} >
+            <span onclick="document.getElementById('recipesPage{{ recipe.recipe_id }}').style.display='none'" class="close" title="Close Modal">times;</span>
+                <form class="modalRecipe-content" action="/recipesPage" method="GET">
+                    <div class="container_ProductPage">
+                        <h1> {{ recipe.recipe_name }}</h1>
+                        <hr>
+                        <img src={{ recipe.picture }} width="200" height="135">
+                        <p>{{ recipe.description }}</p>
+                        <input type="hidden" name="recipeId" value={{ recipe.recipe_id }}>
+                        {% if productsIDInRecDic[recipe.recipe_id] %}
+                            <h3> מוצרים מהמתכון שניתן לרכוש אצלנו!</h3>
+                            <div class="productInRec-container" dir="rtl">
+                                {% for product in productsIDInRecDic[recipe.recipe_id] %}
+                                    <div class="productInRec-item" dir="rtl">
+                                        <h4> {{ product.product_name }}</h4>
+                                        <img src={{ product.product_picture }} width="150" height="100">
+                                        {% if session.email %}
+                                            <br>
+                                            <p>מחיר לקילו - {{ product.product_price }}  ש"ח </p>
+                                            <!--<input type="hidden" name="productId" value={{ product.product_id }}>-->
+                                            <input type="button" value="-" class="button-minus" data-field="quantity">
+                                            <input type="number" id=btnquantityRes{{ product.product_id }} step="1" max=""
+                                                   value={{ valuesDict[product.product_id] }}
+                                                   name={{ product.product_id }}quantity min="0" class="quantity-field">
+                                            <input type="button" value="+" class="button-plus" data-field="quantity">
+                                            <br>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% if session.email %}
+                                <input type="submit" id=btnShopRes{{ recipe.recipe_id }} class="question-btn"
+                                value="הוסף לסל"></input>
+                            {% endif %}
+                        {% endif %}
+                        <button type="button" id="outbtn"
+                                onclick="document.getElementById('recipesPage{{ recipe.recipe_id }}').style.display='none'">
+                            קרא פחות
+                        </button>
+                    </div>
+                </form>
             </div>
         {% endfor %}
     </div>
-     <hr>
+    <hr>
 
 {% endblock %}
 
