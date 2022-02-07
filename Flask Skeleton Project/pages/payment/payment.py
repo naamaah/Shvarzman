@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, session, redirect, url_for
 from pages.shopPage.shopPage import calToalPrict
 from utilities.db.orders import Orders
+from utilities.db.order_products import ShoppingCart
 
 # payment blueprint definition
 payment = Blueprint('payment', __name__,
@@ -19,8 +20,21 @@ def paymentPage():
         order_cost=calToalPrict()
         is_delivery = request.form.get("isDelivery")
         order_id=findKey()
+
+        # insert to orders table
         result = Orders.insert_order(order_id, int(is_delivery), user_email, order_cost)
         print(result)
+        print(session)
+        print(session.email)
+        # insert to orders_products table
+        for product in session.shoppingCart:
+            product_id = product[2]
+            product_quantity = product[6]
+            print(product_id)
+            print(product_quantity)
+            # result = ShoppingCart.insert_product_order(product_id, order_id, product_quantity)
+        print(result)
+
         print("back from insert")
         return redirect('/')
     return render_template('payment.html')
