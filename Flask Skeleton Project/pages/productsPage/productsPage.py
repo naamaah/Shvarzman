@@ -21,7 +21,7 @@ def product():
         if product_quantity != '0':
             valuesDict[product_Id]=product_quantity
             new_product=Products.get_product_by_id(product_Id)
-            new_product_in_shoppingCart = [new_product[0].product_id,new_product[0].product_name,new_product[0].product_price,new_product[0].product_picture,new_product[0].product_inv,product_quantity]
+            new_product_in_shoppingCart = [new_product[0].product_id,new_product[0].product_name,new_product[0].product_price,new_product[0].product_picture,product_quantity]
             old_cart=deleteProductifAlreadyInCart(product_Id)
             old_cart.append(new_product_in_shoppingCart)
             session["shoppingCart"]=old_cart
@@ -47,7 +47,7 @@ def valuesForQuantity():
     if session.get("shoppingCart"):
         old_cart=session["shoppingCart"]
         for p in old_cart:
-            valuesDict[p[0]]=p[5]
+            valuesDict[p[0]]=p[4]
     return valuesDict
 
 

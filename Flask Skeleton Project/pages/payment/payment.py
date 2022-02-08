@@ -20,23 +20,16 @@ def paymentPage():
         order_cost=calToalPrict()
         is_delivery = request.form.get("isDelivery")
         order_id=findKey()
-
         # insert to orders table
         result = Orders.insert_order(order_id, int(is_delivery), user_email, order_cost)
-        print(result)
-
-        print(session)
-        print(session["email"])
         # insert to orders_products table
         for product in session["shoppingCart"]:
             product_id = product[0]
-            product_quantity = product[5]
+            product_quantity = product[4]
             print(product_id)
             print(product_quantity)
             result = ShoppingCart.insert_product_order(order_id, product_id, product_quantity)
-        print(result)
-
-        print("back from insert")
+        session["shoppingCart"]=[]
         return redirect('/')
     return render_template('payment.html')
 

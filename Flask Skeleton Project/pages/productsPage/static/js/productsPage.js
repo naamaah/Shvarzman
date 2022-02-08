@@ -34,9 +34,8 @@ function submitProduct(btnQuantity) {
   var id = 'btnquantity'+btnQuantity
   console.log(id);
   const quantity = document.getElementById(id)
-  if (quantity.value==0) {
-        alert("לא ניתן להוסיף לסל פריט עם כמות 0");
-    }
+  alert("הפריט התווסף בהצלחה!");
+
 }
 
 
