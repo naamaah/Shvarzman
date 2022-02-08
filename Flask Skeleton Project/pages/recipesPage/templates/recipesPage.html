@@ -65,8 +65,8 @@
                                 {% endfor %}
                             </div>
                             {% if session.email %}
-                                <input type="submit" id=btnShopRes{{ recipe.recipe_id }} class="question-btn"
-                                value="הוסף לסל"></input>
+                                <input type="submit" id=btnShopRes{{ recipe.recipe_id }} onclick="submitProductFromRec()" class="question-btn"
+                                value="הוסף לסל"> </input>
                             {% endif %}
                         {% endif %}
                         <button type="button" id="outbtn"

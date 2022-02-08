@@ -3,73 +3,107 @@
 {% set page_head_title = 'shopPage' %}
 
 {% block page_head_css %}
-    <link rel="stylesheet" href="{{url_for('shopPage.static', filename='css/shopPage.css')}}"/>
+    <link rel="stylesheet" href="{{ url_for('shopPage.static', filename='css/shopPage.css') }}"/>
+
 {% endblock %}
 
 {% block page_body_main %}
-{#    <div dir="rtl">#}
+    {#    <div dir="rtl">#}
     <hr>
     <h1>סל קניות</h1>
+    <hr>
 
     {% if not session.email %}
-        <h2 dir="rtl">עמוד זה רלוונטי לאנשים מחוברים בלבד :) </h2><hr>
-    {% elif not session.shoppingCart|length %}
-        <h2 dir="rtl"> היי {{ session.first_name }}, הסל ריק, במידה ובאלך להזמין, יש לעבור לדף המוצרים או המתכונים :) </h2><hr>
+        <h2 dir="rtl">עמוד זה רלוונטי לאנשים מחוברים בלבד :) </h2>
+        <hr>
     {% else %}
-        <h2 dir="rtl"> היי {{ session.first_name }}, זה הסל קניות שלך!</h2><hr>
-
+          {% if productsInOrderDict|length %}
+                    <button id="openOrder00" onclick="openOrderTab('00')">לצפייה בהזמנות קודמות</button>
+                    <div id=productsOrder00 style="display: none" dir="rtl">
+                    {% for key, value in productsInOrderDict.items() %}
+                        <button id=openOrder{{ key }} class=openOrder{{ key }} onclick="openOrderTab({{ key }},'{{ value[0] }}')">הזמנה מהתאריך {{ value[0] }}</button>
+                            <form id=productsOrder{{ key }} action="/shopPage" method="GET" style="display: none" dir="rtl">
+                            <input type="hidden" name="orderId" value={{ key }}>
+                                <div class="productsOrder-container" dir="rtl">
+                            {% for pro in value[1:] %}
+                                <div class="productOrder-item" dir="rtl">
+                                <h3>{{ pro[1] }} </h3>
+                                <img src={{ pro[2] }} width="150" height="100">
+                                <h4>  {{ pro[3] }} קילו </h4><hr>
+                                            <p>מחיר לקילו - {{ pro[4] }}  ש"ח </p>
+{#                                            <input type="hidden" name="addId" value={{ pro[0] }}>#}
+                                            <input type="button" value="-" class="button-minus" data-field="quantity">
+                                            <input type="number" id=btnquantityRes{{ pro[0] }} step="1" max=""
+                                                   value={{ valuesDict[pro[0]] }}
+                                                   name={{ pro[0] }}quantity min="0" class="quantity-field">
+                                            <input type="button" value="+" class="button-plus" data-field="quantity">
+                                            <br>
+                                </div>
+                            {% endfor %}
+                            </div>
+                            <input type="submit" id=btnShopOrder{{ key }} class="question-btn"
+                                value="הוסף לסל"></input>
+                            </form>
+                    {% endfor %}
+                    </div><hr>
+                {% endif %}
+        {% if not session.shoppingCart|length %}
+            <h2 dir="rtl"> היי {{ session.first_name }}, הסל ריק, במידה ובאלך להזמין, יש לעבור לדף המוצרים או המתכונים
+                :) </h2>
+            <hr>
+        {% else %}
+            <h2 dir="rtl"> היי {{ session.first_name }}, זה הסל קניות שלך!</h2>
+            <hr>
             <table class="table cart-table" id="myTable">
-        <tr>
-            <th>תמונה</th>
-            <th>שם המוצר</th>
-            <th> ₪מחיר לק"ג</th>
-            <th>כמות</th>
-            <th> הסר פריט</th>
-        </tr>
+                <tr>
+                    <th>תמונה</th>
+                    <th>שם המוצר</th>
+                    <th> ₪מחיר לק"ג</th>
+                    <th>כמות</th>
+                    <th> הסר פריט</th>
+                </tr>
 
-        {% for product in session.shoppingCart %}
-        <tr>
-            <td><img src={{ product[3]}} alt="picture"></td>
-            <td>{{ product[1] }}</td>
-            <td class="price"> {{ product[2]}}</td>
-            <td>
-                <form class="changeQuantity" action="/shopPage" method="GET">
-                    <input type="hidden" name="changeId" value={{ product[0]}} >
-                    <button class="hideBtn" onclick="updateTotalPrice()">
-                <input type="button" value="-" class="button-minus" data-field="quantity">
-                <input type="number" step="1" max="" value={{ product[5] }} name="quantity" min="0" class="quantity-field" readonly>
-                <input type="button" value="+" class="button-plus" data-field="quantity">
-                    </button>
-                </form>
-            </td>
-            <td>
-                <form class="deleteProduct" action="/shopPage" method="GET">
-                <input type="hidden" name="deleteId" value={{ product[0]}}>
-                    <button class="hideBtn"><img src="/static/media/img/Cancel.png" alt="delete button" class="ShopPicCart deleteButton"></button>
+                {% for product in session.shoppingCart %}
+                    <tr>
+                        <td><img src={{ product[3] }} alt="picture"></td>
+                        <td>{{ product[1] }}</td>
+                        <td class="price"> {{ product[2] }}</td>
+                        <td>
+                            <form class="changeQuantity" action="/shopPage" method="GET">
+                                <input type="hidden" name="changeId" value={{ product[0] }}>
+                                <button class="hideBtn" onclick="updateTotalPrice()">
+                                    <input type="button" value="-" class="button-minus" data-field="quantity">
+                                    <input type="number" step="1" max="" value={{ product[4] }} name="quantity" min="0"
+                                           class="quantity-field" readonly>
+                                    <input type="button" value="+" class="button-plus" data-field="quantity">
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form class="deleteProduct" action="/shopPage" method="GET">
+                                <input type="hidden" name="deleteId" value={{ product[0] }}>
+                                <button class="hideBtn"><img src="/static/media/img/Cancel.png" alt="delete button"
+                                                             class="ShopPicCart deleteButton"></button>
 
-                </form>
-            </td>
-        </tr>
-        {% endfor %}
-    </table>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
 
-{#    <p class="total-price-text" id="totalPriceText" value="updateTotalPrice()"></p>#}
-{#    <input type="hidden" name="totalPrice" id="totalPrice" value="0"/>#}
-    <hr>
-    <p class="total-price-text" id="totalPriceText">₪ {{ totalPrice }} סך הכל לתשלום </p>
-    <button class="paymentButton" onclick=submitCart()>מעבר לתשלום</button>
+            {#    <p class="total-price-text" id="totalPriceText" value="updateTotalPrice()"></p>#}
+            {#    <input type="hidden" name="totalPrice" id="totalPrice" value="0"/>#}
+            <hr>
+            <p class="total-price-text" id="totalPriceText">₪ {{ totalPrice }} סך הכל לתשלום </p>
+            <button class="paymentButton" onclick=submitCart()>מעבר לתשלום</button>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+            <br>
+            <br>
+            <br><hr>
+
+        {% endif %}
+
     {% endif %}
-
-
 
 {% endblock %}
 

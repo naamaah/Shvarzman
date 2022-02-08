@@ -77,4 +77,33 @@ else {
 }
 }
 
+function openOrderTab(id, date) {
+  var idOrder='productsOrder'+id
+  var btn='openOrder'+id
+  // console.log(date)
+  var x = document.getElementById(idOrder);
+  if (x.style.display == "none") {
+    x.style.display = "block";
+    document.getElementById(btn).style.backgroundColor= "#354f52";
+    if (id=='00'){
+            document.getElementById(btn).innerText = 'סגור הזמנות קודמות';
+    }
+    else{
+            document.getElementById(btn).innerText = "סגור הזמנה מהתאריך " +date;
+
+    }
+  } else {
+    x.style.display = "none";
+    document.getElementById(btn).style.backgroundColor= "#52796f";
+            if (id=='00'){
+            document.getElementById(btn).innerText = 'צפייה בהזמנות קודמות';
+        }
+            else{
+                document.getElementById(btn).innerText = "הזמנה מהתאריך " +date;
+
+            }
+
+  }
+}
+
 
