@@ -16,3 +16,7 @@ class Orders:
     @staticmethod
     def getOrderIds():
         return dbManager.fetch("SELECT order_id FROM orders")
+
+    # @staticmethod
+    # def getMaxID():
+    #     return dbManager.fetch("SELECT MAX (order_id) FROM orders")

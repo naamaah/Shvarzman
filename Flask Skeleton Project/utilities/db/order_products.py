@@ -7,4 +7,5 @@ class ShoppingCart:
     @staticmethod
     def insert_product_order(order_id, product_id, quantity):
         return dbManager.commit(
-            f"INSERT INTO order_products (product_id, order_id, quantity) VALUES ('{product_id}', '{order_id}', '{quantity}')")
+            # f"INSERT INTO order_products (order_id, product_id, quantity) VALUES (''{order_id}', {product_id}',  '{quantity}')")
+            "INSERT INTO order_products (order_id, product_id, quantity) VALUES ('%s', '%s', '%s');" % (order_id, product_id, quantity))
