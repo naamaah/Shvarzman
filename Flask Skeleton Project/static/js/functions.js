@@ -75,13 +75,6 @@ function checkPhone (id){
   }
 }
 
-function checkNumOfTickets(id){
-  var numOfTickets=document.getElementById(id).value;
-  if (numOfTickets<=0 || numOfTickets>10){
-    alert("ניתן לרכוש באתר בין 1-10 כרטיסים, במידה ואתם קבוצה גדולה יותר צרו איתנו קשר");
-    document.getElementById(id).value="";
-  }
-}
 
 function checkPassword(id){
   var password=document.getElementById(id).value;
@@ -107,16 +100,6 @@ function onlyNumbers(num){
 
 
 
-function submitFormTours() {
-         if (document.getElementById('tour_dt').value.length==0 ||
-             document.getElementById('emailaddress').value.length==0 ||
-             document.getElementById('numOfTickets').value.length==0)  {
-              alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
-             }
-         else {
-               // alert("שמחים שבחרת להגיע לסיור שלנו! הרשמתך נקלטה במערכת");
-           }
-}
 
 
 function submitFormContact() {

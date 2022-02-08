@@ -10,10 +10,6 @@ class Users_tours:
                                 f"VALUES ('{email}', '{tour_dt}', '{num_of_tickets}')")
 
     @staticmethod
-    def get_user_tours(email):
-        return dbManager.fetch(f"SELECT * FROM users_tours WHERE email='{email}'")
-
-    @staticmethod
     def get_user_specific_tour(email, tour_dt):
         return dbManager.fetch(f"SELECT * FROM users_tours WHERE email='{email}' and tour_dt='{tour_dt}'")
 
