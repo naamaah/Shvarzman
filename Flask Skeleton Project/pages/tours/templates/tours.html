@@ -41,11 +41,12 @@
     </div>
 
 
-    {#    <button class=formButton type="button" onclick=openForm()>הירשם</button>#}
+
     {% if session.email %}
-        <div id="gridContainer">
+        <button id=btnGridContainer1 class=formButton type="button" onclick=openForm('1')>פתיחת טופס הרשמה לסיור</button>
+        <div id="gridContainer1" style="display: none"  dir="rtl">
             <div id="item form tour">
-                <h1 class="titleTour">טופס הרשמה לסיור</h1>
+                <h2 class="titleTour">טופס הרשמה לסיור</h2>
                 <p class="textTour2">
                     מלאו את הפרטים על מנת לבצע הזמנה לאחד מסיורי המשק (:<br>
                 </p>
@@ -91,8 +92,10 @@
         </div>
         <br>
         {% if user_tours %}
-            <p> עדכון הזמנה</p>
-            <p>באפשרותך לעדכן את כמות הכרטיסים או לבטל רישום קיים</p>
+            <button id=btnGridContainer2 class=formButton type="button" onclick=openForm('2')>פתיחת טופס עדכון סיור קיים</button>
+            <div id="gridContainer2" style="display: none" dir="rtl">
+            <h2 class="titleTour"> עדכון הזמנה</h2>
+            <p class="textTour2">באפשרותך לעדכן את כמות הכרטיסים או לבטל רישום קיים</p>
             <form method="GET" action="/update_tour_order">
                 <select name="tourDateForUpdate" id="tour_dt_update"><br>
                     {% for tour in user_tours %}
@@ -104,14 +107,15 @@
                 <input name="updateNumTickets" id="updateNumTickets" type="text"
                        onblur="checkNumOfTickets('updateNumTickets')">
                 <br>
-                <input type="submit" name="submit_button" value="עדכן כמות כרטיסים"
+                <input type="submit" class="sumbitFrom" name="submit_button" value="עדכן כמות כרטיסים"
                        onclick="submitFormTours('tour_dt_update','updateNumTickets')">
-                <input type="submit" name="submit_button" value="בטל רישום לסיור">
+                <input type="submit" class="sumbitFrom" name="submit_button" value="בטל רישום לסיור">
             </form>
+            </div>
         {% endif %}
 
     {% else %}
-        <p> על מנת להירשם לסיורי המשק יש להתחבר לאתר</p>
+        <h3> על מנת להירשם לסיורי המשק יש להתחבר לאתר</h3>
         <br>
     {% endif %}
 {% endblock %}

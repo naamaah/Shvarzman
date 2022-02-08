@@ -1,6 +1,5 @@
 
 /* --------------Style Tour*/
-
 .tourPicture{
     width: 100%;
 }
@@ -8,7 +7,6 @@
     width: 100%;
 
 }
-
 .textTour1 {
     font-size: 28px;
     text-align: center;
@@ -30,8 +28,6 @@
     color: red;
     font-weight: bold;
 }
-
-
 
 #gridContainer {
     display: grid;
@@ -110,8 +106,8 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
-input[type=submit] {
-  background-color: #354f52;
+input[type=submit], button[type=submit], .sumbitFrom {
+  background-color: #314a4d;
   border: 1px solid #354f52;
   border-radius: 4px;
   box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
@@ -132,7 +128,7 @@ input[type=submit] {
   width:100%;
 }
 
-input[type=submit]:hover {
+input[type=submit]:hover , button[type=submit]:hover{
   box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
   background-color: #52796f;
   transform: translateY(-2px);
