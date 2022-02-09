@@ -121,10 +121,10 @@ function submitlogIn(){
       document.getElementById('psw').value.length==0){
        alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
       }
-     else {
-         alert("כניסתך למערכת בוצעה בהצלחה. הינך מועבר/ת לעמוד הבית");
-         window.location="mainPage.html";
-     }
+     // else {
+     //     alert("כניסתך למערכת בוצעה בהצלחה. הינך מועבר/ת לעמוד הבית");
+     //     window.location="mainPage.html";
+     // }
 }
 
 function submitSignUp(){
@@ -136,10 +136,10 @@ function submitSignUp(){
      else if (document.getElementById('psw1').value != document.getElementById('psw-repeat1').value) {
         alert("הסיסמאות שהוזנו אינן זהות זו לזו");
      }
-     else {
-         alert("נרשמת בהצלחה למערכת. הינך מועבר/ת לעמוד הבית");
-         window.location="mainPage.html";
-     }
+     // else {
+     //     alert("נרשמת בהצלחה למערכת. הינך מועבר/ת לעמוד הבית");
+     //     window.location="mainPage.html";
+     // }
 }
 
 

@@ -39,7 +39,9 @@ def sign_in_func():
     password = request.form['psw']
     result = Users.get_user(email)
     if not result: # the email does not exist
-        return f"The mail {email} not exists. Try register instead/", 400
+        msg =  " לא קיימת. נסה/נסי להירשם   "+ email + "  כתובת המייל    "
+        return render_template('/login.html', msg = msg)
+        # return f"The mail {email} not exists. Try register instead/", 400
     elif result[0].password == password:
         if not session.get("shoppingCart"):
         #     # if 'shoppingCart' not in session:
@@ -50,9 +52,12 @@ def sign_in_func():
         session['phone_number'] = result[0].phone_number
         session['address'] = result[0].address
         session["is_logged_in"] = True
-        return redirect('/homepage')
+        return render_template('/homepage.html', firstLog = True)
     else:
-        return "Incorrect password. Try again.", 400
+        # return "Incorrect password. Try again.", 400
+        msg =  "סיסמא לא נכונה, בבקשה נסה שוב"
+        return render_template('/login.html', msg = msg )
+
 
 
 @login.route('/sign_up', methods = ['POST'])
@@ -80,7 +85,7 @@ def sign_up_func():
             session['phone_number'] = phoneNumber
             session['address'] = address
             session["is_logged_in"] = True
-            return redirect('/')
+            return render_template('/homepage.html', firstLog=True)
         else:
             return "Registration failed. Please try again.", 400
 

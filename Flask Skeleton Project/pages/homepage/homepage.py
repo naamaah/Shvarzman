@@ -12,7 +12,7 @@ homepage = Blueprint('homepage', __name__,
 def index():
     return render_template('homepage.html')
 
-
+@homepage.route('/homepage', defaults={'firstLog': False})
 @homepage.route('/homepage')
 @homepage.route('/home')
 def redirect_homepage():

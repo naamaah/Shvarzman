@@ -9,6 +9,9 @@
 
 {% block page_body_main %}
     <hr>
+        {% if firstLog %}
+            <h3 style="text-align: right" dir="rtl" > שלום {{ session.first_name }}, התחברות בוצעה בהצלחה </h3><hr>
+        {% endif %}
         <h1>ברוכים הבאים למשק שוורצמן </h1>
     <hr>
     <div class="pic">
@@ -28,7 +31,7 @@
         <div class="grid-item">מתכון יומי
             <p>סלט חסה חגיגי</p>
             <img src="../../../static/media/img/fencySalad.jpg" alt="fency Salad" width="260" height="160" class="picturesMain">
-            <button type="button" onclick=window.location='/recipesPage'>מעבר למתכונים</button>
+            <button type="button" onclick=window.location='/recipesPage'>למתכונים נוספים לחץ כאן</button>
         </div>
         <div class="grid-item">שעות פעילות
             <p>

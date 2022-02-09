@@ -11,6 +11,10 @@
 
 <!--Login Part-->
 
+    {% if msg %}
+        <h3>{{ msg }}</h3>
+    {% endif %}
+
 <form class ="form_login" action="/sign_in"  name="logInForm" method="post">
   <div class="imgcontainer">
     <img src="/static/media/img/Login_Avatar.png" alt="Avatar" class="avatar">
@@ -36,7 +40,7 @@
 <!--Sign Up Part-->
 
 <!-- Button to open the modal -->
-<button class="button_login" id="button_signUp" onclick="document.getElementById('id01').style.display='block'">עדיין אין משתמש קיים? התחבר</button>
+<button class="button_login" id="button_signUp" onclick="document.getElementById('id01').style.display='block'">עדיין אין משתמש קיים? הירשם</button>
 
 <!-- The Modal (contains the Sign Up form) -->
 <div id="id01" class="modal">
@@ -85,5 +89,5 @@
 
 {% block page_body_js %}
     <script src="{{ url_for('login.static', filename='js/login.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
 {% endblock %}
