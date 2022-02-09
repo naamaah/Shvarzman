@@ -11,6 +11,9 @@
     <hr>
     <h1 class="titleTour">סיור מודרך במשק</h1>
     <hr>
+    <p class="textTour3">
+        {{ message }}<br>
+    </p>
     <p class="textTour1">
         מזמינים אתכם להצטרף לסיור מודרך בשטחים החקלאיים שלנו!<br>
         במהלך הסיור נלמד על עקרונות הגידול האורגני <br>
@@ -40,38 +43,15 @@
         {% endfor %}
     </div>
 
-
-    {#    <button class=formButton type="button" onclick=openForm()>הירשם</button>#}
     {% if session.email %}
-        <div id="gridContainer">
+        <button id=btnGridContainer1 class=formButton type="button" onclick=openForm('1')>פתיחת טופס הרשמה לסיור
+        </button>
+        <div id="gridContainer1" style="display: none" dir="rtl">
             <div id="item form tour">
-                <h1 class="titleTour">טופס הרשמה לסיור</h1>
+                <h2 class="titleTour">טופס הרשמה לסיור</h2>
                 <p class="textTour2">
                     מלאו את הפרטים על מנת לבצע הזמנה לאחד מסיורי המשק (:<br>
                 </p>
-                {% if order_check_list != [] %}
-                    {% if order_check_list[0] == False %}
-                        <p class="textTour3">
-                            לצערנו חסרים {{ order_check_list[1] }} מקומות לסדנא, אנא הירשם/עדכן הזמנה מחדש עם
-                            כמות
-                            כרטיסים תקינה
-                            <br>
-                        </p>
-                    {% elif order_check_list[2] == True %}
-                        <p class="textTour3">
-                            הזמנתך התקבלה! שמחים שבחרת להצטרף לסיור שלנו(:<br>
-                        </p>
-                    {% elif order_check_list[3] == True %}
-                        <p class="textTour3">
-                            עדכון ההזמנה בוצע בהצלחה<br>
-                        </p>
-                    {% elif order_check_list[4] == True %}
-                        <p class="textTour3">
-                            ביטול הרשמה לסיור בוצע בהצלחה<br>
-                        </p>
-                    {% endif %}
-                {% endif %}
-
                 <form class="tourForm" method="GET" action="/tourOrder" name="myForm">
                     <label for="tourDate">תאריך ושעת הסיור המבוקש</label><br>
                     <select name="tourDate" id="tour_dt"><br>
@@ -91,28 +71,35 @@
         </div>
         <br>
         {% if user_tours %}
-            <p> עדכון הזמנה</p>
-            <p>באפשרותך לעדכן את כמות הכרטיסים או לבטל רישום קיים</p>
-            <form method="GET" action="/update_tour_order">
-                <select name="tourDateForUpdate" id="tour_dt_update"><br>
-                    {% for tour in user_tours %}
-                        <option name="tourDateForUpdate"
-                                value='{{ tour.tour_dt }}'>{{ tour.tour_dt }} {{ tour.tour_name }} </option>
-                    {% endfor %}
-                </select><br>
-                <label for="updateNumTickets">כמות כרטיסים</label><br>
-                <input name="updateNumTickets" id="updateNumTickets" type="text"
-                       onblur="checkNumOfTickets('updateNumTickets')">
-                <br>
-                <input type="submit" name="submit_button" value="עדכן כמות כרטיסים"
-                       onclick="submitFormTours('tour_dt_update','updateNumTickets')">
-                <input type="submit" name="submit_button" value="בטל רישום לסיור">
-            </form>
+            <button id=btnGridContainer2 class=formButton type="button" onclick=openForm('2')>פתיחת טופס עדכון סיור
+                קיים
+            </button>
+            <div id="gridContainer2" style="display: none" dir="rtl">
+                <h2 class="titleTour"> עדכון הזמנה</h2>
+                <p class="textTour2">באפשרותך לעדכן את כמות הכרטיסים או לבטל רישום קיים</p>
+                <form method="GET" action="/update_tour_order">
+                    <select name="tourDateForUpdate" id="tour_dt_update"><br>
+                        {% for tour in user_tours %}
+                            <option name="tourDateForUpdate"
+                                    value='{{ tour.tour_dt }}'>{{ tour.tour_dt }} {{ tour.tour_name }} </option>
+                        {% endfor %}
+                    </select><br>
+                    <label for="updateNumTickets">כמות כרטיסים</label><br>
+                    <input name="updateNumTickets" id="updateNumTickets" type="text"
+                           onblur="checkNumOfTickets('updateNumTickets')">
+                    <br>
+                    <input type="submit" class="sumbitFrom" name="submit_button" value="עדכן כמות כרטיסים"
+                           onclick="submitFormTours('tour_dt_update','updateNumTickets')">
+                    <input type="submit" class="sumbitFrom" name="submit_button" value="בטל רישום לסיור">
+                </form>
+            </div>
         {% endif %}
 
     {% else %}
-        <p> על מנת להירשם לסיורי המשק יש להתחבר לאתר</p>
         <br>
+        <p class="textTour3">
+            על מנת להירשם לסיורי המשק יש להתחבר לאתר<br>
+        </p>
     {% endif %}
 {% endblock %}
 

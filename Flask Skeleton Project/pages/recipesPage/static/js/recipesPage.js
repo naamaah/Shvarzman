@@ -61,4 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
   for (let i = 0; i < deleteButtons.length; i++) {
     deleteButtons[i].addEventListener('click', deleteItem);
   }
+
+
 });
+
+function submitProductFromRec() {
+  alert("הפריטים התווספו בהצלחה!");
+
+}

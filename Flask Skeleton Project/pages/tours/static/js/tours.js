@@ -1,12 +1,43 @@
-function openForm() {
-    var x = document.getElementById('gridContainer');
+function openForm(id) {
+    var containerID='gridContainer'+id
+    var buttonID='btnGridContainer'+id
+    console.log(containerID)
+    console.log(buttonID)
+    var x = document.getElementById(containerID);
     if (x.style.display == "none") {
         x.style.display = "block";
+        if (id=='1'){
+            document.getElementById(buttonID).innerText = 'סגור הרשמה לסיור';
+        }
+        else{
+            document.getElementById(buttonID).innerText = 'סגור עדכון לסיור';
+        }
     } else {
         x.style.display = "none";
+                if (id=='1'){
+            document.getElementById(buttonID).innerText = 'פתיחת טופס הרשמה לסיור';
+        }
+        else{
+            document.getElementById(buttonID).innerText = 'פתיחת טופס עדכון סיור קיים';
+        }
     }
 }
 
+function openRec(id) {
+  var x='content'+id
+  var y='btnRes'+id
+  console.log(x);
+  console.log(y);
+  var text = document.getElementById(x);
+
+  if (text.style.display == "none") {
+    text.style.display = "block";
+    document.getElementById(y).innerText = 'קרא פחות';
+  } else {
+    text.style.display = "none";
+    document.getElementById(y).innerText = 'קרא עוד';
+  }
+}
 
 function submitFormTours(id_1, id_2) {
     if (document.getElementById(id_1).value.length == 0 ||

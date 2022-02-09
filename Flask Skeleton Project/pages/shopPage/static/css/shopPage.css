@@ -99,3 +99,56 @@ td {
 /*button:hover {*/
 /*    background-color: #84a98c;*/
 /*}*/
+
+/*prev order css*/
+.openOrder{
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+
+.productsOrder-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  background-color: rgba(211,224,212, 0.8);
+  font-size: 25px;
+  justify-content: center;
+}
+
+.productOrder-item {
+    text-align: center;
+  border: 2px solid;
+      padding-bottom: 20px;
+  padding-right: 25px;
+  padding-left: 25px;
+
+}
+.product-item:hover {
+  cursor:pointer;
+}
+
+/*.productInRec-container {*/
+/*  display: grid;*/
+/*  grid-template-columns: auto auto auto;*/
+/*  grid-gap: 5px;*/
+/*  text-align: center;*/
+/*  background-color: rgba(211,224,212, 0.8);*/
+/*  font-size: 25px;*/
+/*  justify-content: center;*/
+
+
+/*}*/
+/*.productInRec-container > div {*/
+/*  background-color: rgba(211,224,212, 0.8);*/
+/*  text-align: center;*/
+/*}*/
+
+/*.productInRec-item {*/
+/*  border: 2px solid;*/
+/*  padding-bottom: 20px;*/
+/*  padding-right: 25px;*/
+/*  padding-left: 25px;*/
+
+/*}*/

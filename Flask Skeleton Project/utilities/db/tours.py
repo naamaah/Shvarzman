@@ -5,8 +5,8 @@ import pandas as pd
 
 class Tours:
     @staticmethod
-    def get_tour(tour_dt):
-        return dbManager.fetch(f"SELECT * FROM tours WHERE tour_dt='{tour_dt}'")
+    def get_tour_name(tour_dt):
+        return dbManager.fetch(f"SELECT tour_name FROM tours WHERE tour_dt='{tour_dt}'")
 
     @staticmethod
     def get_all_tours():

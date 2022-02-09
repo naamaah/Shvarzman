@@ -34,9 +34,25 @@ def index():
                             valuesDict[product[0].product_id] = product_quantity
                             new_product_in_shoppingCart = [product[0].product_id, product[0].product_name,
                                                product[0].product_price, product[0].product_picture,
-                                               product[0].product_inv, product_quantity]
+                                            product_quantity]
                             old_cart = deleteProductifAlreadyInCart(product[0].product_id)
                             old_cart.append(new_product_in_shoppingCart)
                             session["shoppingCart"] = old_cart
+                        else:
+                            session["shoppingCart"]=deleteProductifzeroQuantity(product[0].product_id)
+                            valuesDict = valuesForQuantity()
         productsIDInRecDic[rec[0]]=productsInrec
     return render_template('recipesPage.html', recipes=recipes, productsIDInRecDic=productsIDInRecDic, valuesDict=valuesDict)
+
+
+# if id in cart - delete, else stay the same
+def deleteProductifzeroQuantity(product_Id):
+    old_cart = session["shoppingCart"]
+    count = 0
+    for product in old_cart:
+        if product[0] == product_Id:
+            del old_cart[count]
+            break
+        count = count + 1
+    new_Cart = old_cart
+    return new_Cart
