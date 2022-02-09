@@ -10,7 +10,11 @@
 {% block page_body_main %}
     <hr>
         {% if firstLog %}
-            <h3 style="text-align: right" dir="rtl" > שלום {{ session.first_name }}, התחברות בוצעה בהצלחה </h3><hr>
+            <p class="messagesFromLogin" dir="rtl" > שלום {{ session.first_name }}, התחברות בוצעה בהצלחה </p><hr>
+        {% endif %}
+
+        {% if logout %}
+            <p class="messagesFromLogin" dir="rtl" > התנתקות בוצעה בהצלחה </p><hr>
         {% endif %}
         <h1>ברוכים הבאים למשק שוורצמן </h1>
     <hr>

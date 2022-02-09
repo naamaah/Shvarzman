@@ -12,7 +12,7 @@
 <!--Login Part-->
 
     {% if msg %}
-        <h3>{{ msg }}</h3>
+        <h3 class="messagesFromLogin" dir="rtl" >{{ msg }}</h3>
     {% endif %}
 
 <form class ="form_login" action="/sign_in"  name="logInForm" method="post">
@@ -21,6 +21,7 @@
   </div>
 
   <div class="container_login">
+      <h3 style="text-align: right" >על מנת להתחבר אנא מלא את הפרטים הבאים</h3>
     <label for="Email_Login"><b>כתובת מייל</b></label>
     <input style="text-align:right" type="text" id="Email_Login" placeholder="הכנס כתובת מיל" name="Email_Login" onblur="checkEmail('Email_Login')">
     <label for="psw"><b>סיסמא</b></label>
@@ -65,19 +66,19 @@
         <!--password-->
         <label for="psw1"><b>סיסמא</b></label>
         <input style="text-align:right" type="password" placeholder="הכנס סיסמא" name="psw1" id="psw1" onblur="checkPassword('psw1')">
-        <!--check password-->
-        <label for="psw-repeat1"><b>אימות סיסמא</b></label>
-        <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1" onblur="checkPassword('psw-repeat1')">
+{#        <!--repeat password-->#}
+{#        <label for="psw-repeat1"><b>אימות סיסמא</b></label>#}
+{#        <input style="text-align:right" type="password" placeholder="אימות סיסמא" name="psw-repeat1" id="psw-repeat1" onblur="checkRepeatPassword()">#}
         <!--phone number-->
         <label for="phoneNumber"><b>מספר טלפון</b></label>
-        <input style="text-align:right" type="tel" placeholder="הכנס מספר טלפון" name="phoneNumber" id="phoneNumber">
+        <input style="text-align:right" type="text" placeholder="הכנס מספר טלפון" name="phoneNumber" id="phoneNumber" onblur="checkPhone('phoneNumber')">
         <!--address-->
         <label for="address"><b>כתובת</b></label>
         <input style="text-align:right" type="text" placeholder="הכנס כתובת" name="address" id="address">
 
       <div class="clearfix">
-        <button class="button_login" type="button" onclick="document.getElementById('id01').style.display='none'" id="cancelbtn">יציאה</button>
           <button class="button_login" type="submit" value="הירשם" onclick="submitSignUp()">צור חשבון</button>
+        <button class="button_login" type="button" onclick="document.getElementById('id01').style.display='none'" id="cancelbtn">יציאה</button>
       </div>
     </div>
   </form>

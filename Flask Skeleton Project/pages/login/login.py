@@ -13,51 +13,32 @@ login = Blueprint('login', __name__,
 def index():
     return render_template('login.html')
 
-# @login.route('/get_user', methods=["POST"])
-# def get_user_func():
-#     # get the data
-#     email = request.form["Email_Login"]
-#     password = request.json["psw"]
-#     # check if email exists
-#     result = Users.get_user(email)
-#     if not result:
-#         return f"The mail {email} not exists. Try register instead/", 400
-#     elif result[0].password == password:
-#         session["user_id"] = result[0].id
-#         session["email"] = result[0].email
-#         session["full_name"] = result[0].full_name
-#         session["is_logged_in"] = True
-#         return render_template('settings.html')
-#     else:
-#         return "Incorrect password. Try again.", 400
-
-
 @login.route('/sign_in', methods = ['POST'])
 def sign_in_func():
     # get the data
     email = request.form['Email_Login']
     password = request.form['psw']
-    result = Users.get_user(email)
-    if not result: # the email does not exist
-        msg =  " לא קיימת. נסה/נסי להירשם   "+ email + "  כתובת המייל    "
-        return render_template('/login.html', msg = msg)
-        # return f"The mail {email} not exists. Try register instead/", 400
-    elif result[0].password == password:
-        if not session.get("shoppingCart"):
-        #     # if 'shoppingCart' not in session:
-            session["shoppingCart"] = []
-        session["email"] = result[0].email
-        session['first_name'] = result[0].first_name
-        session['last_name'] = result[0].last_name
-        session['phone_number'] = result[0].phone_number
-        session['address'] = result[0].address
-        session["is_logged_in"] = True
-        return render_template('/homepage.html', firstLog = True)
+    if (email != "" and password != ""):
+        result = Users.get_user(email)
+        if not result: # the email does not exist
+            msg =  "  כתובת המייל "+ email +  " לא קיימת. נסה להירשם   "
+            return render_template('/login.html', msg = msg)
+        elif result[0].password == password: # the email exists & correct password
+            if not session.get("shoppingCart"):
+                session["shoppingCart"] = []
+            session["email"] = result[0].email
+            session['first_name'] = result[0].first_name
+            session['last_name'] = result[0].last_name
+            session['phone_number'] = result[0].phone_number
+            session['address'] = result[0].address
+            session["is_logged_in"] = True
+            return render_template('/homepage.html', firstLog = True)
+        else: # the email exists & wrong password
+            msg =  "סיסמא לא נכונה, בבקשה נסה שוב"
+            return render_template('/login.html', msg = msg )
     else:
-        # return "Incorrect password. Try again.", 400
-        msg =  "סיסמא לא נכונה, בבקשה נסה שוב"
-        return render_template('/login.html', msg = msg )
-
+        msg = "נסיון התחברות שגוי, בבקשה נסה שוב"
+        return render_template('/login.html', msg=msg)
 
 
 @login.route('/sign_up', methods = ['POST'])
@@ -69,25 +50,34 @@ def sign_up_func():
     password = request.form['psw1']
     phoneNumber = request.form['phoneNumber']
     address = request.form['address']
-    # check if email exists
-    result = Users.get_user(email)
-    if result and len(result) >= 1:
-        return "Registration failed"
-    # insert to db
+    if(email != ""
+        and firstName != ""
+        and lastName != ""
+        and password != ""
+        and phoneNumber != ""
+        and address != ""):
+        # check if email exists
+        result = Users.get_user(email)
+        if result and len(result) >= 1: # the email already exists
+            msg =  "  כתובת המייל "+ email +  " קיימת. נסה להתחבר   "
+            return render_template('/login.html', msg = msg )
+           # return "Registration failed"
+        else:     # new user, insert to db
+                # come back to home page
+             if Users.insert_user(email, firstName, lastName, password, phoneNumber, address) > 0:
+                    if not session.get("shoppingCart"):
+                        session["shoppingCart"] = []
+                    session["email"] = email
+                    session['first_name'] = firstName
+                    session['last_name'] = lastName
+                    session['phone_number'] = phoneNumber
+                    session['address'] = address
+                    session["is_logged_in"] = True
+                    return render_template('/homepage.html', firstLog=True)
     else:
-        if Users.insert_user(email, firstName, lastName, password, phoneNumber, address) > 0:
-            # come back to home page
-            if not session.get("shoppingCart"):
-                session["shoppingCart"] = []
-            session["email"] = email
-            session['first_name'] = firstName
-            session['last_name'] = lastName
-            session['phone_number'] = phoneNumber
-            session['address'] = address
-            session["is_logged_in"] = True
-            return render_template('/homepage.html', firstLog=True)
-        else:
-            return "Registration failed. Please try again.", 400
+        msg = "התחברות נכשלה, נסה שוב"
+        return render_template('/login.html', msg=msg)
+        # return "Registration failed. Please try again.", 400
 
 
 @login.route('/logout')
@@ -99,5 +89,4 @@ def logout_func():
     session['phone_number'] = ''
     session['address'] = ''
     session["is_logged_in"] = ''
-    # session.clear()
-    return redirect('/homepage')
+    return render_template('/homepage.html', logout=True)
