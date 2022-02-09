@@ -33,8 +33,9 @@
 
     <div class="grid-container">
         <div class="grid-item">מתכון יומי
-            <p>סלט חסה חגיגי</p>
-            <img src="../../../static/media/img/fencySalad.jpg" alt="fency Salad" width="260" height="160" class="picturesMain">
+            <p>{{ recipe_name }}</p>
+            <img src={{ recipe_pic }} alt="fency Salad" width="260" height="160" class="picturesMain">
+            <p>{{ recipe_description }}</p>
             <button type="button" onclick=window.location='/recipesPage'>למתכונים נוספים לחץ כאן</button>
         </div>
         <div class="grid-item">שעות פעילות
