@@ -91,6 +91,15 @@ function checkPassword(id){
   }
 }
 
+// function checkRepeatPassword(){
+//   if (document.getElementById('psw1').value != document.getElementById('psw-repeat1').value){
+//       document.getElementById('psw1').value="";
+//       document.getElementById('psw-repeat1').value="";
+//       alert("הסיסמאות שהוזנו אינן זהות זו לזו");
+//   }
+// }
+
+
 function onlyNumbers(num){
   var ans="";
   var i;
@@ -150,13 +159,12 @@ function submitForm() {
 function submitFormContact() {
          if (document.getElementById('firstname').value.length==0 ||
              document.getElementById('lastname').value.length==0 ||
-             document.getElementById('phonenumer').value.length==0 ||
+             document.getElementById('phonenumber').value.length==0 ||
              document.getElementById('emailaddress').value.length==0){
               alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
                }
          else {
                  alert("הטופס נשלח בהצלחה. הינך מועבר/ת לעמוד הבית");
-                 window.location="mainPage.html";
           }
 }
 
@@ -166,28 +174,29 @@ function submitlogIn(){
       document.getElementById('psw').value.length==0){
        alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
       }
-     else {
-         alert("כניסתך למערכת בוצעה בהצלחה. הינך מועבר/ת לעמוד הבית");
-         window.location="mainPage.html";
-     }
+     // else {
+     //     alert("כניסתך למערכת בוצעה בהצלחה. הינך מועבר/ת לעמוד הבית");
+     //     window.location="mainPage.html";
+     // }
 }
 
 function submitSignUp(){
      if (document.getElementById('emailSignUp').value.length==0 ||
-      document.getElementById('psw1').value.length==0 ||
-          document.getElementById('psw-repeat1').value.length==0){
+         document.getElementById('firstName').value.length==0 ||
+         document.getElementById('lastName').value.length==0 ||
+         document.getElementById('psw1').value.length==0 ||
+         // document.getElementById('psw-repeat1').value.length==0||
+         document.getElementById('phoneNumber').value.length==0 ||
+         document.getElementById('address').value.length==0){
        alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
       }
-     else if (document.getElementById('psw1').value != document.getElementById('psw-repeat1').value) {
-        alert("הסיסמאות שהוזנו אינן זהות זו לזו");
-     }
-     else {
-         alert("נרשמת בהצלחה למערכת. הינך מועבר/ת לעמוד הבית");
-         window.location="mainPage.html";
-     }
+     // else if (document.getElementById('psw1').value != document.getElementById('psw-repeat1').value) {
+     //     document.getElementById(psw1).value="";
+     //     document.getElementById(psw-repeat1).value="";
+     //     alert("הסיסמאות שהוזנו אינן זהות זו לזו");
+     // }
+     // else {
+     //    alert("נרשמת בהצלחה למערכת. הינך מועבר/ת לעמוד הבית");
+     //    window.location="mainPage.html";
+     // }
 }
-
-
-
-
-

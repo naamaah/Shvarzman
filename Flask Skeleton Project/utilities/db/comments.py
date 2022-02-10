@@ -1,11 +1,13 @@
 from utilities.db.db_manager import dbManager
-
-#Naama
-
+import datetime
 
 
-class ContactUs:
+# Shaked
+
+class Comments:
     @staticmethod
-    def insert_message(message):
+    def insert_comment(email, first_name, last_name, phone_number, text):
+        comment_dt = datetime.datetime.now()
         return dbManager.commit(
-            f"INSERT INTO contact_us (message) VALUES ('{message}')")
+            "INSERT INTO comments (comment_dt, email, first_name, last_name, phone_number, text) VALUES ('%s', '%s', '%s', '%s', '%s','%s');" % (
+                comment_dt, email, first_name, last_name, phone_number, text))

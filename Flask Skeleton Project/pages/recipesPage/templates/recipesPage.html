@@ -35,7 +35,7 @@
             </div>
             <!-- The Modal (contains the ProductPage form) -->
             <div class="modal_recipe" id=recipesPage{{ recipe.recipe_id }} >
-            <span onclick="document.getElementById('recipesPage{{ recipe.recipe_id }}').style.display='none'" class="close" title="Close Modal">times;</span>
+            <span onclick="document.getElementById('recipesPage{{ recipe.recipe_id }}').style.display='none'" class="close" title="Close Modal"></span>
                 <form class="modalRecipe-content" action="/recipesPage" method="GET">
                     <div class="container_ProductPage">
                         <h1> {{ recipe.recipe_name }}</h1>
