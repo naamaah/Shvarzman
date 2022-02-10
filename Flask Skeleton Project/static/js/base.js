@@ -199,4 +199,9 @@ function submitSignUp(){
      //    alert("נרשמת בהצלחה למערכת. הינך מועבר/ת לעמוד הבית");
      //    window.location="mainPage.html";
      // }
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> b2406d2f9b09449a73c89f5596332c506b41b4ff

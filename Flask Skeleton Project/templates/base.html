@@ -71,7 +71,7 @@ Base page blocks:
     {# Main #}
     {% block page_body_main %}
         <main class="page-main">
-            <h2>Welcome, {{session.first_name | default('Guest', true)}} </h2>
+{#            <h2>Welcome, {{session.first_name | default('Guest', true)}} </h2>#}
             {% block page_body_main_content %}
             {% endblock %}
         </main>
