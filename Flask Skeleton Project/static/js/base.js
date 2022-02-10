@@ -180,16 +180,17 @@ function submitlogIn(){
      // }
 }
 
-function submitSignUp(){
-     if (document.getElementById('emailSignUp').value.length==0 ||
-         document.getElementById('firstName').value.length==0 ||
-         document.getElementById('lastName').value.length==0 ||
-         document.getElementById('psw1').value.length==0 ||
-         // document.getElementById('psw-repeat1').value.length==0||
-         document.getElementById('phoneNumber').value.length==0 ||
-         document.getElementById('address').value.length==0){
-       alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
-      }
+function submitSignUp() {
+    if (document.getElementById('emailSignUp').value.length == 0 ||
+        document.getElementById('firstName').value.length == 0 ||
+        document.getElementById('lastName').value.length == 0 ||
+        document.getElementById('psw1').value.length == 0 ||
+        // document.getElementById('psw-repeat1').value.length==0||
+        document.getElementById('phoneNumber').value.length == 0 ||
+        document.getElementById('address').value.length == 0) {
+        alert("לא ניתן לשלוח את הטופס מכיוון שלא כל השדות מולאו באופן תקין");
+    }
+}
      // else if (document.getElementById('psw1').value != document.getElementById('psw-repeat1').value) {
      //     document.getElementById(psw1).value="";
      //     document.getElementById(psw-repeat1).value="";
@@ -199,9 +200,4 @@ function submitSignUp(){
      //    alert("נרשמת בהצלחה למערכת. הינך מועבר/ת לעמוד הבית");
      //    window.location="mainPage.html";
      // }
-<<<<<<< HEAD
-}
-=======
-}
 
->>>>>>> b2406d2f9b09449a73c89f5596332c506b41b4ff

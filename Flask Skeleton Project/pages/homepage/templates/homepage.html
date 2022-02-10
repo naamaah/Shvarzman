@@ -9,11 +9,11 @@
 
 {% block page_body_main %}
     <hr>
-        {% if firstLog %}
+        {% if (msg ==2) %}
             <p class="messagesFromLogin" dir="rtl" > שלום {{ session.first_name }}, התחברות בוצעה בהצלחה </p><hr>
         {% endif %}
 
-        {% if logout %}
+        {% if (msg ==1) %}
             <p class="messagesFromLogin" dir="rtl" > התנתקות בוצעה בהצלחה </p><hr>
         {% endif %}
         <h1>ברוכים הבאים למשק שוורצמן </h1>

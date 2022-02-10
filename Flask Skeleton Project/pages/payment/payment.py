@@ -36,9 +36,13 @@ def paymentPage():
 def findKey():
     order_ids=Orders.getOrderIds()
     print(order_ids)
-    maxvalue=max(order_ids)
+    if len(order_ids) == 0:
+        maxvalue = 0
+    else:
+        maxvalue = max(order_ids)
     print(maxvalue)
-    new_order_id=(int(maxvalue.order_id))+1
+    print(type(maxvalue))
+    new_order_id = (int(maxvalue.order_id)) + 1
     return new_order_id
 
 # def findKey():
