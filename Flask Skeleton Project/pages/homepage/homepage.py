@@ -20,6 +20,10 @@ def index(msg):
     print(type(msg))
     msg = int(msg)
     print(type(msg))
+    if msg==0:
+        url='/'
+    else:
+        url = '/'+str(msg)
     recipes = Recipes.getAllRecipes()
     size = len(recipes)
     recipe_id = random.randint(0, size - 1)
@@ -29,10 +33,12 @@ def index(msg):
     # print(recipe_name)
     # print(recipe_description)
     # print(recipe_pic)
+
+
     return render_template('homepage.html', recipe_name=recipe_name,
                            recipe_description=recipe_description,
                            recipe_pic=recipe_pic,
-                           msg=msg)
+                           msg=msg, url=url)
 
 
 @homepage.route('/homepage')

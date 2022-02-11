@@ -12,7 +12,7 @@
             'recipesPage': {'href': '/recipesPage','icon':"fas fa-utensils", 'name': "מתכונים"},
             'productsPage': {'href': '/productsPage','icon':"fas fa-carrot", 'name': "מוצרים"},
             'AboutUs': {'href': '/aboutUs','icon':"fas fa-users", 'name':"עלינו"},
-            'homepage': {'href': '/','icon':"fas fa-home"}
+            'homepage': {'href': url,'icon':"fas fa-home"}
         }
     %}
 
@@ -52,43 +52,6 @@
 
 
 
-{#    {% for item in header_items.values() %}#}
-{#        {% if item.key != 'logOut' and item.key != 'Login' %}#}
-{#            not login and not logiut#}
-{#            <a href="{{ item['href'] }}"#}
-{#                {% if item['href'] == request.path %}#}
-{#                    class="active"#}
-{#                {% else %}#}
-{#                    class="nav"#}
-{#                {% endif %}#}
-{#            ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>#}
-{#        {% else %}#}
-{#                {% if item.key == 'logOut' %}#}
-{#                    logout#}
-{#                    {% if session.email|length %}#}
-{#                        <a href="{{ item['href'] }}"#}
-{#                            {% if item['href'] == request.path %}#}
-{#                                class="active"#}
-{#                            {% else %}#}
-{#                                class="nav"#}
-{#                            {% endif %}#}
-{#                        ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>#}
-{#                        {% endif %}#}
-{#                {% else %}#}
-{#                    {% if item.key == 'Login' %}#}
-{#                        Login#}
-{#                        {% if not session.email|length %}#}
-{#                            <a href="{{ item['href'] }}"#}
-{#                                {% if item['href'] == request.path %}#}
-{#                                    class="active"#}
-{#                                {% else %}#}
-{#                                    class="nav"#}
-{#                                {% endif %}#}
-{#                            ><i class="{{ item['icon'] }}"></i>{{ item['name'] }}</a>#}
-{#                        {% endif %}#}
-{#                    {% endif %}#}
-{#                {% endif %}#}
-{#        {% endif %}#}
-{#    {% endfor %}#}
+{#            'homepage': {'href': '/','icon':"fas fa-home"}#}
 
 </header>
