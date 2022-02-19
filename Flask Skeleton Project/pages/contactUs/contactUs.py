@@ -25,6 +25,10 @@ def contactForm():
     last_name = request.form['lastname']
     phone_number = request.form['phonenumber']
     text = request.form['subject']
+    if ( email != ""
+            and first_name != ""
+            and last_name != ""
+            and phone_number != ""):
     # insert to comment table
-    result =  Comments.insert_comment(email, first_name, last_name, phone_number, text) #Users.insert_user(email, first_name, last_name, 'fdfdfd', phone_number, text)
-    return redirect('/homepage')
+            result =  Comments.insert_comment(email, first_name, last_name, phone_number, text) #Users.insert_user(email, first_name, last_name, 'fdfdfd', phone_number, text)
+            return redirect('/homepage')
