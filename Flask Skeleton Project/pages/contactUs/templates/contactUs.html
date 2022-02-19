@@ -47,3 +47,52 @@
 {% block page_body_js %}
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
 {% endblock %}
+{% extends 'base.html' %}
+
+{% set page_head_title = 'contactUs' %}
+
+{% block page_head_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+{% endblock %}
+
+{% block page_body_main %}
+    <div class="containerContact" dir="rtl">
+        <div>
+            <hr>
+            <h1>צור קשר</h1>
+            <hr>
+            <h2>בואו לבקר אותנו או השאירו הודעה ונחזור אליכם!</h2>
+        </div>
+        <div class="row">
+            <div class="column">
+                <form action="/contactForm" name="myForm" method="post">
+                    <label for="firstname">שם פרטי</label>
+                    <input type="text" id="firstname" name="firstname" onblur="checkName('firstname')">
+                    <label for="lastname">שם משפחה</label>
+                    <input type="text" id="lastname" name="lastname" onblur="checkName('lastname')">
+                    <label for="phonenubmer">טלפון</label>
+                    <input type="text" id="phonenumber" name="phonenumber" onblur="checkPhone('phonenumber')">
+                    <label for="emailaddress">כתובת מייל</label>
+                    <input type="text" id="emailaddress" name="emailaddress" onblur="checkEmail('emailaddress')">
+                    <label for="subject">הערות</label>
+                    <textarea id="subject" name="subject" style="height:170px"></textarea>
+                    <button type="button" onclick="submitFormContact()">לחץ לאישור</button>
+                </form>
+            </div>
+            <div class="column">
+                <div style="text-align:center">
+                    <h3>פרטי התקשרות</h3>
+                    <p>03-950-6384<br>meshekshva@gmail.com<br>העליה השנייה 1, מושב נטעים</p>
+                </div>
+                <iframe id="mapBox"
+                        src="https://maps.google.com/maps?q=%D7%9E%D7%A9%D7%A7%20%D7%A9%D7%95%D7%95%D7%A8%D7%A6%D7%9E%D7%9F&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block page_body_js %}
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+{% endblock %}
