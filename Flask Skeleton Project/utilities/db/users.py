@@ -14,11 +14,4 @@ class Users:
         return dbManager.commit(
             f"INSERT INTO users (email, first_name, last_name, password, phone_number, address) VALUES ('{email}', '{firstName}', '{lastName}', '{password}', '{phoneNumber}', '{address}')")
 
-    @staticmethod
-    def update_password(user_id, password):
-        return dbManager.commit(f"UPDATE users SET password='{password}' WHERE id={user_id}")
-
-    @staticmethod
-    def delete_user(email):
-        return dbManager.commit(f"DELETE FROM users WHERE email='{email}'")
 
