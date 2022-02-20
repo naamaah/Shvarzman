@@ -16,7 +16,7 @@
         </div>
         <div class="row">
             <div class="column">
-                <form action="/contactForm" name="myForm" method="post">
+                <form action="/contactUs" name="myForm" method="POST">
                     <label for="firstname">שם פרטי</label>
                     <input type="text" id="firstname" name="firstname" onblur="checkName('firstname')">
                     <label for="lastname">שם משפחה</label>
@@ -27,7 +27,7 @@
                     <input type="text" id="emailaddress" name="emailaddress" onblur="checkEmail('emailaddress')">
                     <label for="subject">הערות</label>
                     <textarea id="subject" name="subject" style="height:170px"></textarea>
-                    <button type="button" onclick="submitFormContact()">לחץ לאישור</button>
+                    <button type="submit" onclick="submitFormContact()">לחץ לאישור</button>
                 </form>
             </div>
             <div class="column">

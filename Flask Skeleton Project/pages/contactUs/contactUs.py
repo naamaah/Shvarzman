@@ -11,24 +11,40 @@ contactUs = Blueprint('contactUs', __name__,
 
 
 # Routes
-@contactUs.route('/contactUs')
-def index():
+@contactUs.route('/contactUs', methods=['GET', 'POST'])
+def contactUS():
+    print(request.method)
+    if request.method == 'POST':
+        email = request.form['emailaddress']
+        first_name = request.form['firstname']
+        last_name = request.form['lastname']
+        phone_number = request.form['phonenumber']
+        text = request.form['subject']
+        print(email,first_name)
+        if (email != ""
+                and first_name != ""
+                and last_name != ""
+                and phone_number != ""):
+            # insert to comment table
+            result = Comments.insert_comment(email, first_name, last_name, phone_number,
+                                             text)  # Users.insert_user(email, first_name, last_name, 'fdfdfd', phone_number, text)
+            return redirect(url_for('homepage.index'))
     return render_template('contactUs.html')
 
 
-@contactUs.route('/contactForm', methods=['POST'])
-def contactForm():
-    # get the data
-    print('help')
-    email = request.form['emailaddress']
-    first_name = request.form['firstname']
-    last_name = request.form['lastname']
-    phone_number = request.form['phonenumber']
-    text = request.form['subject']
-    if ( email != ""
-            and first_name != ""
-            and last_name != ""
-            and phone_number != ""):
-    # insert to comment table
-            result =  Comments.insert_comment(email, first_name, last_name, phone_number, text) #Users.insert_user(email, first_name, last_name, 'fdfdfd', phone_number, text)
-            return redirect('/homepage')
+# @contactUs.route('/contactForm', methods=['POST'])
+# def contactForm():
+#     # get the data
+#     print(request.form)
+#     email = request.form['emailaddress']
+#     first_name = request.form['firstname']
+#     last_name = request.form['lastname']
+#     phone_number = request.form['phonenumber']
+#     text = request.form['subject']
+#     if (email != ""
+#         and first_name != ""
+#         and last_name != ""
+#         and phone_number != ""):
+#         #insert to comment table
+#         result =  Comments.insert_comment(email, first_name, last_name, phone_number, text) #Users.insert_user(email, first_name, last_name, 'fdfdfd', phone_number, text)
+#         return redirect(url_for('homepage.index'))
